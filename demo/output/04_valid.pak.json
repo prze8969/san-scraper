@@ -1,0 +1,58 @@
+{
+  "file": "04_valid.pak",
+  "format": "PAK",
+  "file_size": 316,
+  "is_valid_header": true,
+  "total_records_recovered": 3,
+  "total_declared_records": 3,
+  "records": [
+    {
+      "id": 0,
+      "status": "complete",
+      "byte_range": [
+        12,
+        76
+      ],
+      "data": {
+        "name": "progs.dat",
+        "raw_name": "progs.dat",
+        "offset": 12,
+        "size": 64
+      }
+    },
+    {
+      "id": 1,
+      "status": "complete",
+      "byte_range": [
+        76,
+        103
+      ],
+      "data": {
+        "name": "maps/e1m1.bsp",
+        "raw_name": "maps/e1m1.bsp",
+        "offset": 76,
+        "size": 27
+      }
+    },
+    {
+      "id": 2,
+      "status": "complete",
+      "byte_range": [
+        103,
+        124
+      ],
+      "data": {
+        "name": "sound/player/jump.wav",
+        "raw_name": "sound/player/jump.wav",
+        "offset": 103,
+        "size": 21
+      }
+    }
+  ],
+  "damages": [],
+  "metadata": {
+    "directory_offset": 124,
+    "directory_length": 192,
+    "total_entries": 3
+  }
+}

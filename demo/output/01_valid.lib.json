@@ -1,0 +1,57 @@
+{
+  "file": "01_valid.lib",
+  "format": "LIBRA-98",
+  "file_size": 176,
+  "is_valid_header": true,
+  "total_records_recovered": 3,
+  "total_declared_records": 3,
+  "records": [
+    {
+      "id": 101,
+      "status": "complete",
+      "byte_range": [
+        32,
+        80
+      ],
+      "data": {
+        "timestamp": 1718000000,
+        "status_flags": 1,
+        "value": 1500,
+        "label": "Sensor_Alpha_OK"
+      }
+    },
+    {
+      "id": 102,
+      "status": "complete",
+      "byte_range": [
+        80,
+        128
+      ],
+      "data": {
+        "timestamp": 1718000060,
+        "status_flags": 1,
+        "value": 1520,
+        "label": "Sensor_Beta_OK"
+      }
+    },
+    {
+      "id": 103,
+      "status": "complete",
+      "byte_range": [
+        128,
+        176
+      ],
+      "data": {
+        "timestamp": 1718000120,
+        "status_flags": 0,
+        "value": 9999,
+        "label": "Calibration_Mark"
+      }
+    }
+  ],
+  "damages": [],
+  "metadata": {
+    "version": 256,
+    "flags": 1
+  }
+}

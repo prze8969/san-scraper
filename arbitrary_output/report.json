@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "total_files_processed": 1,
+    "total_records_recovered": 0,
+    "total_damaged_blocks": 1,
+    "formats": {
+      "UNKNOWN": 1
+    }
+  },
+  "files": [
+    {
+      "file": "unseen.log",
+      "format": "UNKNOWN",
+      "is_valid_header": false,
+      "records_recovered": 0,
+      "damage_count": 1
+    }
+  ]
+}

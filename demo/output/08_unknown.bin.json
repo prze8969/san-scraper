@@ -1,0 +1,21 @@
+{
+  "file": "08_unknown.bin",
+  "format": "UNKNOWN",
+  "file_size": 70,
+  "is_valid_header": false,
+  "total_records_recovered": 0,
+  "total_declared_records": 0,
+  "records": [],
+  "damages": [
+    {
+      "offset": 0,
+      "length": 16,
+      "type": "unknown_signature",
+      "description": "Unrecognized magic bytes: 7f454c465f46414b"
+    }
+  ],
+  "metadata": {
+    "status": "skipped",
+    "reason": "unrecognized_format"
+  }
+}

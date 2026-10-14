@@ -1,0 +1,23 @@
+{
+  "file": "unseen.log",
+  "format": "UNKNOWN",
+  "file_size": 33,
+  "is_valid_header": false,
+  "total_records_recovered": 0,
+  "total_declared_records": 0,
+  "records": [],
+  "damages": [
+    {
+      "offset": 0,
+      "length": 16,
+      "type": "unknown_signature",
+      "description": "Unrecognized magic bytes: 556e7365656e2064"
+    }
+  ],
+  "metadata": {
+    "status": "skipped",
+    "reason": "unrecognized_format",
+    "preview_hex": "556e7365656e20646174612066726f6d20616e6f746865722073797374656d0d0a",
+    "preview_text": "Unseen data from another system  "
+  }
+}
