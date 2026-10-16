@@ -29,28 +29,26 @@ class TestSecurityAndEdgeCases(unittest.TestCase):
             reader.read_bytes(101)
 
     def test_adversarial_libra98_huge_declared_records(self):
-        # Header declares 4 billion records in a 40-byte file (attempted OOM / loop freeze)
+        # Header declares 65535 records in a 16-byte file (attempted OOM / loop freeze)
         parser = Libra98Parser()
-        magic = b"LIBRA98\x00"
-        header = struct.pack("<8sHHIIII4s", magic, 0x0100, 0, 32, 0xFFFFFFFF, 48, 0, b"\x00"*4)
+        header = struct.pack("<4sHHHHHH", b"LB98", 2, 65535, 0x24A5, 0x5460, 16, 7)
         res = parser.parse("adversarial_count.lib", BoundedBinaryReader(header))
         self.assertTrue(res.is_valid_header)
         # Should not freeze or allocate gigabytes; bounded by actual file size
         self.assertEqual(len(res.recovered_records), 0)
 
     def test_adversarial_libra98_out_of_bounds_header_size(self):
-        # Header declares header_size = 0xFFFFFF (exceeding file size)
+        # Header declares data_offset = 0xFFFF (exceeding file size)
         parser = Libra98Parser()
-        magic = b"LIBRA98\x00"
-        header = struct.pack("<8sHHIIII4s", magic, 0x0100, 0, 0x00FFFFFF, 1, 48, 0, b"\x00"*4)
-        res = parser.parse("huge_hdr_size.lib", BoundedBinaryReader(header))
+        header = struct.pack("<4sHHHHHH", b"LB98", 2, 1, 0x24A5, 0x5460, 0xFFFF, 7)
+        res = parser.parse("huge_data_offset.lib", BoundedBinaryReader(header))
         self.assertTrue(any(d.damage_type == DamageType.INVALID_HEADER for d in res.damages))
 
     def test_format_detector_strict_signature(self):
-        # Must not match LIBRA-98 on random prefix like b"LIB99" or b"LIBRA"
-        self.assertEqual(FormatDetector.detect(b"LIBRA_NOT_MATCH").format_name, "UNKNOWN")
-        self.assertEqual(FormatDetector.detect(b"LIBRA98").format_name, "UNKNOWN")  # 7 bytes, missing null
-        self.assertEqual(FormatDetector.detect(b"LIBRA98\x00").format_name, "LIBRA-98")
+        # Must not match LIBRA-98 on random prefix like b"LB99" or b"LB"
+        self.assertEqual(FormatDetector.detect(b"LB99_NOT_MATCH").format_name, "UNKNOWN")
+        self.assertEqual(FormatDetector.detect(b"LB9").format_name, "UNKNOWN")  # 3 bytes
+        self.assertEqual(FormatDetector.detect(b"LB98\x02\x00\x01\x00\x00\x00\x00\x00\x10\x00\x01\x00").format_name, "LIBRA-98")
 
     def test_reporter_path_traversal_sanitization(self):
         with tempfile.TemporaryDirectory() as tmpdir:

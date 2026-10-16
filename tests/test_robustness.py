@@ -71,29 +71,28 @@ class TestRobustnessAndResourceLimits(unittest.TestCase):
         self.assertTrue(any(d.damage_type == DamageType.MALFORMED_OFFSET for d in res_pak.damages))
 
         # VAULT: 0xFFFFFFFF index offset
-        vault_data = struct.pack("<8sHHIIII4s", b"VAULT\x01\x00\x00", 1, 0, 10, 0xFFFFFFFF, 48, 0, b"\x00"*4)
+        vault_data = struct.pack("<4sHBBII", b"VLT1", 1, 0, 0, 0xFFFFFFFF, 48)
         res_vault = self.parsers["VAULT"].parse("huge_idx.vlt", BoundedBinaryReader(vault_data))
-        self.assertTrue(any(d.damage_type == DamageType.MALFORMED_OFFSET for d in res_vault.damages))
+        self.assertTrue(any(d.damage_type in (DamageType.MALFORMED_OFFSET, DamageType.OOB_POINTER) for d in res_vault.damages))
 
     def test_rle_decompression_bomb_mitigation(self):
         """A small RLE payload designed to explode into gigabytes must be stopped at bounded limit."""
-        # Construct RLE stream of 100 repeats of 128 bytes (each repeat run: ctrl=129 -> 128 repetitions)
-        # Using a tiny cap of 1024 bytes
-        bomb_chunk = b"\x81A" * 10  # 10 * 128 = 1280 bytes
+        # ARC RLE90: 'A' followed by 0x90 0xFF (repeat 254 times = 255 bytes total)
+        bomb_chunk = (b"A\x90\xff") * 10  # 10 * 255 = 2550 bytes
         with self.assertRaises(DecompressionError):
             bounded_rle_decompress(bomb_chunk, max_output_size=500)
 
     def test_rle_malformed_runs(self):
-        """RLE repeat run missing target byte or literal run exceeding input."""
-        # Literal run declaring 50 bytes, but only 2 follow:
-        malformed_lit = b"\x32\x01\x02" # ctrl=50 means 51 bytes literal
+        """RLE repeat run missing target byte or truncated 0x90 marker."""
+        # Repeat run without preceding byte:
+        malformed_lead = b"\x90\x05"
         with self.assertRaises(DecompressionError):
-            bounded_rle_decompress(malformed_lit)
+            bounded_rle_decompress(malformed_lead)
 
-        # Repeat run missing byte at EOF:
-        malformed_rep = b"\x81" # ctrl=129 means repeat next byte 128 times, but EOF follows
+        # Truncated 0x90 marker at EOF:
+        malformed_trunc = b"A\x90"
         with self.assertRaises(DecompressionError):
-            bounded_rle_decompress(malformed_rep)
+            bounded_rle_decompress(malformed_trunc)
 
     def test_deterministic_seeded_fuzz_all_parsers(self):
         """
@@ -135,7 +134,7 @@ class TestRobustnessAndResourceLimits(unittest.TestCase):
             # 1. Good WKS file
             f_good1.write_bytes(b"\x00\x00\x02\x00\x04\x04\x01\x00\x00\x00")
             # 2. Severely corrupted file
-            f_bad.write_bytes(b"LIBRA98\x00\xFF\xFF\xFF\xFF" + b"\xDE\xAD" * 50)
+            f_bad.write_bytes(b"LB98\x02\x00\x05\x00\x24\xA5\x54\x60\x10\x00\x07\x00" + b"\xFF\xFF" * 50)
             # 3. Good PAK file
             handcrafted_pak = (
                 b"PACK\x16\x00\x00\x00\x40\x00\x00\x00HELLOQUAKE"

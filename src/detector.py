@@ -14,9 +14,9 @@ class FormatDetector:
 
     KNOWN_SIGNATURES: list[tuple[str, bytes, int, str]] = [
         # format_name, signature_bytes, offset, description
-        ("LIBRA-98", b"LIBRA98\x00", 0, "LIBRA-98 legacy database [Provisional]"),
-        ("LABLOG", b"LABLOG\x01\x00", 0, "Laboratory Log journal [Provisional]"),
-        ("VAULT", b"VAULT\x01\x00\x00", 0, "VAULT archive storage [Provisional]"),
+        ("LIBRA-98", b"LB98", 0, "LIBRA-98 library database"),
+        ("LABLOG", b"LLOG", 0, "Laboratory Log journal"),
+        ("VAULT", b"VLT1", 0, "VAULT archive storage"),
         ("PAK", b"PACK", 0, "id Software Quake PAK archive"),
         ("WAD", b"IWAD", 0, "Doom Internal WAD"),
         ("WAD", b"PWAD", 0, "Doom Patch WAD"),

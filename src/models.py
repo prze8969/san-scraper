@@ -19,6 +19,10 @@ class DamageType(str, Enum):
     MALFORMED_OFFSET = "malformed_offset"
     UNKNOWN_SIGNATURE = "unknown_signature"
     DECOMPRESSION_ERROR = "decompression_error"
+    COUNT_MISMATCH = "count_mismatch"
+    OOB_POINTER = "oob_pointer"
+    BAD_LENGTH = "bad_length"
+    INDEX_MISSING = "index_missing"
 
 @dataclass
 class DamageBlock:

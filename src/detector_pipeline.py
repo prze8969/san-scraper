@@ -122,18 +122,7 @@ class PipelineDetector:
                             evidence="LABLOG block sync markers (BLOK) detected across stream",
                         )
                     )
-                elif htype == "fixed_width_record_stride":
-                    stride = h.get("details", {}).get("stride_bytes")
-                    if stride == 48:
-                        candidates.append(
-                            DetectionCandidate(
-                                format_name="LIBRA-98",
-                                confidence=0.70,
-                                detection_method="structural_match",
-                                offset=0,
-                                evidence="48-byte record stride matching LIBRA-98 record specifications",
-                            )
-                        )
+
 
         # 4. Extension hint
         ext = None

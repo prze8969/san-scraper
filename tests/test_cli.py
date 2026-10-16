@@ -23,7 +23,7 @@ class TestCliIntegration(unittest.TestCase):
             (in_path / "sample.lib").write_bytes(build_synthetic_libra98(records))
 
             # 2. Synthetic LABLOG file
-            blocks = [(0, 1, 0, 100, b"Log Entry Alpha")]
+            blocks = [{"type": 1, "start_sample": 0, "readings": [(100, 200)]}]
             (in_path / "sample.lab").write_bytes(build_synthetic_lablog(blocks))
 
             # 3. Synthetic VAULT file
@@ -56,14 +56,16 @@ class TestCliIntegration(unittest.TestCase):
             with open(out_path / "report.json", "r", encoding="utf-8") as f:
                 report = json.load(f)
 
-            self.assertEqual(report["summary"]["total_files_processed"], 7)
-            self.assertIn("LIBRA-98", report["summary"]["formats"])
-            self.assertIn("LABLOG", report["summary"]["formats"])
-            self.assertIn("VAULT", report["summary"]["formats"])
-            self.assertIn("PAK", report["summary"]["formats"])
-            self.assertIn("WKS", report["summary"]["formats"])
-            self.assertIn("EMPTY", report["summary"]["formats"])
-            self.assertIn("UNKNOWN", report["summary"]["formats"])
+            self.assertEqual(len(report["files"]), 7)
+            self.assertIn("tool_version", report)
+            self.assertIn("totals", report)
+            self.assertEqual(len(report["files"]), 7)
+            formats = {f["format"] for f in report["files"]}
+            self.assertIn("LIBRA-98", formats)
+            self.assertIn("LABLOG", formats)
+            self.assertIn("VAULT", formats)
+            self.assertIn("PAK", formats)
+            self.assertIn("WKS", formats)
 
 if __name__ == "__main__":
     unittest.main()

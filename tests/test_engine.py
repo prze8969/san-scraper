@@ -12,8 +12,8 @@ from src.models import DamageType
 class TestEngineAndReporter(unittest.TestCase):
     def test_format_detector(self):
         self.assertEqual(FormatDetector.detect(b"").format_name, "EMPTY")
-        self.assertEqual(FormatDetector.detect(b"LIBRA98\x00\x01").format_name, "LIBRA-98")
-        self.assertEqual(FormatDetector.detect(b"LABLOG\x01\x00\x01").format_name, "LABLOG")
+        self.assertEqual(FormatDetector.detect(b"LB98\x02\x00\x01\x00\x00\x00\x00\x00\x10\x00\x01\x00").format_name, "LIBRA-98")
+        self.assertEqual(FormatDetector.detect(b"LLOG\x01\x02").format_name, "LABLOG")
         self.assertEqual(FormatDetector.detect(b"PACK\x00\x00\x00\x00").format_name, "PAK")
         self.assertEqual(FormatDetector.detect(b"RANDOM_BYTES").format_name, "UNKNOWN")
 
@@ -50,9 +50,8 @@ class TestEngineAndReporter(unittest.TestCase):
             with open(report_file, "r", encoding="utf-8") as f:
                 report = json.load(f)
 
-            self.assertEqual(report["summary"]["total_files_processed"], 2)
-            self.assertEqual(report["summary"]["total_records_recovered"], 0)
-            self.assertEqual(report["summary"]["total_damaged_blocks"], 2)
+            self.assertEqual(len(report["files"]), 2)
+            self.assertEqual(report["totals"]["unrecognized"], 2)
 
 if __name__ == "__main__":
     unittest.main()

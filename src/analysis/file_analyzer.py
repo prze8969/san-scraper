@@ -16,9 +16,9 @@ from typing import Any
 # (name, signature_bytes, description)
 SIGNATURE_DATABASE: list[tuple[str, bytes, str]] = [
     # Supported formats
-    ("LIBRA-98", b"LIBRA98\x00", "LIBRA-98 legacy database"),
-    ("LABLOG", b"LABLOG\x01\x00", "Laboratory Log journal"),
-    ("VAULT", b"VAULT\x01\x00\x00", "VAULT archive storage"),
+    ("LIBRA-98", b"LB98", "LIBRA-98 library database"),
+    ("LABLOG", b"LLOG", "Laboratory Log journal"),
+    ("VAULT", b"VLT1", "VAULT archive storage"),
     ("PAK", b"PACK", "id Software Quake PAK archive"),
     ("WKS", b"\x00\x00\x02\x00", "Lotus 1-2-3 BOF record"),
     ("WAD", b"IWAD", "Doom Internal WAD"),
