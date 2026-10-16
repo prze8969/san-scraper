@@ -1,57 +1,43 @@
 {
+  "source_file": "01_valid.lib",
   "file": "01_valid.lib",
   "format": "LIBRA-98",
-  "file_size": 176,
-  "is_valid_header": true,
-  "total_records_recovered": 3,
-  "total_declared_records": 3,
+  "status": "ok",
+  "metadata": {
+    "version": 1,
+    "encoding": "cp437",
+    "created": "2023-05-15T14:30:00",
+    "branch_id": 42,
+    "declared_record_count": 2,
+    "data_offset": 16
+  },
   "records": [
     {
       "id": 101,
-      "status": "complete",
-      "byte_range": [
-        32,
-        80
-      ],
-      "data": {
-        "timestamp": 1718000000,
-        "status_flags": 1,
-        "value": 1500,
-        "label": "Sensor_Alpha_OK"
-      }
+      "title": "Structure and Interpretation of Computer Programs",
+      "author": "Abelson & Sussman",
+      "year": 1996,
+      "price_cents": 5500,
+      "copies": 4,
+      "isbn": "0262011530",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": null
     },
     {
       "id": 102,
-      "status": "complete",
-      "byte_range": [
-        80,
-        128
-      ],
-      "data": {
-        "timestamp": 1718000060,
-        "status_flags": 1,
-        "value": 1520,
-        "label": "Sensor_Beta_OK"
-      }
-    },
-    {
-      "id": 103,
-      "status": "complete",
-      "byte_range": [
-        128,
-        176
-      ],
-      "data": {
-        "timestamp": 1718000120,
-        "status_flags": 0,
-        "value": 9999,
-        "label": "Calibration_Mark"
-      }
+      "title": "Design Patterns",
+      "author": "Gang of Four",
+      "year": 1994,
+      "price_cents": 4999,
+      "copies": 1,
+      "isbn": "0201633612",
+      "checked_out": true,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": "2023-05-29"
     }
   ],
-  "damages": [],
-  "metadata": {
-    "version": 256,
-    "flags": 1
-  }
+  "damage": []
 }

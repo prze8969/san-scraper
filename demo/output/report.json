@@ -1,73 +1,113 @@
 {
+  "tool_version": "1.0.0",
+  "files": [
+    {
+      "file": "01_valid.lib",
+      "format": "LIBRA-98",
+      "status": "ok",
+      "records": 2,
+      "damage": 0,
+      "records_recovered": 2,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "02_valid.lab",
+      "format": "LABLOG",
+      "status": "ok",
+      "records": 3,
+      "damage": 0,
+      "records_recovered": 3,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "03_valid.vlt",
+      "format": "VAULT",
+      "status": "ok",
+      "records": 2,
+      "damage": 0,
+      "records_recovered": 2,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "04_valid.pak",
+      "format": "PAK",
+      "status": "ok",
+      "records": 2,
+      "damage": 0,
+      "records_recovered": 2,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "05_valid.wks",
+      "format": "WKS",
+      "status": "ok",
+      "records": 2,
+      "damage": 0,
+      "records_recovered": 2,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "06_truncated.pak",
+      "format": "PAK",
+      "status": "partial",
+      "records": 1,
+      "damage": 1,
+      "records_recovered": 1,
+      "damage_count": 1,
+      "is_valid_header": true
+    },
+    {
+      "file": "07_corrupted_block.lab",
+      "format": "LABLOG",
+      "status": "unrecognized",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": false
+    },
+    {
+      "file": "07_damaged_stream.lib",
+      "format": "LIBRA-98",
+      "status": "partial",
+      "records": 2,
+      "damage": 1,
+      "records_recovered": 2,
+      "damage_count": 1,
+      "is_valid_header": true
+    },
+    {
+      "file": "08_unknown.bin",
+      "format": "UNKNOWN",
+      "status": "unrecognized",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": false
+    }
+  ],
+  "totals": {
+    "ok": 5,
+    "partial": 2,
+    "unsupported": 0,
+    "unrecognized": 2,
+    "failed": 0
+  },
   "summary": {
-    "total_files_processed": 8,
-    "total_records_recovered": 22,
-    "total_damaged_blocks": 3,
+    "total_files_processed": 9,
     "formats": {
-      "LIBRA-98": 1,
+      "LIBRA-98": 2,
       "LABLOG": 2,
       "VAULT": 1,
       "PAK": 2,
       "WKS": 1,
       "UNKNOWN": 1
     }
-  },
-  "files": [
-    {
-      "file": "01_valid.lib",
-      "format": "LIBRA-98",
-      "is_valid_header": true,
-      "records_recovered": 3,
-      "damage_count": 0
-    },
-    {
-      "file": "02_valid.lab",
-      "format": "LABLOG",
-      "is_valid_header": true,
-      "records_recovered": 3,
-      "damage_count": 0
-    },
-    {
-      "file": "03_valid.vlt",
-      "format": "VAULT",
-      "is_valid_header": true,
-      "records_recovered": 3,
-      "damage_count": 0
-    },
-    {
-      "file": "04_valid.pak",
-      "format": "PAK",
-      "is_valid_header": true,
-      "records_recovered": 3,
-      "damage_count": 0
-    },
-    {
-      "file": "05_valid.wks",
-      "format": "WKS",
-      "is_valid_header": true,
-      "records_recovered": 6,
-      "damage_count": 0
-    },
-    {
-      "file": "06_truncated.pak",
-      "format": "PAK",
-      "is_valid_header": true,
-      "records_recovered": 1,
-      "damage_count": 1
-    },
-    {
-      "file": "07_corrupted_block.lab",
-      "format": "LABLOG",
-      "is_valid_header": true,
-      "records_recovered": 3,
-      "damage_count": 1
-    },
-    {
-      "file": "08_unknown.bin",
-      "format": "UNKNOWN",
-      "is_valid_header": false,
-      "records_recovered": 0,
-      "damage_count": 1
-    }
-  ]
+  }
 }

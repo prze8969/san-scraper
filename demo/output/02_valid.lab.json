@@ -1,60 +1,57 @@
 {
+  "source_file": "02_valid.lab",
   "file": "02_valid.lab",
   "format": "LABLOG",
-  "file_size": 201,
-  "is_valid_header": true,
-  "total_records_recovered": 3,
-  "total_declared_records": 3,
-  "records": [
-    {
-      "id": 0,
-      "status": "complete",
-      "byte_range": [
-        24,
-        79
-      ],
-      "data": {
-        "block_type": 1,
-        "flags": 0,
-        "timestamp": 1718000010,
-        "payload_text": "System boot sequence initiated.",
-        "payload_len": 31
-      }
-    },
-    {
-      "id": 1,
-      "status": "complete",
-      "byte_range": [
-        79,
-        140
-      ],
-      "data": {
-        "block_type": 1,
-        "flags": 0,
-        "timestamp": 1718000020,
-        "payload_text": "Core temperature stabilized at 38.5C.",
-        "payload_len": 37
-      }
-    },
-    {
-      "id": 2,
-      "status": "complete",
-      "byte_range": [
-        140,
-        201
-      ],
-      "data": {
-        "block_type": 2,
-        "flags": 0,
-        "timestamp": 1718000030,
-        "payload_text": "Notice: routine health ping received.",
-        "payload_len": 37
-      }
-    }
-  ],
-  "damages": [],
+  "status": "ok",
   "metadata": {
     "version": 1,
-    "created_timestamp": 1710000000
-  }
+    "instrument": "SPEC-METER-9000",
+    "sample_interval_ms": 50,
+    "channels": [
+      {
+        "index": 0,
+        "unit": "mV"
+      },
+      {
+        "index": 1,
+        "unit": "degC"
+      }
+    ],
+    "start_time_utc": "1993-03-03T09:46:40Z",
+    "declared_block_count": 2,
+    "events": [
+      {
+        "sample": 1,
+        "severity": 2,
+        "message": "Sensor calibration ping"
+      }
+    ]
+  },
+  "records": [
+    {
+      "sample": 0,
+      "time_ms": 0,
+      "values": [
+        12.0,
+        32.0
+      ]
+    },
+    {
+      "sample": 1,
+      "time_ms": 50,
+      "values": [
+        13.0,
+        32.5
+      ]
+    },
+    {
+      "sample": 2,
+      "time_ms": 100,
+      "values": [
+        12.5,
+        32.25
+      ]
+    }
+  ],
+  "damage": []
 }

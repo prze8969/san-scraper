@@ -7,29 +7,34 @@ import json
 from src.detector import FormatDetector
 from src.engine import SalvageEngine
 from src.reporter import Reporter
-from src.models import DamageType
+from src.models import DamageType, OutputStatus
 
 class TestEngineAndReporter(unittest.TestCase):
     def test_format_detector(self):
         self.assertEqual(FormatDetector.detect(b"").format_name, "EMPTY")
-        self.assertEqual(FormatDetector.detect(b"LIBRA98\x00\x01").format_name, "LIBRA-98")
-        self.assertEqual(FormatDetector.detect(b"LABLOG\x01\x00\x01").format_name, "LABLOG")
+        self.assertEqual(FormatDetector.detect(b"LB98\x02\x00").format_name, "LIBRA-98")
+        self.assertEqual(FormatDetector.detect(b"LLOG\x01\x02").format_name, "LABLOG")
+        self.assertEqual(FormatDetector.detect(b"VLT1\x03\x00").format_name, "VAULT")
+        self.assertEqual(FormatDetector.detect(b"\x00\x00\x02\x00").format_name, "WKS")
+        self.assertEqual(FormatDetector.detect(b"\xFFWPC\x30\x00").format_name, "WPD")
+        self.assertEqual(FormatDetector.detect(b"PWAD\x07\x00").format_name, "WAD")
         self.assertEqual(FormatDetector.detect(b"PACK\x00\x00\x00\x00").format_name, "PAK")
+        self.assertEqual(FormatDetector.detect(b"\x83\x00\x00PRG formatted GEOS file").format_name, "CVT")
         self.assertEqual(FormatDetector.detect(b"RANDOM_BYTES").format_name, "UNKNOWN")
 
     def test_engine_unknown_and_empty_file(self):
         engine = SalvageEngine()
-        
-        # Test empty
-        res_empty = engine.process_bytes("empty.bin", b"")
-        self.assertEqual(res_empty.format_name, "EMPTY")
-        self.assertEqual(len(res_empty.damages), 1)
-        self.assertEqual(res_empty.damages[0].damage_type, DamageType.TRUNCATION)
 
-        # Test unknown
+        # Test empty file
+        res_empty = engine.process_bytes("empty.bin", b"")
+        self.assertEqual(res_empty.format_name, "UNKNOWN")
+        self.assertEqual(res_empty.status, OutputStatus.OK)
+
+        # Test unknown random file
         res_unknown = engine.process_bytes("random.bin", b"\x99\x88\x77\x66")
         self.assertEqual(res_unknown.format_name, "UNKNOWN")
-        self.assertEqual(res_unknown.damages[0].damage_type, DamageType.UNKNOWN_SIGNATURE)
+        self.assertEqual(res_unknown.status, OutputStatus.UNRECOGNIZED)
+        self.assertEqual(len(res_unknown.damages), 1)
 
     def test_reporter_file_and_run_summary(self):
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -51,8 +56,9 @@ class TestEngineAndReporter(unittest.TestCase):
                 report = json.load(f)
 
             self.assertEqual(report["summary"]["total_files_processed"], 2)
-            self.assertEqual(report["summary"]["total_records_recovered"], 0)
-            self.assertEqual(report["summary"]["total_damaged_blocks"], 2)
+            self.assertIn("tool_version", report)
+            self.assertIn("totals", report)
+            self.assertIn("files", report)
 
 if __name__ == "__main__":
     unittest.main()

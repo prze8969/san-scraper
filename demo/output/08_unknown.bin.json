@@ -1,21 +1,20 @@
 {
+  "source_file": "08_unknown.bin",
   "file": "08_unknown.bin",
   "format": "UNKNOWN",
-  "file_size": 70,
-  "is_valid_header": false,
-  "total_records_recovered": 0,
-  "total_declared_records": 0,
-  "records": [],
-  "damages": [
-    {
-      "offset": 0,
-      "length": 16,
-      "type": "unknown_signature",
-      "description": "Unrecognized magic bytes: 7f454c465f46414b"
-    }
-  ],
+  "status": "unrecognized",
   "metadata": {
-    "status": "skipped",
-    "reason": "unrecognized_format"
-  }
+    "preview_hex": "7f454c465f46414b455f42494e4152595f53545245414d5f444f45535f4e4f54",
+    "preview_text": ".ELF_FAKE_BINARY_STREAM_DOES_NOT",
+    "size": 70
+  },
+  "records": [],
+  "damage": [
+    {
+      "kind": "unknown_record",
+      "offset": 0,
+      "detail": "Unrecognized binary format (magic: 7f454c465f46414b)",
+      "lossy": true
+    }
+  ]
 }

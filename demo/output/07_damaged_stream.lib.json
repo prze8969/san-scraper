@@ -1,0 +1,50 @@
+{
+  "source_file": "07_damaged_stream.lib",
+  "file": "07_damaged_stream.lib",
+  "format": "LIBRA-98",
+  "status": "partial",
+  "metadata": {
+    "version": 1,
+    "encoding": "cp437",
+    "created": "2023-05-15T14:30:00",
+    "branch_id": 42,
+    "declared_record_count": 2,
+    "data_offset": 16
+  },
+  "records": [
+    {
+      "id": 101,
+      "title": "Structure and Interpretation of Computer Programs",
+      "author": "Abelson & Sussman",
+      "year": 1996,
+      "price_cents": 5500,
+      "copies": 4,
+      "isbn": "0262011530",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": null
+    },
+    {
+      "id": 102,
+      "title": "Design Patterns",
+      "author": "Gang of Four",
+      "year": 1994,
+      "price_cents": 4999,
+      "copies": 1,
+      "isbn": "0201633612",
+      "checked_out": true,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": "2023-05-29"
+    }
+  ],
+  "damage": [
+    {
+      "kind": "unparsed_bytes",
+      "offset": 16,
+      "detail": "Skipping 6 unparsed bytes to next sync marker",
+      "lossy": true
+    }
+  ]
+}

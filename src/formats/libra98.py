@@ -1,238 +1,231 @@
-"""Provisional parser for LIBRA-98 format."""
+"""LIBRA-98 format parser conforming to OUTPUT-CONTRACT.md.
+Verified against s01.dat and s04.dat ground truths.
+"""
 
 from __future__ import annotations
-import zlib
+import struct
+from typing import Any
 from src.formats.base import BaseParser
-from src.reader import BoundedBinaryReader, BoundsError, TruncationError
-from src.models import (
-    FileRecoveryResult,
-    RecoveredRecord,
-    RecordStatus,
-    DamageBlock,
-    DamageType,
-)
+from src.reader import BoundedBinaryReader
+from src.models import FileRecoveryResult, OutputStatus, DamageItem, DamageKind
 
 class Libra98Parser(BaseParser):
-    """
-    Defensive parser for LIBRA-98 files.
-    
-    Layout contract (PROVISIONAL - for defensive testing and recovery engine validation):
-    Header (32 bytes):
-      0x00..0x08: Magic 'LIBRA98\x00' (or 'LIB98\x00\x00\x00')
-      0x08..0x0A: Version (uint16)
-      0x0A..0x0C: Flags (uint16)
-      0x0C..0x10: Header size (uint32)
-      0x10..0x14: Record count (uint32)
-      0x14..0x18: Record size (uint32)
-      0x18..0x1C: Header CRC32 (uint32)
-      0x1C..0x20: Reserved (4 bytes)
-    
-    Record (48 bytes default):
-      +0x00: Record ID (uint32)
-      +0x04: Timestamp (uint32)
-      +0x08: Status flag (uint16)
-      +0x0A: Numeric Value (int32)
-      +0x0E: Label (30 bytes, null-terminated)
-      +0x2C: Record CRC16 / Checksum (uint16)
-      +0x2E: Reserved (uint16)
-    """
-
-    MAGIC_LONG = b"LIBRA98\x00"
-    MAGIC_SHORT = b"LIB98\x00"
-    MIN_HEADER_SIZE = 32
-    DEFAULT_RECORD_SIZE = 48
-
     def parse(self, filename: str, reader: BoundedBinaryReader) -> FileRecoveryResult:
-        file_size = reader.size
-        damages: list[DamageBlock] = []
-        recovered_records: list[RecoveredRecord] = []
-        is_valid_header = False
-        declared_records = 0
+        data = reader.peek_bytes(reader.size)
+        if len(data) < 16:
+            return FileRecoveryResult(
+                filename=filename,
+                format_name="LIBRA-98",
+                status=OutputStatus.FAILED,
+                damages=[
+                    DamageItem(
+                        kind=DamageKind.TRUNCATED,
+                        offset=0,
+                        detail="Header truncated (less than 16 bytes)",
+                        lossy=True,
+                    )
+                ],
+            )
 
-        # Step 1: Validate Header Size
-        if file_size < self.MIN_HEADER_SIZE:
+        magic = data[:4]
+        if magic != b"LB98":
+            return FileRecoveryResult(
+                filename=filename,
+                format_name="LIBRA-98",
+                status=OutputStatus.UNRECOGNIZED,
+                damages=[
+                    DamageItem(
+                        kind=DamageKind.HEADER_CHECKSUM,
+                        offset=0,
+                        detail=f"Invalid signature bytes: {magic.hex()}",
+                        lossy=True,
+                    )
+                ],
+            )
+
+        version, declared_count = struct.unpack("<HH", data[4:8])
+        dos_date, dos_time = struct.unpack("<HH", data[8:12])
+        data_offset, branch_id = struct.unpack("<HH", data[12:16])
+
+        year = ((dos_date >> 9) & 0x7F) + 1980
+        month = (dos_date >> 5) & 0x0F
+        day = dos_date & 0x1F
+        hour = (dos_time >> 11) & 0x1F
+        minute = (dos_time >> 5) & 0x3F
+        second = (dos_time & 0x1F) * 2
+        created = f"{year:04d}-{month:02d}-{day:02d}T{hour:02d}:{minute:02d}:{second:02d}"
+
+        metadata = {
+            "version": version,
+            "encoding": "cp437",
+            "created": created,
+            "branch_id": branch_id,
+            "declared_record_count": declared_count,
+            "data_offset": data_offset,
+        }
+
+        records: list[dict[str, Any]] = []
+        damages: list[DamageItem] = []
+        offset = data_offset
+        status = OutputStatus.OK
+
+        if data_offset > len(data):
             damages.append(
-                DamageBlock(
-                    offset=0,
-                    length=file_size,
-                    damage_type=DamageType.TRUNCATION,
-                    description=f"File smaller than minimum header size ({file_size} < {self.MIN_HEADER_SIZE})",
+                DamageItem(
+                    kind=DamageKind.HEADER_CHECKSUM,
+                    offset=12,
+                    detail=f"Data offset {data_offset} exceeds file size",
+                    lossy=True,
                 )
             )
             return FileRecoveryResult(
                 filename=filename,
                 format_name="LIBRA-98",
-                file_size=file_size,
-                is_valid_header=False,
-                total_records=0,
-                recovered_records=[],
-                damages=damages,
-                metadata={"status": "truncated_header"},
-            )
-
-        # Step 2: Read Header
-        try:
-            magic = reader.read_bytes(8)
-            version = reader.read_u16_le()
-            flags = reader.read_u16_le()
-            header_size = reader.read_u32_le()
-            declared_records = reader.read_u32_le()
-            record_size = reader.read_u32_le()
-            header_crc = reader.read_u32_le()
-            _reserved = reader.read_bytes(4)
-        except BoundsError as e:
-            damages.append(
-                DamageBlock(
-                    offset=0,
-                    length=reader.position,
-                    damage_type=DamageType.INVALID_HEADER,
-                    description=f"Header read failed: {str(e)}",
-                )
-            )
-            return FileRecoveryResult(
-                filename=filename,
-                format_name="LIBRA-98",
-                file_size=file_size,
-                is_valid_header=False,
-                total_records=0,
-                recovered_records=[],
+                status=OutputStatus.PARTIAL,
+                metadata=metadata,
+                records=[],
                 damages=damages,
             )
 
-        # Validate declared sizes to prevent out-of-bounds or invalid seek
-        if header_size < self.MIN_HEADER_SIZE or header_size > file_size:
-            damages.append(
-                DamageBlock(
-                    offset=0x0C,
-                    length=4,
-                    damage_type=DamageType.INVALID_HEADER,
-                    description=f"Invalid header_size declared: {header_size} (file size {file_size})",
-                )
-            )
-            header_size = self.MIN_HEADER_SIZE
-
-        # Bound record_size to safe reasonable range
-        if record_size < 16 or record_size > 65536:
-            damages.append(
-                DamageBlock(
-                    offset=0x14,
-                    length=4,
-                    damage_type=DamageType.INVALID_HEADER,
-                    description=f"Invalid record_size declared: {record_size}, defaulting to {self.DEFAULT_RECORD_SIZE}",
-                )
-            )
-            record_size = self.DEFAULT_RECORD_SIZE
-
-        # Validate Magic
-        if magic != self.MAGIC_LONG:
-            damages.append(
-                DamageBlock(
-                    offset=0,
-                    length=8,
-                    damage_type=DamageType.UNKNOWN_SIGNATURE,
-                    description=f"Invalid LIBRA-98 magic: {magic.hex()}",
-                )
-            )
-        else:
-            is_valid_header = True
-
-        # Header Checksum Validation
-        expected_crc = zlib.crc32(reader.read_exact(24, 0)) & 0xFFFFFFFF
-        if header_crc != 0 and header_crc != expected_crc:
-            damages.append(
-                DamageBlock(
-                    offset=0x18,
-                    length=4,
-                    damage_type=DamageType.CHECKSUM_MISMATCH,
-                    description=f"Header CRC mismatch: declared 0x{header_crc:08X}, calculated 0x{expected_crc:08X}",
-                )
-            )
-
-        # Step 3: Parse Records Defensively
-        reader.seek(header_size)
-
-        # Strictly bound records to prevent runaway loops or memory exhaustion
-        max_possible_records = (file_size - reader.position) // record_size
-        records_to_attempt = min(declared_records, max_possible_records) if declared_records > 0 else max_possible_records
-
-        rec_idx = 0
-        while rec_idx < records_to_attempt and reader.remaining >= record_size:
-            rec_start = reader.position
-            try:
-                rec_id = reader.read_u32_le()
-                timestamp = reader.read_u32_le()
-                status_flag = reader.read_u16_le()
-                numeric_val = reader.read_i32_le()
-                label = reader.read_fixed_string(30)
-                rec_crc = reader.read_u16_le()
-                reader.read_u16_le()  # padding
-                rec_end = reader.position
-
-                # Check record CRC16
-                calc_crc16 = zlib.crc32(reader.read_exact(44, rec_start)) & 0xFFFF
-                rec_status = RecordStatus.COMPLETE
-                errs = []
-
-                if rec_crc != 0 and rec_crc != calc_crc16:
-                    rec_status = RecordStatus.CORRUPTED
-                    errs.append(f"Record CRC mismatch (declared: 0x{rec_crc:04X}, calculated: 0x{calc_crc16:04X})")
-                    damages.append(
-                        DamageBlock(
-                            offset=rec_start,
-                            length=record_size,
-                            damage_type=DamageType.CORRUPT_RECORD,
-                            description=f"Record {rec_id} checksum failed",
-                        )
-                    )
-
-                recovered_records.append(
-                    RecoveredRecord(
-                        record_id=rec_id,
-                        status=rec_status,
-                        byte_range=(rec_start, rec_end),
-                        fields={
-                            "timestamp": timestamp,
-                            "status_flags": status_flag,
-                            "value": numeric_val,
-                            "label": label,
-                        },
-                        errors=errs,
-                    )
-                )
-                rec_idx += 1
-
-            except (BoundsError, TruncationError) as e:
-                damages.append(
-                    DamageBlock(
-                        offset=rec_start,
-                        length=reader.remaining,
-                        damage_type=DamageType.TRUNCATION,
-                        description=f"Record {rec_idx} truncated: {str(e)}",
-                    )
-                )
+        while offset < len(data):
+            if data[offset:offset+4] == b"END!":
+                offset += 6
                 break
 
-        # Check for unaligned trailing bytes
-        if reader.remaining > 0:
-            damages.append(
-                DamageBlock(
-                    offset=reader.position,
-                    length=reader.remaining,
-                    damage_type=DamageType.TRUNCATION,
-                    description=f"Unparsed trailing bytes ({reader.remaining} bytes)",
+            if data[offset] != 0xA5:
+                # Seek next sync marker or flag corrupt
+                next_sync = data.find(b"\xA5", offset + 1)
+                if next_sync != -1:
+                    damages.append(
+                        DamageItem(
+                            kind=DamageKind.UNPARSED_BYTES,
+                            offset=offset,
+                            detail=f"Skipping {next_sync - offset} unparsed bytes to next sync marker",
+                            lossy=True,
+                        )
+                    )
+                    status = OutputStatus.PARTIAL
+                    offset = next_sync
+                else:
+                    damages.append(
+                        DamageItem(
+                            kind=DamageKind.UNPARSED_BYTES,
+                            offset=offset,
+                            detail="Unparsed trailing bytes",
+                            lossy=True,
+                        )
+                    )
+                    status = OutputStatus.PARTIAL
+                    break
+
+            if offset + 2 > len(data):
+                damages.append(
+                    DamageItem(
+                        kind=DamageKind.TRUNCATED,
+                        offset=offset,
+                        detail="Truncated record header",
+                        lossy=True,
+                    )
                 )
-            )
+                status = OutputStatus.PARTIAL
+                break
+
+            rec_len = data[offset+1]
+            flags = data[offset+2]
+            rec_end = offset + 2 + rec_len
+
+            if rec_end > len(data):
+                damages.append(
+                    DamageItem(
+                        kind=DamageKind.TRUNCATED,
+                        offset=offset,
+                        detail="File truncated within record",
+                        lossy=True,
+                    )
+                )
+                status = OutputStatus.PARTIAL
+                break
+
+            rec_data = data[offset+3:rec_end]
+            if len(rec_data) < 4:
+                offset = rec_end
+                continue
+
+            rec_id = struct.unpack("<I", rec_data[:4])[0]
+            idx = 4
+            title_len = rec_data[idx] if idx < len(rec_data) else 0
+            idx += 1
+            title = rec_data[idx:idx+title_len].decode("cp437", errors="replace")
+            idx += title_len
+
+            author_len = rec_data[idx] if idx < len(rec_data) else 0
+            idx += 1
+            author = rec_data[idx:idx+author_len].decode("cp437", errors="replace")
+            idx += author_len
+
+            year_val = 0
+            if idx + 2 <= len(rec_data):
+                y_raw = struct.unpack("<H", rec_data[idx:idx+2])[0]
+                year_val = y_raw + 1500
+                idx += 2
+
+            price_cents = 0
+            if idx + 2 <= len(rec_data):
+                price_cents = struct.unpack("<H", rec_data[idx:idx+2])[0]
+                idx += 2
+
+            copies = rec_data[idx] if idx < len(rec_data) else 0
+            idx += 1
+
+            isbn = ""
+            if idx + 10 <= len(rec_data):
+                isbn = rec_data[idx:idx+10].decode("ascii", errors="replace")
+                idx += 10
+
+            checked_out = bool(flags & 0x01)
+            deleted = bool(flags & 0x02)
+            reference_only = bool(flags & 0x04)
+
+            due_date = None
+            if checked_out and idx + 2 <= len(rec_data):
+                dd_raw = struct.unpack("<H", rec_data[idx:idx+2])[0]
+                d_year = ((dd_raw >> 9) & 0x7F) + 1980
+                d_month = (dd_raw >> 5) & 0x0F
+                d_day = dd_raw & 0x1F
+                due_date = f"{d_year:04d}-{d_month:02d}-{d_day:02d}"
+
+            records.append({
+                "id": rec_id,
+                "title": title,
+                "author": author,
+                "year": year_val,
+                "price_cents": price_cents,
+                "copies": copies,
+                "isbn": isbn,
+                "checked_out": checked_out,
+                "deleted": deleted,
+                "reference_only": reference_only,
+                "due_date": due_date,
+            })
+            offset = rec_end
+
+        if len(records) < declared_count:
+            status = OutputStatus.PARTIAL
+            if not damages:
+                damages.append(
+                    DamageItem(
+                        kind=DamageKind.TRUNCATED,
+                        offset=offset,
+                        detail=f"Expected {declared_count} records, found {len(records)}",
+                        lossy=True,
+                    )
+                )
 
         return FileRecoveryResult(
             filename=filename,
             format_name="LIBRA-98",
-            file_size=file_size,
-            is_valid_header=is_valid_header,
-            total_records=declared_records,
-            recovered_records=recovered_records,
+            status=status,
+            metadata=metadata,
+            records=records,
             damages=damages,
-            metadata={
-                "version": version if is_valid_header else None,
-                "flags": flags if is_valid_header else None,
-            },
         )

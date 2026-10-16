@@ -1,84 +1,59 @@
-"""Script to generate realistic synthetic test fixtures for judge demo."""
-
-import os
+import sys
 import struct
-import zlib
 from pathlib import Path
 
-from tests.test_pak import build_synthetic_pak
-from tests.test_wks import build_synthetic_wks
-from tests.test_libra98 import build_synthetic_libra98
-from tests.test_lablog import build_synthetic_lablog
-from tests.test_vault import build_synthetic_vault
+# Ensure project root is first in sys.path
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tests.test_pak import build_real_pak
+from tests.test_wks import build_real_wks
+from tests.test_libra98 import build_real_libra98
+from tests.test_lablog import build_real_lablog
+from tests.test_vault import build_real_vault
 
 def create_demo_fixtures(target_dir: Path) -> None:
     target_dir.mkdir(parents=True, exist_ok=True)
 
-    # 1. Valid LIBRA-98 (initial validation gate format)
+    # 1. Valid LIBRA-98 (municipal library circulation format)
     libra_records = [
-        (101, 1718000000, 1, 1500, "Sensor_Alpha_OK"),
-        (102, 1718000060, 1, 1520, "Sensor_Beta_OK"),
-        (103, 1718000120, 0, 9999, "Calibration_Mark"),
+        {"id": 101, "title": "Structure and Interpretation of Computer Programs", "author": "Abelson & Sussman", "year": 1996, "price_cents": 5500, "copies": 4, "isbn": "0262011530", "flags": 0},
+        {"id": 102, "title": "Design Patterns", "author": "Gang of Four", "year": 1994, "price_cents": 4999, "copies": 1, "isbn": "0201633612", "flags": 1},
     ]
-    (target_dir / "01_valid.lib").write_bytes(build_synthetic_libra98(libra_records))
+    (target_dir / "01_valid.lib").write_bytes(build_real_libra98(libra_records))
 
-    # 2. Valid LABLOG (block-based telemetry journal)
-    lablog_blocks = [
-        (0, 1, 0, 1718000010, b"System boot sequence initiated."),
-        (1, 1, 0, 1718000020, b"Core temperature stabilized at 38.5C."),
-        (2, 2, 0, 1718000030, b"Notice: routine health ping received."),
-    ]
-    (target_dir / "02_valid.lab").write_bytes(build_synthetic_lablog(lablog_blocks))
+    # 2. Valid LABLOG (sensor telemetry stream)
+    channels = [("mV", 0.1, 0.0), ("degC", 0.05, 20.0)]
+    samples = [[120, 240], [130, 250], [125, 245]]
+    events = [(1, 2, "Sensor calibration ping")]
+    (target_dir / "02_valid.lab").write_bytes(build_real_lablog(channels, samples, events))
 
-    # 3. Valid VAULT (archive format with PackBits RLE & XOR encryption)
+    # 3. Valid VAULT (encrypted container archive with rolling XOR)
     vault_entries = [
-        {"id": 1, "name": "manifest.txt", "data": b"VAULT demo manifest v1.0", "rle": False, "xor_key": 0},
-        {"id": 2, "name": "compressed_table.dat", "data": b"AAAAABBBBBCCCCCDDDDD" * 4, "rle": True, "xor_key": 0},
-        {"id": 3, "name": "secured_token.key", "data": b"SECRET_AUTHENTICATION_KEY_9921", "rle": False, "xor_key": 0x5A},
+        (1, "manifest.txt", b"VAULT demo manifest v1.0: All records secured."),
+        (2, "payload.bin", b"\xDE\xAD\xBE\xEF" * 16),
     ]
-    (target_dir / "03_valid.vlt").write_bytes(build_synthetic_vault(vault_entries))
+    (target_dir / "03_valid.vlt").write_bytes(build_real_vault(vault_entries, xor_key=0x42))
 
     # 4. Valid Quake PAK (game archive format)
     pak_files = [
-        ("progs.dat", b"\x01\x02\x03\x04" * 16),
-        ("maps/e1m1.bsp", b"QUAKE_BSP_HEADER_CHUNK_DATA"),
-        ("sound/player/jump.wav", b"RIFF_SAMPLE_WAVE_DATA"),
+        ("maps/demo.bsp", b"BSP_MAP_GEOMETRY_STREAM_DATA"),
+        ("config.cfg", b"bind mouse1 +attack\n"),
     ]
-    (target_dir / "04_valid.pak").write_bytes(build_synthetic_pak(pak_files))
+    (target_dir / "04_valid.pak").write_bytes(build_real_pak(pak_files))
 
-    # 5. Valid Lotus 1-2-3 Release 1A .WKS (legacy spreadsheet format)
-    bof_payload = struct.pack("<H", 0x0404)
-    blank_payload = struct.pack("<BHH", 0, 0, 0)
-    int_payload = struct.pack("<BHHh", 0, 1, 2, 42)
-    num_payload = struct.pack("<BHHd", 0, 2, 2, 98.6)
-    lbl_payload = struct.pack("<BHHB", 0, 3, 3, ord("'")) + b"REVENUE_Q1\x00"
-    formula_payload = struct.pack("<BHHd", 0, 4, 4, 140.6)
-    wks_records = [
-        (0x0000, bof_payload),
-        (0x000C, blank_payload),
-        (0x000D, int_payload),
-        (0x000E, num_payload),
-        (0x000F, lbl_payload),
-        (0x0010, formula_payload),
-        (0x0001, b""),
-    ]
-    (target_dir / "05_valid.wks").write_bytes(build_synthetic_wks(wks_records))
+    # 5. Valid Lotus 1-2-3 Release 1A .WKS (legacy spreadsheet)
+    int_payload = bytes([0x00]) + struct.pack("<HHh", 0, 0, 100)
+    lbl_payload = bytes([0xFF]) + struct.pack("<HH", 1, 0) + b"'Annual Budget\x00"
+    (target_dir / "05_valid.wks").write_bytes(build_real_wks([(0x000D, int_payload), (0x000F, lbl_payload)]))
 
-    # 6. Truncated file (PAK file with directory cut in half)
-    pak_trunc_files = [
-        ("textures/wall.wal", b"WALL_TEXTURE_DATA_CHUNK"),
-        ("scripts/autoexec.cfg", b"echo 'Config loaded'"),
-    ]
-    (target_dir / "06_truncated.pak").write_bytes(build_synthetic_pak(pak_trunc_files, truncate_bytes=40))
+    # 6. Truncated file (PAK file with directory truncated)
+    (target_dir / "06_truncated.pak").write_bytes(build_real_pak(pak_files, truncate_bytes=30))
 
-    # 7. File with corrupted checksum/block (LABLOG with bad CRC in middle block)
-    lablog_damaged_blocks = [
-        (0, 1, 0, 1718000100, b"Valid block 0 before corruption."),
-        (1, 1, 0, 1718000110, b"Damaged block with bad CRC payload."),
-        (2, 1, 0, 1718000120, b"Valid block 2 cleanly recovered after bad block!"),
-    ]
-    (target_dir / "07_corrupted_block.lab").write_bytes(
-        build_synthetic_lablog(lablog_damaged_blocks, corrupt_block_crc_idx=1)
+    # 7. File with unparsed damaged bytes (LIBRA-98 with leading corrupted bytes)
+    (target_dir / "07_damaged_stream.lib").write_bytes(
+        build_real_libra98(libra_records, inject_unparsed_before_rec=b"\xDE\xAD\xBE\xEF\x99\x88")
     )
 
     # 8. Unknown / random bytes file

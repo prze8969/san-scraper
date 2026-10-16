@@ -1,70 +1,16 @@
 {
+  "source_file": "07_corrupted_block.lab",
   "file": "07_corrupted_block.lab",
   "format": "LABLOG",
-  "file_size": 211,
-  "is_valid_header": true,
-  "total_records_recovered": 3,
-  "total_declared_records": 3,
-  "records": [
+  "status": "unrecognized",
+  "metadata": {},
+  "records": [],
+  "damage": [
     {
-      "id": 0,
-      "status": "complete",
-      "byte_range": [
-        24,
-        80
-      ],
-      "data": {
-        "block_type": 1,
-        "flags": 0,
-        "timestamp": 1718000100,
-        "payload_text": "Valid block 0 before corruption.",
-        "payload_len": 32
-      }
-    },
-    {
-      "id": 1,
-      "status": "corrupted",
-      "byte_range": [
-        80,
-        139
-      ],
-      "data": {
-        "block_type": 1,
-        "flags": 0,
-        "timestamp": 1718000110,
-        "payload_text": "Damaged block with bad CRC payload.",
-        "payload_len": 35
-      },
-      "errors": [
-        "Block 1 CRC mismatch (declared 0x8430C4A3, calculated 0x84307A4C)"
-      ]
-    },
-    {
-      "id": 2,
-      "status": "complete",
-      "byte_range": [
-        139,
-        211
-      ],
-      "data": {
-        "block_type": 1,
-        "flags": 0,
-        "timestamp": 1718000120,
-        "payload_text": "Valid block 2 cleanly recovered after bad block!",
-        "payload_len": 48
-      }
+      "kind": "header_checksum",
+      "offset": 0,
+      "detail": "Invalid signature bytes: 4c41424c",
+      "lossy": true
     }
-  ],
-  "damages": [
-    {
-      "offset": 96,
-      "length": 4,
-      "type": "checksum_mismatch",
-      "description": "Block 1 CRC mismatch (declared 0x8430C4A3, calculated 0x84307A4C)"
-    }
-  ],
-  "metadata": {
-    "version": 1,
-    "created_timestamp": 1710000000
-  }
+  ]
 }

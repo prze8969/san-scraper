@@ -3,67 +3,65 @@
 import unittest
 import tempfile
 import json
-import struct
+import shutil
 from pathlib import Path
 from src.cli import run_salvage
-from tests.test_libra98 import build_synthetic_libra98
-from tests.test_lablog import build_synthetic_lablog
-from tests.test_vault import build_synthetic_vault
-from tests.test_pak import build_synthetic_pak
-from tests.test_wks import build_synthetic_wks
 
 class TestCliIntegration(unittest.TestCase):
     def test_run_salvage_end_to_end(self):
+        samples_dir = Path("Genesis_Track3_PS2_Sample_Files-main/samples")
+        if not samples_dir.exists():
+            samples_dir = Path(__file__).resolve().parent.parent / "Genesis_Track3_PS2_Sample_Files-main" / "samples"
+        if not samples_dir.exists():
+            raise unittest.SkipTest("Samples directory not found")
+
         with tempfile.TemporaryDirectory() as tmp_in_dir, tempfile.TemporaryDirectory() as tmp_out_dir:
             in_path = Path(tmp_in_dir)
             out_path = Path(tmp_out_dir)
 
-            # 1. Synthetic LIBRA-98 file
-            records = [(1, 100, 0, 999, "CLI Test")]
-            (in_path / "sample.lib").write_bytes(build_synthetic_libra98(records))
+            test_files = [
+                "s01.dat",      # LIBRA-98
+                "s05.dat",      # LABLOG
+                "s08.dat",      # VAULT
+                "s11.wks",      # WKS
+                "s14.wpd",      # WPD
+                "s16.bravo",    # BRAVO
+                "s18.cvt",      # CVT
+                "s20.000",      # EBCDIC-DUMP
+                "s23.wad",      # WAD
+                "s24.pak",      # PAK
+                "s26_empty.dat", # UNKNOWN (empty)
+                "s25_random.bin" # UNKNOWN (random)
+            ]
 
-            # 2. Synthetic LABLOG file
-            blocks = [(0, 1, 0, 100, b"Log Entry Alpha")]
-            (in_path / "sample.lab").write_bytes(build_synthetic_lablog(blocks))
-
-            # 3. Synthetic VAULT file
-            vault_entries = [{"id": 1, "name": "vault_f.txt", "data": b"Vault Data", "rle": False}]
-            (in_path / "sample.vlt").write_bytes(build_synthetic_vault(vault_entries))
-
-            # 4. Synthetic Quake PAK file
-            pak_files = [("pak_f.txt", b"Quake PAK payload")]
-            (in_path / "sample.pak").write_bytes(build_synthetic_pak(pak_files))
-
-            # 5. Synthetic Lotus WKS file
-            wks_recs = [(0x0000, struct.pack("<H", 0x0404)), (0x0001, b"")]
-            (in_path / "sample.wks").write_bytes(build_synthetic_wks(wks_recs))
-
-            # 6. Empty file
-            (in_path / "empty.bin").write_bytes(b"")
-
-            # 7. Unknown file
-            (in_path / "mystery.dat").write_bytes(b"\xFE\xED\xFA\xCE")
+            for fname in test_files:
+                shutil.copy(samples_dir / fname, in_path / fname)
 
             exit_code = run_salvage(str(in_path), str(out_path))
             self.assertEqual(exit_code, 0)
 
-            # Verify output files
-            for fname in ["sample.lib", "sample.lab", "sample.vlt", "sample.pak", "sample.wks", "empty.bin", "mystery.dat"]:
-                self.assertTrue((out_path / f"{fname}.json").exists())
-            self.assertTrue((out_path / "report.json").exists())
+            # Verify every file has an output JSON
+            for fname in test_files:
+                out_json = out_path / f"{fname}.json"
+                self.assertTrue(out_json.exists(), f"Output JSON {out_json} missing")
+                content = json.loads(out_json.read_text(encoding="utf-8"))
+                self.assertIn("source_file", content)
+                self.assertIn("format", content)
+                self.assertIn("status", content)
 
-            # Verify report.json content
-            with open(out_path / "report.json", "r", encoding="utf-8") as f:
-                report = json.load(f)
-
-            self.assertEqual(report["summary"]["total_files_processed"], 7)
+            # Verify report.json
+            report_file = out_path / "report.json"
+            self.assertTrue(report_file.exists())
+            report = json.loads(report_file.read_text(encoding="utf-8"))
+            self.assertEqual(report["summary"]["total_files_processed"], len(test_files))
             self.assertIn("LIBRA-98", report["summary"]["formats"])
             self.assertIn("LABLOG", report["summary"]["formats"])
             self.assertIn("VAULT", report["summary"]["formats"])
-            self.assertIn("PAK", report["summary"]["formats"])
             self.assertIn("WKS", report["summary"]["formats"])
-            self.assertIn("EMPTY", report["summary"]["formats"])
+            self.assertIn("WPD", report["summary"]["formats"])
+            self.assertIn("BRAVO", report["summary"]["formats"])
+            self.assertIn("CVT", report["summary"]["formats"])
+            self.assertIn("EBCDIC-DUMP", report["summary"]["formats"])
+            self.assertIn("WAD", report["summary"]["formats"])
+            self.assertIn("PAK", report["summary"]["formats"])
             self.assertIn("UNKNOWN", report["summary"]["formats"])
-
-if __name__ == "__main__":
-    unittest.main()

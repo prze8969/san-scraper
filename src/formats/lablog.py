@@ -1,282 +1,206 @@
-"""Provisional parser for LABLOG format with per-block checksum validation and damage isolation."""
+"""LABLOG format parser conforming to OUTPUT-CONTRACT.md.
+Verified against s05.dat, s06.dat, s07.dat.
+"""
 
 from __future__ import annotations
-import zlib
+import struct
+import datetime
+from typing import Any
 from src.formats.base import BaseParser
-from src.reader import BoundedBinaryReader, BoundsError, TruncationError
-from src.models import (
-    FileRecoveryResult,
-    RecoveredRecord,
-    RecordStatus,
-    DamageBlock,
-    DamageType,
-)
+from src.reader import BoundedBinaryReader
+from src.models import FileRecoveryResult, OutputStatus, DamageItem, DamageKind
 
 class LablogParser(BaseParser):
-    """
-    Defensive parser for LABLOG journal files.
-
-    Layout contract (PROVISIONAL - for defensive testing and block isolation validation):
-    Header (24 bytes):
-      0x00..0x08: Magic 'LABLOG\x01\x00' (8 bytes)
-      0x08..0x0A: Version (uint16, expected 1)
-      0x0A..0x0C: Declared Block Count (uint16)
-      0x0C..0x10: Header Checksum CRC32 (uint32 over bytes 0..11)
-      0x10..0x18: Created Timestamp (uint64)
-
-    Block Frame (min 24 bytes + payload):
-      +0x00..+0x04: Sync Magic 'BLOK' (4 bytes)
-      +0x04..+0x08: Block Sequence ID (uint32)
-      +0x08..+0x0A: Block Type / Severity (uint16)
-      +0x0A..0x0C: Flags (uint16)
-      +0x0C..+0x10: Payload Length N (uint32)
-      +0x10..+0x14: Payload CRC32 (uint32)
-      +0x14..+0x18: Timestamp (uint32)
-      +0x18..+0x18+N: Payload Data
-    """
-
-    MAGIC = b"LABLOG\x01\x00"
-    BLOCK_MAGIC = b"BLOK"
-    HEADER_SIZE = 24
-    BLOCK_HEADER_SIZE = 24
-    MAX_PAYLOAD_SIZE = 16 * 1024 * 1024  # 16 MB allocation cap per block
-
     def parse(self, filename: str, reader: BoundedBinaryReader) -> FileRecoveryResult:
-        file_size = reader.size
-        damages: list[DamageBlock] = []
-        recovered_records: list[RecoveredRecord] = []
-        is_valid_header = False
-        declared_blocks = 0
-        version = None
-
-        # Step 1: Validate Header Size
-        if file_size < self.HEADER_SIZE:
-            damages.append(
-                DamageBlock(
-                    offset=0,
-                    length=file_size,
-                    damage_type=DamageType.TRUNCATION,
-                    description=f"File smaller than minimum LABLOG header ({file_size} < {self.HEADER_SIZE})",
-                )
-            )
+        data = reader.peek_bytes(reader.size)
+        if len(data) < 36:
             return FileRecoveryResult(
                 filename=filename,
                 format_name="LABLOG",
-                file_size=file_size,
-                is_valid_header=False,
-                total_records=0,
-                recovered_records=[],
-                damages=damages,
-                metadata={"status": "truncated_header"},
+                status=OutputStatus.FAILED,
+                damages=[
+                    DamageItem(
+                        kind=DamageKind.TRUNCATED,
+                        offset=0,
+                        detail="Header truncated (less than 36 bytes)",
+                        lossy=True,
+                    )
+                ],
             )
 
-        # Step 2: Read Header
-        try:
-            magic = reader.read_bytes(8)
-            version = reader.read_u16_le()
-            declared_blocks = reader.read_u16_le()
-            header_crc = reader.read_u32_le()
-            created_ts = reader.read_u64_le()
-        except BoundsError as e:
-            damages.append(
-                DamageBlock(
-                    offset=0,
-                    length=reader.position,
-                    damage_type=DamageType.INVALID_HEADER,
-                    description=f"Header read error: {str(e)}",
-                )
-            )
+        magic = data[:4]
+        if magic != b"LLOG":
             return FileRecoveryResult(
                 filename=filename,
                 format_name="LABLOG",
-                file_size=file_size,
-                is_valid_header=False,
-                total_records=0,
-                recovered_records=[],
-                damages=damages,
+                status=OutputStatus.UNRECOGNIZED,
+                damages=[
+                    DamageItem(
+                        kind=DamageKind.HEADER_CHECKSUM,
+                        offset=0,
+                        detail=f"Invalid signature bytes: {magic.hex()}",
+                        lossy=True,
+                    )
+                ],
             )
 
-        if magic != self.MAGIC:
-            damages.append(
-                DamageBlock(
-                    offset=0,
-                    length=8,
-                    damage_type=DamageType.UNKNOWN_SIGNATURE,
-                    description=f"Invalid LABLOG magic bytes: {magic.hex()}",
-                )
+        version = data[4]
+        num_channels = data[5]
+        interval_raw = struct.unpack("<H", data[6:8])[0]
+        sample_interval_ms = interval_raw * 10
+
+        inst_name = data[8:24].rstrip(b"\x00").decode("ascii", errors="replace")
+        start_ts_raw = struct.unpack("<I", data[24:28])[0]
+        
+        # start_time_utc: seconds since 1990-01-01 00:00:00 UTC (unix epoch 631152000)
+        utc_epoch_1990 = 631152000
+        actual_unix_ts = utc_epoch_1990 + start_ts_raw
+        dt = datetime.datetime.fromtimestamp(actual_unix_ts, tz=datetime.timezone.utc)
+        start_time_utc = dt.strftime("%Y-%m-%dT%H:%M:%SZ")
+
+        declared_blocks = struct.unpack("<H", data[28:30])[0]
+
+        ch_offset = 36
+        channels: list[dict[str, Any]] = []
+        ch_calib: list[tuple[float, float]] = []
+
+        if ch_offset + num_channels * 12 > len(data):
+            return FileRecoveryResult(
+                filename=filename,
+                format_name="LABLOG",
+                status=OutputStatus.PARTIAL,
+                damages=[
+                    DamageItem(
+                        kind=DamageKind.TRUNCATED,
+                        offset=ch_offset,
+                        detail="Channels descriptor truncated",
+                        lossy=True,
+                    )
+                ],
             )
-        else:
-            is_valid_header = True
 
-        # Header CRC Check
-        expected_header_crc = zlib.crc32(reader.read_exact(12, 0)) & 0xFFFFFFFF
-        if header_crc != 0 and header_crc != expected_header_crc:
-            damages.append(
-                DamageBlock(
-                    offset=0x0C,
-                    length=4,
-                    damage_type=DamageType.CHECKSUM_MISMATCH,
-                    description=f"Header CRC mismatch: declared 0x{header_crc:08X}, calculated 0x{expected_header_crc:08X}",
-                )
-            )
+        for i in range(num_channels):
+            unit_raw = data[ch_offset:ch_offset+4].rstrip(b"\x00").decode("ascii", errors="replace")
+            slope, = struct.unpack("<f", data[ch_offset+4:ch_offset+8])
+            intercept, = struct.unpack("<f", data[ch_offset+8:ch_offset+12])
+            channels.append({"index": i, "unit": unit_raw})
+            ch_calib.append((slope, intercept))
+            ch_offset += 12
 
-        # Step 3: Iterate Blocks with Damage Isolation & Boundary Resynchronization
-        block_idx = 0
-        while reader.remaining >= self.BLOCK_HEADER_SIZE:
-            block_start = reader.position
+        # 2-byte header CRC16 follows channel definitions
+        offset = ch_offset + 2
 
-            # Verify 'BLOK' sync marker
-            sync = reader.peek_bytes(4)
-            if sync != self.BLOCK_MAGIC:
-                # Malformed frame: attempt resynchronization by scanning forward for next 'BLOK'
-                search_data = reader.peek_bytes(reader.remaining)
-                next_sync_idx = search_data.find(self.BLOCK_MAGIC, 1)
-                if next_sync_idx != -1:
-                    unrec_len = next_sync_idx
+        events: list[dict[str, Any]] = []
+        records: list[dict[str, Any]] = []
+        damages: list[DamageItem] = []
+        status = OutputStatus.OK
+
+        while offset < len(data):
+            if data[offset] != 0xB1:
+                next_b1 = data.find(b"\xB1", offset + 1)
+                if next_b1 != -1:
                     damages.append(
-                        DamageBlock(
-                            offset=block_start,
-                            length=unrec_len,
-                            damage_type=DamageType.CORRUPT_RECORD,
-                            description=f"Malformed block at offset {block_start}: desynchronized {unrec_len} bytes",
+                        DamageItem(
+                            kind=DamageKind.UNPARSED_BYTES,
+                            offset=offset,
+                            detail=f"Desynchronized stream: skipped {next_b1 - offset} bytes",
+                            lossy=True,
                         )
                     )
-                    reader.skip(unrec_len)
-                    continue
+                    status = OutputStatus.PARTIAL
+                    offset = next_b1
                 else:
-                    # No more sync markers found; record remaining bytes as unrecoverable
                     damages.append(
-                        DamageBlock(
-                            offset=block_start,
-                            length=reader.remaining,
-                            damage_type=DamageType.CORRUPT_RECORD,
-                            description=f"Unrecoverable trailing data ({reader.remaining} bytes) without BLOK sync",
+                        DamageItem(
+                            kind=DamageKind.UNPARSED_BYTES,
+                            offset=offset,
+                            detail="Trailing bytes after last block",
+                            lossy=True,
                         )
                     )
-                    reader.skip(reader.remaining)
+                    status = OutputStatus.PARTIAL
                     break
 
-            # Read Block Frame Header
-            try:
-                _sync = reader.read_bytes(4)
-                seq_id = reader.read_u32_le()
-                blk_type = reader.read_u16_le()
-                flags = reader.read_u16_le()
-                payload_len = reader.read_u32_le()
-                declared_crc = reader.read_u32_le()
-                timestamp = reader.read_u32_le()
-            except (BoundsError, TruncationError) as e:
+            if offset + 4 > len(data):
                 damages.append(
-                    DamageBlock(
-                        offset=block_start,
-                        length=reader.remaining,
-                        damage_type=DamageType.TRUNCATION,
-                        description=f"Truncated block header: {str(e)}",
+                    DamageItem(
+                        kind=DamageKind.TRUNCATED,
+                        offset=offset,
+                        detail="Truncated block header",
+                        lossy=True,
                     )
                 )
+                status = OutputStatus.PARTIAL
                 break
 
-            # Validate declared payload length against defensive limits
-            if payload_len > self.MAX_PAYLOAD_SIZE:
-                damages.append(
-                    DamageBlock(
-                        offset=block_start + 12,
-                        length=4,
-                        damage_type=DamageType.INVALID_HEADER,
-                        description=f"Block {seq_id} payload length {payload_len} exceeds maximum allocation cap",
-                    )
-                )
-                # Resync to next block
-                continue
+            b_type = data[offset+1]
+            b_len = struct.unpack("<H", data[offset+2:offset+4])[0]
+            block_end = offset + 4 + b_len + 2  # +2 for CRC16
 
-            # Check if payload is truncated
-            if reader.remaining < payload_len:
-                avail = reader.remaining
-                partial_payload = reader.read_bytes(avail)
+            if block_end > len(data):
                 damages.append(
-                    DamageBlock(
-                        offset=reader.position - avail,
-                        length=avail,
-                        damage_type=DamageType.TRUNCATION,
-                        description=f"Block {seq_id} payload truncated (expected {payload_len}, got {avail})",
+                    DamageItem(
+                        kind=DamageKind.TRUNCATED,
+                        offset=offset,
+                        detail="Truncated block payload",
+                        lossy=True,
                     )
                 )
-                recovered_records.append(
-                    RecoveredRecord(
-                        record_id=seq_id,
-                        status=RecordStatus.PARTIAL,
-                        byte_range=(block_start, reader.position),
-                        fields={
-                            "block_type": blk_type,
-                            "flags": flags,
-                            "timestamp": timestamp,
-                            "payload_text": partial_payload.decode("utf-8", errors="replace"),
-                            "declared_len": payload_len,
-                            "actual_len": avail,
-                        },
-                        errors=["Truncated payload"],
-                    )
-                )
+                status = OutputStatus.PARTIAL
                 break
 
-            # Read full payload and verify Checksum
-            payload_bytes = reader.read_bytes(payload_len)
-            calc_crc = zlib.crc32(payload_bytes) & 0xFFFFFFFF
-            block_end = reader.position
+            if b_type == 1:  # DATA
+                start_sample = struct.unpack("<H", data[offset+4:offset+6])[0]
+                count = data[offset+6]
+                raw_idx = offset + 7
+                for s_idx in range(count):
+                    curr_sample = start_sample + s_idx
+                    curr_time_ms = curr_sample * sample_interval_ms
+                    vals: list[float | None] = []
+                    for c in range(num_channels):
+                        if raw_idx + 2 <= len(data):
+                            raw_v = struct.unpack("<h", data[raw_idx:raw_idx+2])[0]
+                            raw_idx += 2
+                            if raw_v == -32768 or raw_v == 32767:
+                                vals.append(None)
+                            else:
+                                slp, inter = ch_calib[c]
+                                vals.append(round(raw_v * slp + inter, 4))
+                        else:
+                            vals.append(None)
+                    records.append({
+                        "sample": curr_sample,
+                        "time_ms": curr_time_ms,
+                        "values": vals,
+                    })
+            elif b_type == 2:  # EVENT
+                ev_sample = struct.unpack("<H", data[offset+4:offset+6])[0]
+                ev_sev = data[offset+6]
+                ev_msg_len = data[offset+7]
+                ev_msg = data[offset+8:offset+8+ev_msg_len].decode("ascii", errors="replace")
+                events.append({
+                    "sample": ev_sample,
+                    "severity": ev_sev,
+                    "message": ev_msg,
+                })
 
-            errors = []
-            rec_status = RecordStatus.COMPLETE
-            if declared_crc != 0 and declared_crc != calc_crc:
-                rec_status = RecordStatus.CORRUPTED
-                err_msg = f"Block {seq_id} CRC mismatch (declared 0x{declared_crc:08X}, calculated 0x{calc_crc:08X})"
-                errors.append(err_msg)
-                damages.append(
-                    DamageBlock(
-                        offset=block_start + 16,
-                        length=4,
-                        damage_type=DamageType.CHECKSUM_MISMATCH,
-                        description=err_msg,
-                    )
-                )
+            offset = block_end
 
-            recovered_records.append(
-                RecoveredRecord(
-                    record_id=seq_id,
-                    status=rec_status,
-                    byte_range=(block_start, block_end),
-                    fields={
-                        "block_type": blk_type,
-                        "flags": flags,
-                        "timestamp": timestamp,
-                        "payload_text": payload_bytes.decode("utf-8", errors="replace"),
-                        "payload_len": payload_len,
-                    },
-                    errors=errors,
-                )
-            )
-            block_idx += 1
-
-        # Check for unaligned trailing bytes
-        if reader.remaining > 0:
-            damages.append(
-                DamageBlock(
-                    offset=reader.position,
-                    length=reader.remaining,
-                    damage_type=DamageType.TRUNCATION,
-                    description=f"Trailing unparsed bytes at end of LABLOG ({reader.remaining} bytes)",
-                )
-            )
+        metadata = {
+            "version": version,
+            "instrument": inst_name,
+            "sample_interval_ms": sample_interval_ms,
+            "channels": channels,
+            "start_time_utc": start_time_utc,
+            "declared_block_count": declared_blocks,
+            "events": events,
+        }
 
         return FileRecoveryResult(
             filename=filename,
             format_name="LABLOG",
-            file_size=file_size,
-            is_valid_header=is_valid_header,
-            total_records=declared_blocks,
-            recovered_records=recovered_records,
+            status=status,
+            metadata=metadata,
+            records=records,
             damages=damages,
-            metadata={
-                "version": version if is_valid_header else None,
-                "created_timestamp": created_ts if is_valid_header else None,
-            },
         )

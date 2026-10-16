@@ -1,10 +1,10 @@
-"""Recovery pipeline orchestrator."""
+"""Recovery pipeline orchestrator conforming to OUTPUT-CONTRACT.md."""
 
 from __future__ import annotations
 from pathlib import Path
 from src.reader import BoundedBinaryReader
 from src.detector import FormatDetector
-from src.models import FileRecoveryResult
+from src.models import FileRecoveryResult, OutputStatus, DamageItem, DamageKind
 from src.formats.base import BaseParser
 from src.formats.unknown import UnknownParser
 from src.formats.libra98 import Libra98Parser
@@ -12,6 +12,11 @@ from src.formats.lablog import LablogParser
 from src.formats.vault import VaultParser
 from src.formats.pak import PakParser
 from src.formats.wks import WksParser
+from src.formats.wpd import WpdParser
+from src.formats.bravo import BravoParser
+from src.formats.cvt import CvtParser
+from src.formats.ebcdic import EbcdicDumpParser
+from src.formats.wad import WadParser
 
 class SalvageEngine:
     """Coordinates reading, detection, parsing, and recovery."""
@@ -25,6 +30,11 @@ class SalvageEngine:
             "VAULT": VaultParser(),
             "PAK": PakParser(),
             "WKS": WksParser(),
+            "WPD": WpdParser(),
+            "BRAVO": BravoParser(),
+            "CVT": CvtParser(),
+            "EBCDIC-DUMP": EbcdicDumpParser(),
+            "WAD": WadParser(),
         }
 
     def register_parser(self, format_name: str, parser: BaseParser) -> None:
@@ -43,20 +53,16 @@ class SalvageEngine:
                 data = f.read()
             return self.process_bytes(filename, data)
         except Exception as e:
-            # Defensive catch-all to guarantee execution never crashes on bad I/O
-            from src.models import DamageBlock, DamageType
             return FileRecoveryResult(
                 filename=filename,
-                format_name="ERROR",
-                file_size=0,
-                is_valid_header=False,
-                total_records=0,
+                format_name="UNKNOWN",
+                status=OutputStatus.FAILED,
                 damages=[
-                    DamageBlock(
+                    DamageItem(
+                        kind=DamageKind.TRUNCATED,
                         offset=0,
-                        length=0,
-                        damage_type=DamageType.TRUNCATION,
-                        description=f"File read error: {str(e)}",
+                        detail=f"File read error: {str(e)}",
+                        lossy=True,
                     )
                 ],
                 metadata={"error": str(e)},

@@ -1,2 +1,4 @@
 #!/usr/bin/env sh
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+export PYTHONPATH="$SCRIPT_DIR:$PYTHONPATH"
 exec python3 -m src.cli "$@"

@@ -46,9 +46,9 @@ class TestRobustnessAndResourceLimits(unittest.TestCase):
     def test_truncated_headers_and_records(self):
         """Truncated headers that end right after magic bytes."""
         samples = {
-            "LIBRA-98": b"LIBRA98\x00\x01",
-            "LABLOG": b"LABLOG\x01\x00\x01",
-            "VAULT": b"VAULT\x01\x00\x00\x01",
+            "LIBRA-98": b"LB98\x01",
+            "LABLOG": b"LLOG\x01",
+            "VAULT": b"VLT1\x01",
             "PAK": b"PACK\x04\x00",
             "WKS": b"\x00\x00\x02",
         }
@@ -60,8 +60,8 @@ class TestRobustnessAndResourceLimits(unittest.TestCase):
 
     def test_invalid_counts_and_offsets(self):
         """Invalid counts (0xFFFFFFFF) and huge offsets must not trigger memory bombs or freezes."""
-        # LIBRA-98: 0xFFFFFFFF records
-        lib_data = struct.pack("<8sHHIIII4s", b"LIBRA98\x00", 1, 0, 32, 0xFFFFFFFF, 48, 0, b"\x00"*4)
+        # LIBRA-98: huge declared record count
+        lib_data = struct.pack("<4sHHHHHH", b"LB98", 1, 0xFFFF, 0, 0, 16, 1)
         res_lib = self.parsers["LIBRA-98"].parse("huge_count.lib", BoundedBinaryReader(lib_data))
         self.assertEqual(len(res_lib.recovered_records), 0)
 
@@ -71,7 +71,7 @@ class TestRobustnessAndResourceLimits(unittest.TestCase):
         self.assertTrue(any(d.damage_type == DamageType.MALFORMED_OFFSET for d in res_pak.damages))
 
         # VAULT: 0xFFFFFFFF index offset
-        vault_data = struct.pack("<8sHHIIII4s", b"VAULT\x01\x00\x00", 1, 0, 10, 0xFFFFFFFF, 48, 0, b"\x00"*4)
+        vault_data = struct.pack("<4sHHHHI", b"VLT1", 1, 0x5A, 0, 0, 0xFFFFFFFF)
         res_vault = self.parsers["VAULT"].parse("huge_idx.vlt", BoundedBinaryReader(vault_data))
         self.assertTrue(any(d.damage_type == DamageType.MALFORMED_OFFSET for d in res_vault.damages))
 

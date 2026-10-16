@@ -1,66 +1,31 @@
 {
+  "source_file": "03_valid.vlt",
   "file": "03_valid.vlt",
   "format": "VAULT",
-  "file_size": 262,
-  "is_valid_header": true,
-  "total_records_recovered": 3,
-  "total_declared_records": 3,
+  "status": "ok",
+  "metadata": {
+    "entry_count": 2,
+    "xor_key": 66,
+    "flags": 0
+  },
   "records": [
     {
       "id": 1,
-      "status": "complete",
-      "byte_range": [
-        32,
-        56
-      ],
-      "data": {
-        "name": "manifest.txt",
-        "stored_size": 24,
-        "decoded_size": 24,
-        "flags": 4,
-        "is_rle_compressed": false,
-        "is_xor_obfuscated": false,
-        "text": "VAULT demo manifest v1.0"
-      }
+      "name": "manifest.txt",
+      "type": "text",
+      "size": 46,
+      "sha256": "5705dd67abc005ad38be77037c8bcf483128790384bf8efdf41ba9eeceefea8e",
+      "compressed": false,
+      "text": "VAULT demo manifest v1.0: All records secured."
     },
     {
       "id": 2,
-      "status": "complete",
-      "byte_range": [
-        56,
-        88
-      ],
-      "data": {
-        "name": "compressed_table.dat",
-        "stored_size": 32,
-        "decoded_size": 80,
-        "flags": 5,
-        "is_rle_compressed": true,
-        "is_xor_obfuscated": false,
-        "text": "AAAAABBBBBCCCCCDDDDDAAAAABBBBBCCCCCDDDDDAAAAABBBBBCCCCCDDDDDAAAAABBBBBCCCCCDDDDD"
-      }
-    },
-    {
-      "id": 3,
-      "status": "complete",
-      "byte_range": [
-        88,
-        118
-      ],
-      "data": {
-        "name": "secured_token.key",
-        "stored_size": 30,
-        "decoded_size": 30,
-        "flags": 6,
-        "is_rle_compressed": false,
-        "is_xor_obfuscated": true,
-        "text": "SECRET_AUTHENTICATION_KEY_9921"
-      }
+      "name": "payload.bin",
+      "type": "binary",
+      "size": 64,
+      "sha256": "e30c2f676ab475f2de4fb3f50060984bb43b4650c12c601813f1708bce68646e",
+      "compressed": false
     }
   ],
-  "damages": [],
-  "metadata": {
-    "index_offset": 118,
-    "entry_count": 3
-  }
+  "damage": []
 }

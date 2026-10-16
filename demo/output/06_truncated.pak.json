@@ -1,37 +1,27 @@
 {
+  "source_file": "06_truncated.pak",
   "file": "06_truncated.pak",
   "format": "PAK",
-  "file_size": 143,
-  "is_valid_header": true,
-  "total_records_recovered": 1,
-  "total_declared_records": 1,
+  "status": "partial",
+  "metadata": {
+    "dir_offset": 60,
+    "dir_length": 128,
+    "file_count": 2
+  },
   "records": [
     {
-      "id": 0,
-      "status": "complete",
-      "byte_range": [
-        12,
-        35
-      ],
-      "data": {
-        "name": "textures/wall.wal",
-        "raw_name": "textures/wall.wal",
-        "offset": 12,
-        "size": 23
-      }
+      "name": "maps/demo.bsp",
+      "offset": 12,
+      "size": 28,
+      "sha256": "33aa5cae909e33b9fd305d4a071f58abbded950a075580e935ee5f71be5b9684"
     }
   ],
-  "damages": [
+  "damage": [
     {
-      "offset": 55,
-      "length": 88,
-      "type": "truncation",
-      "description": "Directory extends beyond end of file (183 > 143)"
+      "kind": "truncated",
+      "offset": 60,
+      "detail": "PAK directory table out of bounds or truncated",
+      "lossy": true
     }
-  ],
-  "metadata": {
-    "directory_offset": 55,
-    "directory_length": 88,
-    "total_entries": 1
-  }
+  ]
 }
