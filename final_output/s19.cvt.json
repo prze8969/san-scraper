@@ -1,0 +1,31 @@
+{
+  "source_file": "s19.cvt",
+  "file": "s19.cvt",
+  "format": "CVT",
+  "status": "ok",
+  "metadata": {
+    "name": "Packed data",
+    "structure": "vlir",
+    "geos_type": 7,
+    "modified": "2001-03-25T18:22",
+    "class_name": "Data File",
+    "author": "S. Sam",
+    "description": "Memo scrap",
+    "declared_blocks": 6
+  },
+  "records": [
+    {
+      "slot": 0,
+      "text": "First record, short."
+    },
+    {
+      "slot": 2,
+      "text": "Second record fills exactly one block. Second record fills exactly one block. Second record fills exactly one block. Second record fills exactly one block. Second record fills exactly one block. Second record fills exactly one block. Second record fills "
+    },
+    {
+      "slot": 3,
+      "text": "Third spans two blocks. Third spans two blocks. Third spans two blocks. Third spans two blocks. Third spans two blocks. Third spans two blocks. Third spans two blocks. Third spans two blocks. Third spans two blocks. Third spans two blocks. Third spans two blocks. Third spans two blocks. Third spans "
+    }
+  ],
+  "damage": []
+}

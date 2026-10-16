@@ -1,0 +1,63 @@
+{
+  "source_file": "s23.wad",
+  "file": "s23.wad",
+  "format": "WAD",
+  "status": "ok",
+  "metadata": {
+    "type": "PWAD",
+    "num_lumps": 7,
+    "directory_offset": 214
+  },
+  "records": [
+    {
+      "name": "F_START",
+      "offset": 0,
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "id": 0
+    },
+    {
+      "name": "FLOOR0_1",
+      "offset": 12,
+      "size": 64,
+      "sha256": "a3426a3b40dec3f5224ec394b3c5c0707b3a62da09cd1d886989e974ef2e99b9",
+      "id": 1
+    },
+    {
+      "name": "F_END",
+      "offset": 0,
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "id": 2
+    },
+    {
+      "name": "MAP01",
+      "offset": 0,
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "id": 3
+    },
+    {
+      "name": "SEGS",
+      "offset": 76,
+      "size": 40,
+      "sha256": "8c18dca18bbfa7fcb75217e0ffb3feb9866099615142d99d5e04aa1b5b8701d4",
+      "id": 4
+    },
+    {
+      "name": "TEXTURE1",
+      "offset": 116,
+      "size": 90,
+      "sha256": "404628d384a646037ca8cd50475b795d89d36b9a572d2fd6a5a31cbfd743e1aa",
+      "id": 5
+    },
+    {
+      "name": "DEMO1234",
+      "offset": 206,
+      "size": 8,
+      "sha256": "846ae7eb18e92a0a9abdcdc0e85f97a4123497b54f09beaf773a74158f5cadc3",
+      "id": 6
+    }
+  ],
+  "damage": []
+}

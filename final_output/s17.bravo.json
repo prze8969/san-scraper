@@ -1,0 +1,42 @@
+{
+  "source_file": "s17.bravo",
+  "file": "s17.bravo",
+  "format": "BRAVO",
+  "status": "ok",
+  "metadata": {
+    "paragraph_count": 4,
+    "format_runs": [
+      {
+        "start": 3072,
+        "length": 2304,
+        "looks": [],
+        "font": 8
+      },
+      {
+        "start": 2,
+        "length": 10752,
+        "looks": [],
+        "font": 8
+      }
+    ]
+  },
+  "records": [
+    {
+      "index": 0,
+      "text": "Subject: Ethernet test"
+    },
+    {
+      "index": 1,
+      "text": "Throughput reached 2.9 Mbps on the long segment."
+    },
+    {
+      "index": 2,
+      "text": "Collisions stayed below one percent."
+    },
+    {
+      "index": 3,
+      "text": "Signed, the lab."
+    }
+  ],
+  "damage": []
+}

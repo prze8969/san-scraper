@@ -5,9 +5,13 @@ __pycache__/
 .pytest_cache/
 
 # Local build / run outputs
+sample_data/
+samples/
+output_neww/
 my_output/
 official_output/
 arbitrary_output/
+output/
 
 # OS artifacts
 .DS_Store

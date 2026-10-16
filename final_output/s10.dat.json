@@ -1,0 +1,39 @@
+{
+  "source_file": "s10.dat",
+  "file": "s10.dat",
+  "format": "VAULT",
+  "status": "ok",
+  "metadata": {
+    "entry_count": 3,
+    "xor_key": 248,
+    "flags": 0
+  },
+  "records": [
+    {
+      "id": 6146,
+      "name": "report.txt",
+      "type": "text",
+      "size": 147,
+      "sha256": "daabc51ca47b04275a034365a6b7be7a49de9f7c1a15c713002c0a79bf90bc90",
+      "compressed": true,
+      "text": "Grade report - Term 3\n----------------------------------------\nMath      A\nPhysics   B+\nHistory   A-\n                              Signed: A. Khan\n"
+    },
+    {
+      "id": 6149,
+      "name": "sensor.bin",
+      "type": "binary",
+      "size": 24,
+      "sha256": "73969dd421999c45606672d2f2a76abc3b45d7db83374934d406f604977ac88b",
+      "compressed": false
+    },
+    {
+      "id": 6152,
+      "name": "icon.bmp8",
+      "type": "bitmap",
+      "size": 66,
+      "sha256": "b7eef1c061081a6739b99643d87ada5e685b4f5fbf05e7d22537b504c002060d",
+      "compressed": true
+    }
+  ],
+  "damage": []
+}

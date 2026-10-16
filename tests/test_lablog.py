@@ -23,22 +23,36 @@ def build_real_lablog(
     start_ts_raw = 100000000 # offset from 1990 epoch
     declared_blocks = 1 + (1 if events else 0)
 
-    hdr_fixed = (
+    def calc_crc(buf: bytes) -> bytes:
+        crc = 0xFFFF
+        for b in buf:
+            crc ^= (b << 8)
+            for _ in range(8):
+                if crc & 0x8000:
+                    crc = ((crc << 1) ^ 0x1021) & 0xFFFF
+                else:
+                    crc = (crc << 1) & 0xFFFF
+        return struct.pack("<H", crc)
+
+    hdr_fixed_30 = (
         magic
         + bytes([version, num_channels])
         + struct.pack("<H", interval_raw)
         + inst_name
         + struct.pack("<IH", start_ts_raw, declared_blocks)
-        + b"\x00" * 6 # pad to 36 bytes
     )
+    hdr_crc = calc_crc(hdr_fixed_30)
 
     ch_bytes = bytearray()
     for unit, slope, intercept in channels:
         ch_bytes.extend(unit.encode("ascii")[:4].ljust(4, b"\x00"))
         ch_bytes.extend(struct.pack("<ff", slope, intercept))
 
-    hdr_crc = b"\x00\x00"
-    header = hdr_fixed + ch_bytes + hdr_crc
+    # Channels block: 0xB1 + 0x03 + len + ch_bytes + crc
+    ch_block_body = bytes([3]) + struct.pack("<H", len(ch_bytes)) + ch_bytes
+    ch_block = bytes([0xB1]) + ch_block_body + calc_crc(ch_block_body)
+
+    header = hdr_fixed_30 + hdr_crc + ch_block
 
     body = bytearray()
     if inject_unparsed:
@@ -54,7 +68,8 @@ def build_real_lablog(
                 raw_payload.extend(struct.pack("<h", val))
         
         b_len = len(raw_payload)
-        blk = bytearray([0xB1, 1]) + struct.pack("<H", b_len) + raw_payload + b"\x00\x00"
+        blk_body = bytes([1]) + struct.pack("<H", b_len) + raw_payload
+        blk = bytes([0xB1]) + blk_body + calc_crc(blk_body)
         body.extend(blk)
 
     # 2. Event Block
@@ -63,7 +78,8 @@ def build_real_lablog(
             msg_bytes = ev_msg.encode("ascii")
             ev_payload = struct.pack("<HBB", ev_sample, ev_sev, len(msg_bytes)) + msg_bytes
             b_len = len(ev_payload)
-            blk = bytearray([0xB1, 2]) + struct.pack("<H", b_len) + ev_payload + b"\x00\x00"
+            blk_body = bytes([2]) + struct.pack("<H", b_len) + ev_payload
+            blk = bytes([0xB1]) + blk_body + calc_crc(blk_body)
             body.extend(blk)
 
     full_data = header + body

@@ -1,0 +1,42 @@
+{
+  "source_file": "s15.wpd",
+  "file": "s15.wpd",
+  "format": "WPD",
+  "status": "partial",
+  "metadata": {
+    "version": "2.0",
+    "product_type": 1,
+    "file_type": 10,
+    "encrypted": false
+  },
+  "records": [
+    {
+      "index": 0,
+      "type": "paragraph",
+      "text": "MEMORANDUM"
+    },
+    {
+      "index": 1,
+      "type": "paragraph",
+      "text": "To: All staff"
+    },
+    {
+      "index": 2,
+      "type": "paragraph",
+      "text": "Subject: Revised filing deadline"
+    },
+    {
+      "index": 3,
+      "type": "paragraph",
+      "text": "Please note: deadline"
+    }
+  ],
+  "damage": [
+    {
+      "kind": "truncated",
+      "offset": 136,
+      "detail": "File appears truncated before document end",
+      "lossy": true
+    }
+  ]
+}

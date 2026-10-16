@@ -1,0 +1,39 @@
+{
+  "source_file": "s09.dat",
+  "file": "s09.dat",
+  "format": "VAULT",
+  "status": "ok",
+  "metadata": {
+    "entry_count": 3,
+    "xor_key": 252,
+    "flags": 0
+  },
+  "records": [
+    {
+      "id": 37327,
+      "name": "edge.bin",
+      "type": "binary",
+      "size": 822,
+      "sha256": "50413e06022decd98ab6be930744a3f13c52f646de18c6b9a64741489aab033a",
+      "compressed": true
+    },
+    {
+      "id": 37330,
+      "name": "icon.bmp8",
+      "type": "bitmap",
+      "size": 130,
+      "sha256": "910e2f8c020615b3a2fd7e37b56079f48d992b1ef51ec8b09a6940f0b5964fd0",
+      "compressed": true
+    },
+    {
+      "id": 37333,
+      "name": "unicode.txt",
+      "type": "text",
+      "size": 31,
+      "sha256": "54ba8d1bc872a1b2961868beecb3bac8dfa1cc2ef9600772958657cd6dea8f57",
+      "compressed": false,
+      "text": "M\u00fcller \u2013 Z\u00fcrich \u2713 room 12"
+    }
+  ],
+  "damage": []
+}

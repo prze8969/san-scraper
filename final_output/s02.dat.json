@@ -1,0 +1,108 @@
+{
+  "source_file": "s02.dat",
+  "file": "s02.dat",
+  "format": "LIBRA-98",
+  "status": "ok",
+  "metadata": {
+    "version": 2,
+    "encoding": "cp437",
+    "created": "1999-06-27T10:14:44",
+    "branch_id": 3821,
+    "declared_record_count": 7,
+    "data_offset": 16
+  },
+  "records": [
+    {
+      "id": 1005,
+      "title": "Madame Bovary",
+      "author": "Gustave Flaubert",
+      "year": 1857,
+      "price_cents": 1599,
+      "copies": 4,
+      "isbn": "5676568283",
+      "checked_out": true,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": "1999-06-22"
+    },
+    {
+      "id": 1012,
+      "title": "Jane Eyre",
+      "author": "Charlotte Bront\u00eb",
+      "year": 1847,
+      "price_cents": 1099,
+      "copies": 3,
+      "isbn": "4231233403",
+      "checked_out": false,
+      "deleted": true,
+      "reference_only": false,
+      "due_date": null
+    },
+    {
+      "id": 1018,
+      "title": "Les Mis\u00e9rables",
+      "author": "Victor Hugo",
+      "year": 1862,
+      "price_cents": 1250,
+      "copies": 4,
+      "isbn": "2312715821",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": true,
+      "due_date": null
+    },
+    {
+      "id": 1023,
+      "title": "G\u00f6tterd\u00e4mmerung",
+      "author": "",
+      "year": 1876,
+      "price_cents": 1250,
+      "copies": 4,
+      "isbn": "6584719308",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": null
+    },
+    {
+      "id": 1030,
+      "title": "Faust: Der Trag\u00f6die erster Teil",
+      "author": "Johann Wolfgang von Goethe",
+      "year": 1808,
+      "price_cents": 1250,
+      "copies": 3,
+      "isbn": "5631110296",
+      "checked_out": true,
+      "deleted": true,
+      "reference_only": false,
+      "due_date": "1999-06-05"
+    },
+    {
+      "id": 1039,
+      "title": "Walden",
+      "author": "Henry David Thoreau",
+      "year": 1854,
+      "price_cents": 2000,
+      "copies": 1,
+      "isbn": "0340280875",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": null
+    },
+    {
+      "id": 1042,
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "year": 1866,
+      "price_cents": 1099,
+      "copies": 2,
+      "isbn": "4246240907",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": null
+    }
+  ],
+  "damage": []
+}

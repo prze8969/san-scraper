@@ -1,0 +1,47 @@
+{
+  "source_file": "s16.bravo",
+  "file": "s16.bravo",
+  "format": "BRAVO",
+  "status": "ok",
+  "metadata": {
+    "paragraph_count": 4,
+    "format_runs": [
+      {
+        "start": 0,
+        "length": 6,
+        "looks": [
+          "underline"
+        ],
+        "font": 0
+      },
+      {
+        "start": 522,
+        "length": 0,
+        "looks": [
+          "bold",
+          "italic"
+        ],
+        "font": 0
+      }
+    ]
+  },
+  "records": [
+    {
+      "index": 0,
+      "text": "To: Alto users"
+    },
+    {
+      "index": 1,
+      "text": "From: Documentation"
+    },
+    {
+      "index": 2,
+      "text": "The new editor supports looks. Bold and italic runs are stored after the text."
+    },
+    {
+      "index": 3,
+      "text": "End of memo."
+    }
+  ],
+  "damage": []
+}

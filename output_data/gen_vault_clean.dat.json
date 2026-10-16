@@ -1,0 +1,22 @@
+{
+  "source_file": "gen_vault_clean.dat",
+  "file": "gen_vault_clean.dat",
+  "format": "VAULT",
+  "status": "ok",
+  "metadata": {
+    "entry_count": 1,
+    "xor_key": 0,
+    "flags": 16
+  },
+  "records": [
+    {
+      "id": 101,
+      "name": "LU3\u0002\u0004\u0005\u0006\u0007\b\u0019\n\u000b\f\r\u000e\u000f\u0010yw\u007fxz6`wkv\u007f\u0014i{lT\u000fV[P",
+      "type": "bitmap",
+      "size": 11,
+      "sha256": "b25625816746122f61be133defe0920e25776cfe673ec07e9ee0ebea4add2dfa",
+      "compressed": false
+    }
+  ],
+  "damage": []
+}

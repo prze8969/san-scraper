@@ -1,0 +1,42 @@
+{
+  "source_file": "gen_lablog_resync.dat",
+  "file": "gen_lablog_resync.dat",
+  "format": "LABLOG",
+  "status": "partial",
+  "metadata": {
+    "version": 1,
+    "instrument": "TEST LOGGER",
+    "sample_interval_ms": 500,
+    "channels": [
+      {
+        "index": 0,
+        "unit": "mV"
+      },
+      {
+        "index": 1,
+        "unit": "ppm"
+      }
+    ],
+    "start_time_utc": "1992-10-10T21:20:00Z",
+    "declared_block_count": 1,
+    "events": []
+  },
+  "records": [
+    {
+      "sample": 0,
+      "time_ms": 0,
+      "values": [
+        100.0,
+        110.0
+      ]
+    }
+  ],
+  "damage": [
+    {
+      "kind": "unparsed_bytes",
+      "offset": 62,
+      "detail": "Desynchronized stream: skipped 34 bytes",
+      "lossy": true
+    }
+  ]
+}

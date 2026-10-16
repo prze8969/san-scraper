@@ -1,0 +1,301 @@
+{
+  "source_file": "s07.dat",
+  "file": "s07.dat",
+  "format": "LABLOG",
+  "status": "partial",
+  "metadata": {
+    "version": 1,
+    "instrument": "FLOWCELL-2",
+    "sample_interval_ms": 250,
+    "channels": [
+      {
+        "index": 0,
+        "unit": "mV"
+      },
+      {
+        "index": 1,
+        "unit": "kPa"
+      },
+      {
+        "index": 2,
+        "unit": "degC"
+      }
+    ],
+    "start_time_utc": "1994-04-02T21:02:06Z",
+    "declared_block_count": 8,
+    "events": [
+      {
+        "sample": 8,
+        "severity": 0,
+        "message": "Operator note"
+      },
+      {
+        "sample": 19,
+        "severity": 0,
+        "message": "Purge complete"
+      }
+    ]
+  },
+  "records": [
+    {
+      "sample": 0,
+      "time_ms": 0,
+      "values": [
+        11.0625,
+        97.25,
+        -152.5
+      ]
+    },
+    {
+      "sample": 1,
+      "time_ms": 250,
+      "values": [
+        80.625,
+        97.0,
+        -150.0
+      ]
+    },
+    {
+      "sample": 2,
+      "time_ms": 500,
+      "values": [
+        81.125,
+        98.375,
+        -138.0
+      ]
+    },
+    {
+      "sample": 3,
+      "time_ms": 750,
+      "values": [
+        80.9375,
+        97.25,
+        -135.0
+      ]
+    },
+    {
+      "sample": 4,
+      "time_ms": 1000,
+      "values": [
+        79.625,
+        97.6875,
+        -136.5
+      ]
+    },
+    {
+      "sample": 5,
+      "time_ms": 1250,
+      "values": [
+        78.1875,
+        98.875,
+        -138.5
+      ]
+    },
+    {
+      "sample": 6,
+      "time_ms": 1500,
+      "values": [
+        79.3125,
+        98.4375,
+        -136.0
+      ]
+    },
+    {
+      "sample": 7,
+      "time_ms": 1750,
+      "values": [
+        78.125,
+        99.5625,
+        -141.5
+      ]
+    },
+    {
+      "sample": 8,
+      "time_ms": 2000,
+      "values": [
+        77.625,
+        98.3125,
+        -143.0
+      ]
+    },
+    {
+      "sample": 9,
+      "time_ms": 2250,
+      "values": [
+        78.3125,
+        99.5,
+        -152.5
+      ]
+    },
+    {
+      "sample": 10,
+      "time_ms": 2500,
+      "values": [
+        78.6875,
+        98.5,
+        -165.0
+      ]
+    },
+    {
+      "sample": 11,
+      "time_ms": 2750,
+      "values": [
+        80.0625,
+        97.75,
+        -173.0
+      ]
+    },
+    {
+      "sample": 12,
+      "time_ms": 3000,
+      "values": [
+        80.125,
+        98.0,
+        -181.0
+      ]
+    },
+    {
+      "sample": 13,
+      "time_ms": 3250,
+      "values": [
+        80.875,
+        99.0,
+        -171.5
+      ]
+    },
+    {
+      "sample": 14,
+      "time_ms": 3500,
+      "values": [
+        82.375,
+        98.3125,
+        -159.5
+      ]
+    },
+    {
+      "sample": 15,
+      "time_ms": 3750,
+      "values": [
+        83.1875,
+        98.0625,
+        -159.5
+      ]
+    },
+    {
+      "sample": 16,
+      "time_ms": 4000,
+      "values": [
+        81.875,
+        96.75,
+        -169.5
+      ]
+    },
+    {
+      "sample": 17,
+      "time_ms": 4250,
+      "values": [
+        80.875,
+        95.1875,
+        -173.5
+      ]
+    },
+    {
+      "sample": 18,
+      "time_ms": 4500,
+      "values": [
+        80.25,
+        94.875,
+        -166.5
+      ]
+    },
+    {
+      "sample": 19,
+      "time_ms": 4750,
+      "values": [
+        80.5625,
+        96.375,
+        -171.5
+      ]
+    },
+    {
+      "sample": 20,
+      "time_ms": 5000,
+      "values": [
+        79.375,
+        97.5625,
+        -177.0
+      ]
+    },
+    {
+      "sample": 21,
+      "time_ms": 5250,
+      "values": [
+        80.6875,
+        99.125,
+        -164.5
+      ]
+    },
+    {
+      "sample": 22,
+      "time_ms": 5500,
+      "values": [
+        81.5,
+        97.5625,
+        -159.0
+      ]
+    },
+    {
+      "sample": 23,
+      "time_ms": 5750,
+      "values": [
+        80.5625,
+        97.1875,
+        -156.5
+      ]
+    },
+    {
+      "sample": 24,
+      "time_ms": 6000,
+      "values": [
+        81.9375,
+        95.75,
+        -163.5
+      ]
+    },
+    {
+      "sample": 25,
+      "time_ms": 6250,
+      "values": [
+        81.8125,
+        94.1875,
+        -175.5
+      ]
+    },
+    {
+      "sample": 26,
+      "time_ms": 6500,
+      "values": [
+        80.8125,
+        94.6875,
+        -182.0
+      ]
+    },
+    {
+      "sample": 27,
+      "time_ms": 6750,
+      "values": [
+        81.5,
+        93.625,
+        -10152.0
+      ]
+    }
+  ],
+  "damage": [
+    {
+      "kind": "crc_mismatch",
+      "offset": 212,
+      "detail": "Block at offset 169 CRC mismatch: stored=0x97b2, calculated=0xc4cb",
+      "lossy": true
+    }
+  ]
+}

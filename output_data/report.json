@@ -1,0 +1,126 @@
+{
+  "tool_version": "1.0.0",
+  "run_timestamp": "2026-10-16T17:34:13.943211+00:00",
+  "total_files_processed": 10,
+  "files": [
+    {
+      "file": "gen_empty.dat",
+      "format": "UNKNOWN",
+      "status": "ok",
+      "records": 0,
+      "damage": 0,
+      "records_recovered": 0,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "gen_garbage.bin",
+      "format": "UNKNOWN",
+      "status": "unrecognized",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": false
+    },
+    {
+      "file": "gen_lablog_clean.dat",
+      "format": "LABLOG",
+      "status": "ok",
+      "records": 1,
+      "damage": 0,
+      "records_recovered": 1,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "gen_lablog_resync.dat",
+      "format": "LABLOG",
+      "status": "partial",
+      "records": 1,
+      "damage": 1,
+      "records_recovered": 1,
+      "damage_count": 1,
+      "is_valid_header": true
+    },
+    {
+      "file": "gen_libra_clean.dat",
+      "format": "LIBRA-98",
+      "status": "ok",
+      "records": 1,
+      "damage": 0,
+      "records_recovered": 1,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "gen_libra_truncated.dat",
+      "format": "LIBRA-98",
+      "status": "partial",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": true
+    },
+    {
+      "file": "gen_pak.pak",
+      "format": "PAK",
+      "status": "partial",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": true
+    },
+    {
+      "file": "gen_vault_clean.dat",
+      "format": "VAULT",
+      "status": "ok",
+      "records": 1,
+      "damage": 0,
+      "records_recovered": 1,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "gen_wad.wad",
+      "format": "WAD",
+      "status": "partial",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": true
+    },
+    {
+      "file": "gen_wks.wks",
+      "format": "WKS",
+      "status": "ok",
+      "records": 1,
+      "damage": 0,
+      "records_recovered": 1,
+      "damage_count": 0,
+      "is_valid_header": true
+    }
+  ],
+  "totals": {
+    "ok": 5,
+    "partial": 4,
+    "unsupported": 0,
+    "unrecognized": 1,
+    "failed": 0
+  },
+  "summary": {
+    "total_files_processed": 10,
+    "formats": {
+      "UNKNOWN": 2,
+      "LABLOG": 2,
+      "LIBRA-98": 2,
+      "PAK": 1,
+      "VAULT": 1,
+      "WAD": 1,
+      "WKS": 1
+    }
+  }
+}

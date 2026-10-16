@@ -79,7 +79,8 @@ class VaultParser(BaseParser):
             )
 
         entry_count = struct.unpack("<H", data[4:6])[0]
-        xor_key = struct.unpack("<H", data[6:8])[0]
+        # xor_key is an 8-bit byte at offset 6 (with optional flags/version at byte 7)
+        xor_key = data[6]
         flags = struct.unpack("<H", data[10:12])[0]
         index_offset = struct.unpack("<I", data[12:16])[0]
 
@@ -127,7 +128,17 @@ class VaultParser(BaseParser):
             if name_pos >= len(names_raw):
                 name = f"entry_{rec_id}"
             else:
-                n_len = names_raw[name_pos]
+                n_len_raw = names_raw[name_pos]
+                # Determine next entry's name_pos boundary
+                next_pos = len(names_raw) if i == entry_count - 1 else struct.unpack("<I", data[e_off+16+4:e_off+16+8])[0]
+                max_possible_len = max(0, next_pos - (name_pos + 1))
+                # Check if n_len was stored plaintext or obfuscated with xor_key
+                if n_len_raw <= max_possible_len:
+                    n_len = n_len_raw
+                else:
+                    n_len = n_len_raw ^ xor_key
+                    if n_len > max_possible_len:
+                        n_len = max_possible_len
                 enc_name = names_raw[name_pos+1:name_pos+1+n_len]
                 name = bytes([b ^ ((xor_key + j) & 0xFF) for j, b in enumerate(enc_name)]).decode("ascii", errors="replace")
 

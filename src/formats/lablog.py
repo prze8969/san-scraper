@@ -60,6 +60,35 @@ class LablogParser(BaseParser):
 
         declared_blocks = struct.unpack("<H", data[28:30])[0]
 
+        # CRC-16/CCITT-FALSE calculation helper
+        def crc16_ccitt_false(buf: bytes, poly: int = 0x1021, init: int = 0xFFFF) -> int:
+            crc = init
+            for b in buf:
+                crc ^= (b << 8)
+                for _ in range(8):
+                    if crc & 0x8000:
+                        crc = ((crc << 1) ^ poly) & 0xFFFF
+                    else:
+                        crc = (crc << 1) & 0xFFFF
+            return crc
+
+        damages: list[DamageItem] = []
+        status = OutputStatus.OK
+
+        # Verify Header CRC (0..30 verified against uint16 LE at 30..32)
+        stored_hdr_crc = struct.unpack("<H", data[30:32])[0]
+        calc_hdr_crc = crc16_ccitt_false(data[0:30])
+        if stored_hdr_crc != calc_hdr_crc:
+            damages.append(
+                DamageItem(
+                    kind=DamageKind.HEADER_CHECKSUM,
+                    offset=30,
+                    detail=f"Header CRC mismatch: stored=0x{stored_hdr_crc:04x}, calculated=0x{calc_hdr_crc:04x}",
+                    lossy=True,
+                )
+            )
+            status = OutputStatus.PARTIAL
+
         ch_offset = 36
         channels: list[dict[str, Any]] = []
         ch_calib: list[tuple[float, float]] = []
@@ -87,13 +116,26 @@ class LablogParser(BaseParser):
             ch_calib.append((slope, intercept))
             ch_offset += 12
 
-        # 2-byte header CRC16 follows channel definitions
+        # Verify Channels Block (Type 0x03) CRC at ch_offset..ch_offset+2
+        stored_ch_crc = struct.unpack("<H", data[ch_offset:ch_offset+2])[0]
+        # Channels block started at offset 32: sync(1) + type(1) + len(2) + payload(12*num_channels)
+        calc_ch_crc = crc16_ccitt_false(data[33:ch_offset])
+        if stored_ch_crc != calc_ch_crc:
+            damages.append(
+                DamageItem(
+                    kind=DamageKind.CRC_MISMATCH,
+                    offset=ch_offset,
+                    detail=f"Channels block CRC mismatch: stored=0x{stored_ch_crc:04x}, calculated=0x{calc_ch_crc:04x}",
+                    lossy=True,
+                )
+            )
+            status = OutputStatus.PARTIAL
+
+        # First data/event block follows channels CRC
         offset = ch_offset + 2
 
         events: list[dict[str, Any]] = []
         records: list[dict[str, Any]] = []
-        damages: list[DamageItem] = []
-        status = OutputStatus.OK
 
         while offset < len(data):
             if data[offset] != 0xB1:
@@ -148,6 +190,20 @@ class LablogParser(BaseParser):
                 )
                 status = OutputStatus.PARTIAL
                 break
+
+            # Verify Block CRC (over type + len + body, excluding 0xB1 sync)
+            stored_blk_crc = struct.unpack("<H", data[offset+4+b_len:block_end])[0]
+            calc_blk_crc = crc16_ccitt_false(data[offset+1:offset+4+b_len])
+            if stored_blk_crc != calc_blk_crc:
+                damages.append(
+                    DamageItem(
+                        kind=DamageKind.CRC_MISMATCH,
+                        offset=offset+4+b_len,
+                        detail=f"Block at offset {offset} CRC mismatch: stored=0x{stored_blk_crc:04x}, calculated=0x{calc_blk_crc:04x}",
+                        lossy=True,
+                    )
+                )
+                status = OutputStatus.PARTIAL
 
             if b_type == 1:  # DATA
                 start_sample = struct.unpack("<H", data[offset+4:offset+6])[0]

@@ -1,0 +1,20 @@
+{
+  "source_file": "s27_notes.txt",
+  "file": "s27_notes.txt",
+  "format": "UNKNOWN",
+  "status": "unrecognized",
+  "metadata": {
+    "preview_hex": "706c61696e20746578742c206e6f742061206c65676163792066696c650a",
+    "preview_text": "plain text, not a legacy file.",
+    "size": 30
+  },
+  "records": [],
+  "damage": [
+    {
+      "kind": "unknown_record",
+      "offset": 0,
+      "detail": "Unrecognized binary format (magic: 706c61696e207465)",
+      "lossy": true
+    }
+  ]
+}

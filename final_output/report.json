@@ -1,0 +1,330 @@
+{
+  "tool_version": "1.0.0",
+  "run_timestamp": "2026-10-16T17:42:58.142289+00:00",
+  "total_files_processed": 30,
+  "files": [
+    {
+      "file": "s01.dat",
+      "format": "LIBRA-98",
+      "status": "ok",
+      "records": 5,
+      "damage": 0,
+      "records_recovered": 5,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s02.dat",
+      "format": "LIBRA-98",
+      "status": "ok",
+      "records": 7,
+      "damage": 0,
+      "records_recovered": 7,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s03.dat",
+      "format": "LIBRA-98",
+      "status": "ok",
+      "records": 5,
+      "damage": 0,
+      "records_recovered": 5,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s04.dat",
+      "format": "LIBRA-98",
+      "status": "partial",
+      "records": 5,
+      "damage": 1,
+      "records_recovered": 5,
+      "damage_count": 1,
+      "is_valid_header": true
+    },
+    {
+      "file": "s05.dat",
+      "format": "LABLOG",
+      "status": "ok",
+      "records": 22,
+      "damage": 0,
+      "records_recovered": 22,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s06.dat",
+      "format": "LABLOG",
+      "status": "ok",
+      "records": 25,
+      "damage": 0,
+      "records_recovered": 25,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s07.dat",
+      "format": "LABLOG",
+      "status": "partial",
+      "records": 28,
+      "damage": 1,
+      "records_recovered": 28,
+      "damage_count": 1,
+      "is_valid_header": true
+    },
+    {
+      "file": "s08.dat",
+      "format": "VAULT",
+      "status": "ok",
+      "records": 3,
+      "damage": 0,
+      "records_recovered": 3,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s09.dat",
+      "format": "VAULT",
+      "status": "ok",
+      "records": 3,
+      "damage": 0,
+      "records_recovered": 3,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s10.dat",
+      "format": "VAULT",
+      "status": "ok",
+      "records": 3,
+      "damage": 0,
+      "records_recovered": 3,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s11.wks",
+      "format": "WKS",
+      "status": "ok",
+      "records": 20,
+      "damage": 0,
+      "records_recovered": 20,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s12.wks",
+      "format": "WKS",
+      "status": "ok",
+      "records": 10,
+      "damage": 0,
+      "records_recovered": 10,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s13.wks",
+      "format": "WKS",
+      "status": "partial",
+      "records": 18,
+      "damage": 2,
+      "records_recovered": 18,
+      "damage_count": 2,
+      "is_valid_header": true
+    },
+    {
+      "file": "s14.wpd",
+      "format": "WPD",
+      "status": "ok",
+      "records": 6,
+      "damage": 0,
+      "records_recovered": 6,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s15.wpd",
+      "format": "WPD",
+      "status": "partial",
+      "records": 4,
+      "damage": 1,
+      "records_recovered": 4,
+      "damage_count": 1,
+      "is_valid_header": true
+    },
+    {
+      "file": "s16.bravo",
+      "format": "BRAVO",
+      "status": "ok",
+      "records": 4,
+      "damage": 0,
+      "records_recovered": 4,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s17.bravo",
+      "format": "BRAVO",
+      "status": "ok",
+      "records": 4,
+      "damage": 0,
+      "records_recovered": 4,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s18.cvt",
+      "format": "CVT",
+      "status": "ok",
+      "records": 1,
+      "damage": 0,
+      "records_recovered": 1,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s19.cvt",
+      "format": "CVT",
+      "status": "ok",
+      "records": 3,
+      "damage": 0,
+      "records_recovered": 3,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s20.000",
+      "format": "EBCDIC-DUMP",
+      "status": "ok",
+      "records": 5,
+      "damage": 0,
+      "records_recovered": 5,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s21.000",
+      "format": "EBCDIC-DUMP",
+      "status": "ok",
+      "records": 5,
+      "damage": 0,
+      "records_recovered": 5,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s22.000",
+      "format": "EBCDIC-DUMP",
+      "status": "partial",
+      "records": 3,
+      "damage": 1,
+      "records_recovered": 3,
+      "damage_count": 1,
+      "is_valid_header": true
+    },
+    {
+      "file": "s23.wad",
+      "format": "WAD",
+      "status": "ok",
+      "records": 7,
+      "damage": 0,
+      "records_recovered": 7,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s24.pak",
+      "format": "PAK",
+      "status": "ok",
+      "records": 4,
+      "damage": 0,
+      "records_recovered": 4,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s25_random.bin",
+      "format": "UNKNOWN",
+      "status": "unrecognized",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": false
+    },
+    {
+      "file": "s26_empty.dat",
+      "format": "UNKNOWN",
+      "status": "ok",
+      "records": 0,
+      "damage": 0,
+      "records_recovered": 0,
+      "damage_count": 0,
+      "is_valid_header": true
+    },
+    {
+      "file": "s27_notes.txt",
+      "format": "UNKNOWN",
+      "status": "unrecognized",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": false
+    },
+    {
+      "file": "s28_tiny.dat",
+      "format": "UNKNOWN",
+      "status": "unrecognized",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": false
+    },
+    {
+      "file": "s29_almost_libra.dat",
+      "format": "LIBRA-98",
+      "status": "failed",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": false
+    },
+    {
+      "file": "s30_png_like.dat",
+      "format": "UNKNOWN",
+      "status": "unrecognized",
+      "records": 0,
+      "damage": 1,
+      "records_recovered": 0,
+      "damage_count": 1,
+      "is_valid_header": false
+    }
+  ],
+  "totals": {
+    "ok": 20,
+    "partial": 5,
+    "unsupported": 0,
+    "unrecognized": 4,
+    "failed": 1
+  },
+  "summary": {
+    "total_files_processed": 30,
+    "formats": {
+      "LIBRA-98": 5,
+      "LABLOG": 3,
+      "VAULT": 3,
+      "WKS": 3,
+      "WPD": 2,
+      "BRAVO": 2,
+      "CVT": 2,
+      "EBCDIC-DUMP": 3,
+      "WAD": 1,
+      "PAK": 1,
+      "UNKNOWN": 5
+    }
+  }
+}

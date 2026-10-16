@@ -1,0 +1,23 @@
+{
+  "source_file": "s18.cvt",
+  "file": "s18.cvt",
+  "format": "CVT",
+  "status": "ok",
+  "metadata": {
+    "name": "Notes v2",
+    "structure": "seq",
+    "geos_type": 7,
+    "modified": "1991-11-19T18:29",
+    "class_name": "Text Scrap",
+    "author": "S. Sam",
+    "description": "Memo scrap",
+    "declared_blocks": 4
+  },
+  "records": [
+    {
+      "slot": 0,
+      "text": "Dear Diary,\nDisk 2 holds Maps (v1.2) & Fonts; label it: DO NOT ERASE!\nDear Diary,\nDisk 2 holds Maps (v1.2) & Fonts; label it: DO NOT ERASE!\nDear Diary,\nDisk 2 holds Maps (v1.2) & Fonts; label it: DO NOT ERASE!\nDear Diary,\nDisk 2 holds Maps (v1.2) & Fonts; label it: DO NOT ERASE!\nDear Diary,\nDisk 2 holds Maps (v1.2) & Fonts; label it: DO NOT ERASE!\nDear Diary,\nDisk 2 holds Maps (v1.2) & Fonts; label it: DO NOT ERASE!\nDear Diary,\nDisk 2 holds Maps (v1.2) & Fonts; label it: DO NOT ERASE!\nDear Diary,\nDisk 2 holds Maps (v1.2) & Fonts; label it: DO NOT ERASE!\nDear Diary,\nDisk 2 holds Maps (v1.2) & Fonts; label it: DO NOT ERASE!\nDear Diary,\nDisk 2 holds Maps (v1.2) & Fonts; label it: DO NOT ERASE!\nDear Dia"
+    }
+  ],
+  "damage": []
+}

@@ -1,0 +1,20 @@
+{
+  "source_file": "gen_wad.wad",
+  "file": "gen_wad.wad",
+  "format": "WAD",
+  "status": "partial",
+  "metadata": {
+    "type": "PWAD",
+    "num_lumps": 1,
+    "directory_offset": 20
+  },
+  "records": [],
+  "damage": [
+    {
+      "kind": "oob_pointer",
+      "offset": 20,
+      "detail": "[lump[].offset] Lump offset 1094999888 out of bounds",
+      "lossy": true
+    }
+  ]
+}

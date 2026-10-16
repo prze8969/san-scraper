@@ -1,0 +1,20 @@
+{
+  "source_file": "gen_pak.pak",
+  "file": "gen_pak.pak",
+  "format": "PAK",
+  "status": "partial",
+  "metadata": {
+    "directory_offset": 20,
+    "directory_length": 64,
+    "entry_count": 1
+  },
+  "records": [],
+  "damage": [
+    {
+      "kind": "oob_pointer",
+      "offset": 76,
+      "detail": "[file[kedefault.cfg].offset] File offset 786432 out of bounds",
+      "lossy": true
+    }
+  ]
+}

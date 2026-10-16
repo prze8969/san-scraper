@@ -1,0 +1,267 @@
+{
+  "source_file": "s06.dat",
+  "file": "s06.dat",
+  "format": "LABLOG",
+  "status": "ok",
+  "metadata": {
+    "version": 1,
+    "instrument": "FLOWCELL-2",
+    "sample_interval_ms": 1000,
+    "channels": [
+      {
+        "index": 0,
+        "unit": "mV"
+      },
+      {
+        "index": 1,
+        "unit": "pH"
+      },
+      {
+        "index": 2,
+        "unit": "kPa"
+      }
+    ],
+    "start_time_utc": "1993-09-01T20:06:50Z",
+    "declared_block_count": 8,
+    "events": [
+      {
+        "sample": 9,
+        "severity": 0,
+        "message": "Operator note"
+      },
+      {
+        "sample": 20,
+        "severity": 1,
+        "message": "Run started"
+      }
+    ]
+  },
+  "records": [
+    {
+      "sample": 0,
+      "time_ms": 0,
+      "values": [
+        44.25,
+        -112.75,
+        null
+      ]
+    },
+    {
+      "sample": 1,
+      "time_ms": 1000,
+      "values": [
+        -207.75,
+        -119.0,
+        -54.5
+      ]
+    },
+    {
+      "sample": 2,
+      "time_ms": 2000,
+      "values": [
+        -205.0,
+        -120.75,
+        -53.375
+      ]
+    },
+    {
+      "sample": 3,
+      "time_ms": 3000,
+      "values": [
+        -199.0,
+        -125.25,
+        -51.9375
+      ]
+    },
+    {
+      "sample": 4,
+      "time_ms": 4000,
+      "values": [
+        -197.25,
+        -119.75,
+        -51.375
+      ]
+    },
+    {
+      "sample": 5,
+      "time_ms": 5000,
+      "values": [
+        -195.5,
+        -118.25,
+        -50.25
+      ]
+    },
+    {
+      "sample": 6,
+      "time_ms": 6000,
+      "values": [
+        -193.25,
+        null,
+        -50.75
+      ]
+    },
+    {
+      "sample": 7,
+      "time_ms": 7000,
+      "values": [
+        -195.75,
+        -111.5,
+        -52.0625
+      ]
+    },
+    {
+      "sample": 8,
+      "time_ms": 8000,
+      "values": [
+        -197.25,
+        -117.25,
+        -52.375
+      ]
+    },
+    {
+      "sample": 9,
+      "time_ms": 9000,
+      "values": [
+        -193.0,
+        -118.0,
+        -52.375
+      ]
+    },
+    {
+      "sample": 10,
+      "time_ms": 10000,
+      "values": [
+        -197.75,
+        -116.5,
+        -50.9375
+      ]
+    },
+    {
+      "sample": 11,
+      "time_ms": 11000,
+      "values": [
+        -203.5,
+        null,
+        -50.8125
+      ]
+    },
+    {
+      "sample": 12,
+      "time_ms": 12000,
+      "values": [
+        null,
+        -116.25,
+        -51.6875
+      ]
+    },
+    {
+      "sample": 13,
+      "time_ms": 13000,
+      "values": [
+        -192.25,
+        -115.25,
+        -51.375
+      ]
+    },
+    {
+      "sample": 14,
+      "time_ms": 14000,
+      "values": [
+        -192.25,
+        -120.5,
+        -49.875
+      ]
+    },
+    {
+      "sample": 15,
+      "time_ms": 15000,
+      "values": [
+        -194.0,
+        -126.75,
+        -50.0625
+      ]
+    },
+    {
+      "sample": 16,
+      "time_ms": 16000,
+      "values": [
+        -195.5,
+        -128.75,
+        -48.875
+      ]
+    },
+    {
+      "sample": 17,
+      "time_ms": 17000,
+      "values": [
+        -200.5,
+        -134.75,
+        -50.1875
+      ]
+    },
+    {
+      "sample": 18,
+      "time_ms": 18000,
+      "values": [
+        -206.5,
+        -132.25,
+        -49.0625
+      ]
+    },
+    {
+      "sample": 19,
+      "time_ms": 19000,
+      "values": [
+        -208.0,
+        null,
+        -48.0625
+      ]
+    },
+    {
+      "sample": 20,
+      "time_ms": 20000,
+      "values": [
+        -207.0,
+        -135.25,
+        -48.1875
+      ]
+    },
+    {
+      "sample": 21,
+      "time_ms": 21000,
+      "values": [
+        -209.25,
+        -140.25,
+        -48.25
+      ]
+    },
+    {
+      "sample": 22,
+      "time_ms": 22000,
+      "values": [
+        -211.25,
+        -142.5,
+        -48.1875
+      ]
+    },
+    {
+      "sample": 23,
+      "time_ms": 23000,
+      "values": [
+        -217.5,
+        -146.25,
+        null
+      ]
+    },
+    {
+      "sample": 24,
+      "time_ms": 24000,
+      "values": [
+        -216.25,
+        -145.0,
+        -1304.0
+      ]
+    }
+  ],
+  "damage": []
+}

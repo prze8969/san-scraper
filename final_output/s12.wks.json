@@ -1,0 +1,94 @@
+{
+  "source_file": "s12.wks",
+  "file": "s12.wks",
+  "format": "WKS",
+  "status": "ok",
+  "metadata": {
+    "version_code": "0x0404",
+    "declared_range": "A1:C7",
+    "column_widths": {
+      "A": 20,
+      "B": 12
+    }
+  },
+  "records": [
+    {
+      "cell": "A1",
+      "col": 0,
+      "row": 0,
+      "type": "label",
+      "value": "INVENTORY",
+      "alignment": "center"
+    },
+    {
+      "cell": "A2",
+      "col": 0,
+      "row": 1,
+      "type": "label",
+      "value": "-",
+      "alignment": "repeat"
+    },
+    {
+      "cell": "A3",
+      "col": 0,
+      "row": 2,
+      "type": "label",
+      "value": "Widget",
+      "alignment": "left"
+    },
+    {
+      "cell": "B3",
+      "col": 1,
+      "row": 2,
+      "type": "label",
+      "value": "right-aligned",
+      "alignment": "right"
+    },
+    {
+      "cell": "C3",
+      "col": 2,
+      "row": 2,
+      "type": "blank",
+      "value": null
+    },
+    {
+      "cell": "A6",
+      "col": 0,
+      "row": 5,
+      "type": "label",
+      "value": "12 Main St. #4",
+      "alignment": "left"
+    },
+    {
+      "cell": "A5",
+      "col": 0,
+      "row": 4,
+      "type": "label",
+      "value": "Row written before row 4 above",
+      "alignment": "left"
+    },
+    {
+      "cell": "B4",
+      "col": 1,
+      "row": 3,
+      "type": "integer",
+      "value": 111
+    },
+    {
+      "cell": "B4",
+      "col": 1,
+      "row": 3,
+      "type": "integer",
+      "value": 222
+    },
+    {
+      "cell": "A7",
+      "col": 0,
+      "row": 6,
+      "type": "label",
+      "value": "long text long text long text long text long text long text long text long text long text long text",
+      "alignment": "left"
+    }
+  ],
+  "damage": []
+}

@@ -1,0 +1,16 @@
+{
+  "source_file": "s29_almost_libra.dat",
+  "file": "s29_almost_libra.dat",
+  "format": "LIBRA-98",
+  "status": "failed",
+  "metadata": {},
+  "records": [],
+  "damage": [
+    {
+      "kind": "truncated",
+      "offset": 0,
+      "detail": "Header truncated (less than 16 bytes)",
+      "lossy": true
+    }
+  ]
+}

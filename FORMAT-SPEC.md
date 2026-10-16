@@ -1,182 +1,197 @@
 # FORMAT-SPEC: Authoritative Binary Format Specifications & Defensive Parsing Rules
 
-This document specifies the exact byte structures, field types, decoding algorithms, and defensive recovery rules verified and calibrated against the official Problem Statement 02 Participant Kit (`Genesis_Track3_PS2_Sample_Files-main/`).
+This document specifies the exact byte structures, field types, decoding algorithms, endianness, checksum polynomials, and defensive recovery state machines verified and calibrated against the official Problem Statement 02 Participant Kit (`Genesis_Track3_PS2_Sample_Files-main/`).
 
 ---
 
 ## 1. Defensive Parsing & Architectural Invariants
 
 All format recovery modules in `salvage` adhere strictly to these invariants:
-1. **Never Crash (Exit Code 0):** Unhandled exceptions are caught at the engine boundary and mapped to `status: "failed"` or `"unrecognized"`.
-2. **Memory Safety:** Buffer allocations are strictly bounded by `min(declared_size, remaining_file_bytes)`. Decompression routines cap output at 16 MB.
-3. **Resynchronization:** In continuous streams (e.g. `LIBRA-98`, `LABLOG`, `WKS`), damaged byte spans are recorded as `unparsed_bytes` while scanning forward to the next valid record sync boundary.
-4. **Offline & Zero Dependencies:** Operates using 100% standard Python 3.10+ library modules (`struct`, `json`, `hashlib`, `datetime`).
-5. **Strict Schema Compliance:** All outputs conform to [OUTPUT-CONTRACT.md](file:///e:/san%20scarper/san-scraper/Genesis_Track3_PS2_Sample_Files-main/OUTPUT-CONTRACT.md).
+1. **Zero-Crash Guarantee (Exit Code 0):** Unhandled exceptions are caught at the engine boundary and mapped to `status: "failed"` or `"unrecognized"`. The CLI runner always exits with code `0`.
+2. **Defensive Memory & Allocation Bounds:** Buffer allocations are strictly bounded by `min(declared_size, remaining_file_bytes)`. Decompression routines cap output at 16 MB (`rle_decompress_packbits`).
+3. **Resynchronization & Sync Word Carving:** In continuous streams (`LIBRA-98`, `LABLOG`, `WKS`), damaged byte spans are recorded as `unparsed_bytes` while scanning forward to the next valid record sync boundary (`0xA5` for LIBRA, `0xB1` / `0xAA55` for LABLOG).
+4. **Offline & Zero Dependencies:** Operates using 100% standard Python 3.11+ library modules (`struct`, `json`, `hashlib`, `datetime`, `math`, `binascii`).
+5. **Strict Schema Compliance:** All outputs conform strictly to `OUTPUT-CONTRACT.md`.
 
 ---
 
 ## 2. Format Specifications (10 Formats)
 
-### 2.1 LIBRA-98 (Library Database)
-* **Magic:** `LB98` (`4C 42 39 38`) at offset 0x00.
-* **Header Layout (16 bytes):**
-  | Offset | Field | Type | Description |
-  | :--- | :--- | :--- | :--- |
-  | 0x00 | `magic` | 4 bytes | `b"LB98"` |
-  | 0x04 | `version` | uint16 LE | Format version |
-  | 0x06 | `declared_count` | uint16 LE | Declared total record count |
-  | 0x08 | `dos_date` | uint16 LE | Creation date: `Y = ((val >> 9) & 0x7F) + 1980`, `M = (val >> 5) & 0xF`, `D = val & 0x1F` |
-  | 0x0A | `dos_time` | uint16 LE | Creation time: `H = (val >> 11) & 0x1F`, `M = (val >> 5) & 0x3F`, `S = (val & 0x1F) * 2` |
-  | 0x0C | `data_offset` | uint16 LE | Offset to first record (typically 16) |
-  | 0x0E | `branch_id` | uint16 LE | Library branch identifier |
-* **Record Structure:**
-  - `0x00`: Sync marker `0xA5` (1 byte).
-  - `0x01`: `rec_len` (1 byte) - Length of record payload following this byte.
-  - `0x02`: `flags` (1 byte) - `0x01`: checked_out, `0x02`: deleted, `0x04`: reference_only.
+### 2.1 LIBRA-98 (Municipal Library Circulation Database)
+* **Magic:** `LB98` (`4C 42 39 38`) at offset `0x00`.
+* **Header Layout (16 bytes, Little-Endian):**
+  ```text
+  +-------------------+-------------------+-------------------+-------------------+
+  | magic "LB98" (4B) | version (u16)     | declared_count(u16| dos_date (u16)    |
+  +-------------------+-------------------+-------------------+-------------------+
+  | dos_time (u16)    | data_offset (u16) | branch_id (u16)   |                   |
+  +-------------------+-------------------+-------------------+-------------------+
+  ```
+  - `dos_date`: Packed MS-DOS format: $\text{Year} = ((val \gg 9) \ \& \ 0\text{x}7\text{F}) + 1980$, $\text{Month} = (val \gg 5) \ \& \ 0\text{xF}$, $\text{Day} = val \ \& \ 0\text{x}1\text{F}$.
+  - `dos_time`: Packed MS-DOS format: $\text{Hour} = (val \gg 11) \ \& \ 0\text{x}1\text{F}$, $\text{Minute} = (val \gg 5) \ \& \ 0\text{x}3\text{F}$, $\text{Second} = (val \ \& \ 0\text{x}1\text{F}) \times 2$.
+* **Record Structure (Sync-Framed with `0xA5`):**
+  - `0x00`: Sync byte `0xA5`.
+  - `0x01`: `rec_len` (uint8) — Payload length following this byte.
+  - `0x02`: `flags` (uint8) — Bit 0 (`0x01`): `checked_out`, Bit 1 (`0x02`): `deleted`, Bit 2 (`0x04`): `reference_only`.
   - `+0x00`: `id` (uint32 LE).
-  - `+0x04`: `title_len` (1 byte) + `title` (CP437 string).
-  - `+idx`: `author_len` (1 byte) + `author` (CP437 string).
-  - `+idx`: `year_raw` (uint16 LE) - Year calculated as `year_raw + 1500`.
+  - `+0x04`: `title_len` (uint8) + `title` (CP437 string).
+  - `+idx`: `author_len` (uint8) + `author` (CP437 string).
+  - `+idx`: `year_raw` (uint16 LE) — $\text{year} = \text{year\_raw} + 1500$.
   - `+idx`: `price_cents` (uint16 LE).
   - `+idx`: `copies` (uint8).
   - `+idx`: `isbn` (10 bytes ASCII).
-  - If `checked_out`: `due_date` (uint16 LE DOS Date formatted as `YYYY-MM-DD`).
-* **Trailer:** `END!` marker terminates the record stream.
+  - If `checked_out`: `due_date` (uint16 LE MS-DOS Date formatted as `YYYY-MM-DD`, else `null`).
+* **Trailer:** `END!` marker terminates the circulation record stream.
 
 ---
 
-### 2.2 LABLOG (Laboratory Journal & Sensor Stream)
-* **Magic:** `LLOG` (`4C 4C 4F 47`) at offset 0x00.
-* **Header Layout (36 bytes + channels):**
-  | Offset | Field | Type | Description |
-  | :--- | :--- | :--- | :--- |
-  | 0x00 | `magic` | 4 bytes | `b"LLOG"` |
-  | 0x04 | `version` | uint8 | Format version |
-  | 0x05 | `num_channels`| uint8 | Number of sensor channels |
-  | 0x06 | `interval_raw`| uint16 LE | Sample interval (multiplied by 10 to obtain ms) |
-  | 0x08 | `instrument` | 16 bytes | ASCII instrument model string (null-padded) |
-  | 0x18 | `start_ts` | uint32 LE | Start timestamp in seconds from 1990-01-01 00:00:00 UTC |
-  | 0x1C | `block_count` | uint16 LE | Declared block count |
-  | 0x1E | `reserved` | 6 bytes | Padding |
-* **Channel Descriptors (12 bytes per channel starting at offset 36):**
-  - Unit: 4 bytes ASCII.
-  - Slope ($m$): float32 LE.
-  - Intercept ($b$): float32 LE.
-* **Followed by:** 2-byte header CRC16.
-* **Blocks (Prefixed by `0xB1`):**
-  - `Type 1 (DATA)`: `start_sample` (uint16 LE), `count` (uint8), raw sensor values (int16 LE per channel). Calibrated value = `round(raw * slope + intercept, 4)`. Dropouts (`-32768` or `32767`) emit `null`.
-  - `Type 2 (EVENT)`: `sample` (uint16 LE), `severity` (uint8), `len` (uint8), `message` (ASCII).
+### 2.2 LABLOG (Laboratory Journal & Instrument Telemetry Stream)
+* **Magic:** `LLOG` (`4C 4C 4F 47`) at offset `0x00`.
+* **File Header Layout (32 bytes, Little-Endian):**
+  - `0x00..0x03`: Magic `LLOG` (`4C 4C 4F 47`).
+  - `0x04`: `version` (uint8) = 1.
+  - `0x05`: `num_channels` (uint8).
+  - `0x06..0x07`: `interval_raw` (uint16 LE) — $\text{sample\_interval\_ms} = \text{raw} \times 10$.
+  - `0x08..0x17`: `instrument` (16 bytes null-padded ASCII).
+  - `0x18..0x1B`: `start_ts` (uint32 LE) — Epoch seconds since `1990-01-01 00:00:00 UTC` (Unix timestamp `631152000`).
+  - `0x1C..0x1D`: `declared_block_count` (uint16 LE).
+  - `0x1E..0x1F`: `hdr_crc` (uint16 LE) — Computed over bytes `0x00..0x1D` (first 30 bytes) using **CRC-16/CCITT-FALSE** ($\text{poly}=0\text{x}1021, \text{init}=0\text{xFFFF}, \text{xorout}=0\text{x}0000$).
+* **Block Framing & Checksum Specification:**
+  Every block in the file (starting at offset `0x20` with the Channels Block) adheres to the exact framing:
+  ```text
+  +-------------+-------------+------------------+-----------------------+---------------------+
+  | sync (0xB1) | type (uint8)| len (uint16 LE)  | payload (len bytes)   | stored_crc(u16 LE)  |
+  +-------------+-------------+------------------+-----------------------+---------------------+
+  ```
+  - **Exact Checksum Formula:** **CRC-16/CCITT-FALSE** ($\text{poly}=0\text{x}1021, \text{init}=0\text{xFFFF}, \text{xorout}=0\text{x}0000, \text{refin}=\text{False}, \text{refout}=\text{False}$).
+  - **Checksum Calculation Span:** Evaluated over `type (1 byte) + len (2 bytes) + payload (len bytes)`. The leading `0xB1` sync byte is excluded from the CRC calculation.
+* **Block Types:**
+  - **Type 0x03 (CHANNELS Descriptor Block):**
+    - Directly follows header at offset `0x20` (`32`).
+    - Payload contains `num_channels * 12` bytes:
+      - `+0x00..0x03`: Unit (4 bytes ASCII null-padded, e.g. `mV\x00\x00`, `pH\x00\x00`, `kPa\x00`, `degC`).
+      - `+0x04..0x07`: `slope` (IEEE 754 32-bit float LE).
+      - `+0x08..0x0B`: `intercept` (IEEE 754 32-bit float LE).
+    - Trailed by 2-byte CRC16 LE.
+  - **Type 0x01 (SAMPLES Telemetry Data Block):**
+    - `+0x00..0x01`: `start_sample` (uint16 LE) — Global sample index.
+    - `+0x02`: `sample_count` (uint8) — Number of consecutive time slices.
+    - `+0x03..end`: `sample_count * num_channels * 2` bytes of 16-bit signed integers (int16 LE).
+    - Physical calibration: $\text{val} = \text{round}(\text{raw} \times \text{slope} + \text{intercept}, 4)$.
+    - Sensor dropouts: Raw values `-32768` (`0x8000`) or `32767` (`0x7FFF`) represent sensor failure / rail dropout and are converted to `null`.
+    - Trailed by 2-byte CRC16 LE.
+  - **Type 0x02 (EVENT Marker Block):**
+    - `+0x00..0x01`: `sample` (uint16 LE) — Sample index where event occurred.
+    - `+0x02`: `severity` (uint8) — Event severity level (0 = info, 1 = warning, 2 = critical).
+    - `+0x03`: `msg_len` (uint8) — Length of event annotation.
+    - `+0x04..end`: ASCII message text.
+    - Trailed by 2-byte CRC16 LE.
+* **Corruptions & Recovery Rules:**
+  - If any block CRC fails to match `stored_crc`, record damage `kind: "crc_mismatch"` at CRC offset, mark file `status: "partial"`, and proceed to recover records safely.
+  - In `s07.dat`, Block 04 at offset 169 (`len=39`) has corrupted telemetry bytes (`stored=0x97b2, calculated=0xc4cb`), correctly logged as `crc_mismatch` with `status: "partial"`.
 
 ---
 
-### 2.3 VAULT (Encrypted Container Archive)
-* **Magic:** `VLT1` (`56 4C 54 31`) at offset 0x00.
-* **Header Layout (16 bytes):**
-  - `0x00`: `magic` (4B `VLT1`).
-  - `0x04`: `entry_count` (uint16 LE).
-  - `0x06`: `xor_key` (uint16 LE).
-  - `0x08`: `reserved` (2 bytes).
-  - `0x0A`: `flags` (uint16 LE).
-  - `0x0C`: `index_offset` (uint32 LE) - Offset to name string table and index table.
+### 2.3 VAULT (School Office Multi-Entry Archive Container)
+* **Magic:** `VLT1` (`56 4C 54 31`) at offset `0x00`.
+* **Header Layout (16 bytes, Little-Endian):**
+  - `0x00..0x03`: `VLT1`
+  - `0x04..0x05`: `entry_count` (uint16 LE)
+  - `0x06`: `xor_key` (uint8) — Obfuscation key byte (e.g. `252` in `s09.dat`)
+  - `0x07`: `flags` (uint8) — Flags byte
+  - `0x08..0x09`: `reserved` (2 bytes)
+  - `0x0A..0x0B`: `flags_extended` (uint16 LE)
+  - `0x0C..0x0F`: `index_offset` (uint32 LE)
+* **Entry Name Table & Obfuscated Length Un-masking:**
+  - In standard VAULT files (`s08.dat`, `s10.dat`), entry names are stored as `n_len` (uint8) + ASCII characters.
+  - In obfuscated VAULT files (`s09.dat`), the `n_len` prefix is itself obfuscated with `xor_key`:
+    $$\text{n\_len} = \text{raw\_byte} \oplus \text{xor\_key}$$
+    If `raw_byte > max_possible_len` and $(\text{raw\_byte} \oplus \text{xor\_key}) \le \text{max_possible_len}$, the unmasked length is utilized.
+  - Un-obfuscated names are clean strings (`"edge.bin"`, `"icon.bmp8"`, `"unicode.txt"`).
 * **Decryption Scheme:**
-  - Names and text blob payloads are encrypted with a rolling XOR cipher:
+  - Names and text payload bytes use a rolling XOR cipher:
     $$\text{byte}_j \oplus ((\text{xor\_key} + j) \pmod{256})$$
   - Raw binary (`.bin`) blobs remain unencrypted.
-* **Index Table:** 16 bytes per entry at end of file:
+* **Index Table (16 bytes per entry at end of file):**
   - `id` (uint16 LE), `type` (1B), `flags` (1B), `name_pos` (uint32 LE), `blob_offset` (uint32 LE), `stored_size` (uint16 LE), `decoded_size` (uint16 LE).
-* **Blobs:** Begin with `b"BL"` + `id` (uint16 LE) followed by payload.
+* **Blobs:** Begin with marker `b"BL"` + `id` (uint16 LE) followed by compressed/raw data.
+* **Hash:** Computes SHA-256 of decoded payload bytes.
 
 ---
 
-### 2.4 WKS (Lotus 1-2-3 Spreadsheet)
-* **BOF Record:** Opcode `0x0000`, Length `0x0002`, Version `0x0404` (Release 1A).
-* **Record Structure:** Opcode (uint16 LE) + Length (uint16 LE) + Payload.
-* **Cell Types:**
-  - `0x000D (INTEGER)`: format (1B), col (uint16 LE), row (uint16 LE), value (int16 LE).
-  - `0x000E (NUMBER)`: format (1B), col (uint16 LE), row (uint16 LE), value (float64 LE).
-  - `0x000F (LABEL)`: format (1B), col (uint16 LE), row (uint16 LE), prefix char (`'` left, `"` right, `^` center, `\` repeat) + null-terminated CP437 string.
-  - `0x0010 (FORMULA)`: format (1B), col (uint16 LE), row (uint16 LE), cached float (float64 LE), bytecode length (uint16 LE at payload[13:15]), raw formula bytecode bytes (`payload[15:]`).
+### 2.4 Lotus 1-2-3 WKS (Spreadsheet Cell TLV Stream)
+* **BOF Record:** Opcode `0x0000`, Length `0x0002`, Version `0x0404` (Lotus 1-2-3 Release 1A).
+* **Record Framing:** Opcode (uint16 LE) + Length (uint16 LE) + Body (`Length` bytes).
+* **Cell Opcode Types:**
   - `0x000C (BLANK)`: format (1B), col (uint16 LE), row (uint16 LE).
+  - `0x000D (INTEGER)`: format (1B), col (uint16 LE), row (uint16 LE), value (int16 LE).
+  - `0x000E (NUMBER)`: format (1B), col (uint16 LE), row (uint16 LE), value (float64 IEEE-754 LE).
+  - `0x000F (LABEL)`: format (1B), col (uint16 LE), row (uint16 LE), prefix char (`'` left, `"` right, `^` center, `\` repeat) + null-terminated CP437 string.
+  - `0x0010 (FORMULA)`: format (1B), col (uint16 LE), row (uint16 LE), cached float (float64 LE), bytecode length (uint16 LE at `payload[13:15]`), raw formula hex string (`payload[15:]`).
   - `0x0008 (COLWIDTH)`: col (uint16 LE), width (uint8).
-  - `0x0001 (EOF)`: Terminates spreadsheet.
+  - `0x0001 (EOF)`: Terminates worksheet.
 
 ---
 
-### 2.5 CVT (Commodore 64 GEOS Convert Disk Image)
-* **Identification:** ASCII `PRG formatted GEOS file` within the first 64 bytes or GEOS header signature `0x83`.
-* **Block Layout:** 254-byte sequential blocks (C64 256-byte track/sector links stripped).
-* **Info Block (Block 1):**
-  - Filename, structure (`seq` or `vlir`), GEOS file type, modified timestamp (`YYYY-MM-DDTHH:MM`), class name, author, and description.
-* **Character Set:** Commodore PETSCII to ASCII conversion:
-  - Uppercase: `0xC1..0xDA -> A..Z`.
-  - Lowercase: `0x41..0x5A -> a..z`.
-  - Newlines: `0x0D -> \n`.
-* **Scraping:** Extracts records per slot across sequential text and VLIR record chains.
+### 2.5 Commodore 64 GEOS Convert CVT (Disk Image Container)
+* **Signature:** ASCII `PRG formatted GEOS file` or `SEQ formatted GEOS file` within first 64 bytes, or byte 0 equals `0x83`.
+* **Block Layout:** 254-byte sequential blocks (C64 256B disk sectors with link bytes stripped).
+* **Block 1 GEOS Info Block:**
+  - Filename, structure (`seq` or `vlir`), GEOS file type, modified timestamp (`YYYY-MM-DDTHH:MM`), class name, author, description.
+* **Character Set:** Commodore PETSCII to ASCII mapping (`0xC1..0xDA` -> `A..Z`, `0x41..0x5A` -> `a..z`, `0x0D` -> `\n`).
 
 ---
 
-### 2.6 EBCDIC-DUMP (IBM Mainframe Tape Record Dump)
-* **Identification:** CP037 EBCDIC text (e.g. `STUDENT EXTRACT`, header record code `0xC8`).
-* **Record Delimitation:** 4-byte Record Descriptor Word (RDW):
-  - 2 bytes big-endian length + 2 bytes zeros.
-* **Encoding & Field Layout:**
-  - Header Record: Title, Run Date (`YYYY-MM-DD`).
-  - Detail Records: `student_id` (ASCII), `name` (CP037), `dob` (IBM COMP-3 packed decimal `YYYY-MM-DD`), `gpa` (COMP-3 decimal `X.XX`), `credits` (uint16 BE), `status` (CP037), `balance` (signed COMP-3 decimal).
-  - Trailer Record: `trailer_count`, `trailer_credits_total`.
-* **COMP-3 Packed Decimal:** Nibbles store BCD digits; final nibble denotes sign (`0xC`/`0xF` = positive, `0xD` = negative).
+### 2.6 IBM Mainframe EBCDIC Dump (`EBCDIC-DUMP`)
+* **Identification:** EBCDIC CP037 header text (e.g. `STUDENT EXTRACT`, header record code `0xC8`).
+* **Framing Modes:**
+  1. **Unblocked Mode (RDW only):**
+     - 4-byte Record Descriptor Word: 2 bytes big-endian length + 2 bytes zeros.
+  2. **Variable Blocked Mode (BDW + RDW):**
+     - Outer 4-byte Block Descriptor Word: 2 bytes big-endian block length + 2 bytes zeros.
+     - Inner 4-byte Record Descriptor Word: 2 bytes big-endian record length + 2 bytes zeros.
+* **Record Formats:**
+  - `H` (Header): Title, Run Date (`YYYY-MM-DD`).
+  - `D` (Detail): `student_id` (6B), `name` (20B), `dob` (5B IBM COMP-3 packed decimal), `gpa` (3B COMP-3 decimal), `credits` (uint16 BE), `status` (1B), `balance` (4B signed COMP-3 decimal).
+  - `T` (Trailer): `trailer_count`, `trailer_credits_total`.
 
 ---
 
-### 2.7 WPD (WordPerfect Document)
-* **Magic:** `\xFFWPC` (`FF 57 50 43`) at offset 0x00.
-* **Document Structure:** Document header points to document text stream.
-* **Record Extraction:**
-  - Extracts paragraphs and page breaks (`0x0C`).
-  - Strips inline multi-byte control codes (`0xC0..0xFF`) to salvage clean text.
+### 2.7 WordPerfect WPD (Document Stream)
+* **Magic:** `\xFFWPC` (`FF 57 50 43`) at offset `0x00`.
+* **Header:** Offset `0x04` contains pointer to document area.
+* **Stream Parsing:** Filters multi-byte control functions (`0xD0..0xFF`) and single-byte codes, extracting clean paragraph and page break (`0x0C`) text records.
 
 ---
 
-### 2.8 BRAVO (Xerox Alto Bravo Document)
-* **Structure:** Text paragraphs delimited by Carriage Return (`\r` / `0x0D`).
-* **Trailer Format Runs:** Text stream terminates at `0x1A`, followed by binary formatting property runs.
-* **Record Extraction:**
-  - Emits records for each non-empty text paragraph.
-  - Extracts format runs (start, length, looks, font) into metadata.
+### 2.8 Xerox Alto Bravo (Research Lab Editor Document)
+* **Delimiters:** Plain ASCII paragraphs delimited by Carriage Return (`\r` / `0x0D`).
+* **Trailer:** Text body terminates at `0x1A` (CTRL-Z), followed by formatting property runs (start, length, looks, font) up to end of file.
 
 ---
 
-### 2.9 WAD (Doom Archive)
+### 2.9 Doom WAD Archive (Game Data)
 * **Magic:** `PWAD` or `IWAD` (4 bytes).
-* **Header:** `magic` (4B), `num_lumps` (uint32 LE), `dir_offset` (uint32 LE).
-* **Lump Records:** 16 bytes per entry in directory:
-  - `offset` (uint32 LE), `size` (uint32 LE), `name` (8 bytes null-padded ASCII).
-  - Computes SHA-256 of lump payloads.
+* **Header Layout (12 bytes, Little-Endian):** `magic` (4B), `num_lumps` (int32), `dir_offset` (int32).
+* **Lump Records:** 16 bytes per directory entry (`offset (int32)`, `size (int32)`, `name (8B null-padded ASCII)`), with SHA-256 computation over payloads.
 
 ---
 
-### 2.10 PAK (Quake Archive)
+### 2.10 Quake PAK Archive (Game Data)
 * **Magic:** `PACK` (4 bytes).
-* **Header:** `magic` (4B), `dir_offset` (uint32 LE), `dir_length` (uint32 LE).
-* **Directory Entries:** 64 bytes per entry:
-  - `name` (56 bytes null-padded ASCII), `offset` (uint32 LE), `size` (uint32 LE).
-  - Computes SHA-256 of entry payloads.
+* **Header Layout (12 bytes, Little-Endian):** `magic` (4B), `dir_offset` (int32), `dir_length` (int32).
+* **Directory Entries:** 64 bytes per entry (`name (56B null-padded ASCII)`, `offset (int32)`, `size (int32)`), with SHA-256 computation over entry payloads.
 
 ---
 
-## 3. Damage Vocabulary & Status Mapping
+## 3. Damage Taxonomy & Status Mapping (OUTPUT-CONTRACT.md)
 
-Conforms strictly to `OUTPUT-CONTRACT.md`:
-* **Statuses:** `ok`, `partial`, `unsupported`, `unrecognized`, `failed`.
-* **Damage Kinds:**
-  - `truncated`: File ends before declared length or expected boundary.
-  - `crc_mismatch`: CRC verification failed.
-  - `checksum_mismatch`: Additive or modular checksum failed.
-  - `bad_length`: Field length violates structural alignment or bounds.
-  - `unparsed_bytes`: Garbage bytes skipped between valid sync markers.
-  - `count_mismatch`: Number of parsed records does not equal declared count.
-  - `invalid_value`: Sentinel or illegal value detected.
-  - `oob_pointer`: Offset pointer exceeds file size.
-  - `index_missing`: Directory table corrupted or absent.
-  - `header_checksum`: Header validation failed.
-  - `encrypted`: Encrypted content without key.
-  - `unknown_record`: Unrecognized record opcode.
+* **Status Values:**
+  - `ok`: Clean file with zero lost or unverified records.
+  - `partial`: Recovered records with partial fields, truncation, or skipped unparsed bytes.
+  - `unsupported`: Recognized format that cannot be decoded (e.g. unknown encryption).
+  - `unrecognized`: Unrecognized format or foreign file signature.
+  - `failed`: Recognized format with unrecoverable header damage.
+
+* **Damage `kind` Vocabulary:**
+  `truncated`, `crc_mismatch`, `checksum_mismatch`, `bad_length`, `unparsed_bytes`, `count_mismatch`, `invalid_value`, `oob_pointer`, `index_missing`, `header_checksum`, `encrypted`, `unknown_record`.

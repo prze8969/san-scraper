@@ -1,0 +1,12 @@
+{
+  "source_file": "s26_empty.dat",
+  "file": "s26_empty.dat",
+  "format": "UNKNOWN",
+  "status": "ok",
+  "metadata": {
+    "reason": "empty_file",
+    "size": 0
+  },
+  "records": [],
+  "damage": []
+}

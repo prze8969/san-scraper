@@ -1,0 +1,20 @@
+{
+  "source_file": "s25_random.bin",
+  "file": "s25_random.bin",
+  "format": "UNKNOWN",
+  "status": "unrecognized",
+  "metadata": {
+    "preview_hex": "13afdb5fedc254f8922c96327769a0f89cf601af1cf35e29f2959b30f3113ad7",
+    "preview_text": "..._..T..,.2wi........^)...0..:.",
+    "size": 300
+  },
+  "records": [],
+  "damage": [
+    {
+      "kind": "unknown_record",
+      "offset": 0,
+      "detail": "Unrecognized binary format (magic: 13afdb5fedc254f8)",
+      "lossy": true
+    }
+  ]
+}

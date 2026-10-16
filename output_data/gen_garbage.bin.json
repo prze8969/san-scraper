@@ -1,0 +1,20 @@
+{
+  "source_file": "gen_garbage.bin",
+  "file": "gen_garbage.bin",
+  "format": "UNKNOWN",
+  "status": "unrecognized",
+  "metadata": {
+    "preview_hex": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+    "preview_text": "................................",
+    "size": 256
+  },
+  "records": [],
+  "damage": [
+    {
+      "kind": "unknown_record",
+      "offset": 0,
+      "detail": "Unrecognized binary format (magic: deadbeefdeadbeef)",
+      "lossy": true
+    }
+  ]
+}

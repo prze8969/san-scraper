@@ -1,0 +1,42 @@
+{
+  "source_file": "s24.pak",
+  "file": "s24.pak",
+  "format": "PAK",
+  "status": "ok",
+  "metadata": {
+    "directory_offset": 219,
+    "directory_length": 256,
+    "entry_count": 4
+  },
+  "records": [
+    {
+      "name": "maps/start.bsp",
+      "offset": 12,
+      "size": 120,
+      "sha256": "e8d1c7b9becb2a321d8f0c5394640bb26073f06a95129cd9dc874e4fdaa4bd2e",
+      "id": 0
+    },
+    {
+      "name": "progs/readme.txt",
+      "offset": 132,
+      "size": 10,
+      "sha256": "8e92ca9da64327eae633713bc4663172a9f3f5333ee6c98a6d1d7d0aa463f40f",
+      "id": 1
+    },
+    {
+      "name": "empty.cfg",
+      "offset": 142,
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "id": 2
+    },
+    {
+      "name": "sound/misc/hit.wav",
+      "offset": 142,
+      "size": 77,
+      "sha256": "e44cfa9f3f01c14e84878aef68f90f26e9ca8b45a874265ecf0637f0d1644417",
+      "id": 3
+    }
+  ],
+  "damage": []
+}

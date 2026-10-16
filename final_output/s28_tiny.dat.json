@@ -1,0 +1,20 @@
+{
+  "source_file": "s28_tiny.dat",
+  "file": "s28_tiny.dat",
+  "format": "UNKNOWN",
+  "status": "unrecognized",
+  "metadata": {
+    "preview_hex": "4c",
+    "preview_text": "L",
+    "size": 1
+  },
+  "records": [],
+  "damage": [
+    {
+      "kind": "unknown_record",
+      "offset": 0,
+      "detail": "Unrecognized binary format (magic: 4c)",
+      "lossy": true
+    }
+  ]
+}

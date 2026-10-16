@@ -1,50 +1,74 @@
-"""Recovery pipeline orchestrator conforming to OUTPUT-CONTRACT.md."""
+"""Recovery pipeline orchestrator conforming to OUTPUT-CONTRACT.md and Phase 1-6 specification."""
 
 from __future__ import annotations
 from pathlib import Path
+from src.cursor import SafeByteCursor
 from src.reader import BoundedBinaryReader
-from src.detector import FormatDetector
-from src.models import FileRecoveryResult, OutputStatus, DamageItem, DamageKind
+from src.router import FormatRouter
+from src.models import FileRecoveryResult, OutputStatus, DamageItem, DamageKind, DamageEvent
 from src.formats.base import BaseParser
 from src.formats.unknown import UnknownParser
-from src.formats.libra98 import Libra98Parser
-from src.formats.lablog import LablogParser
-from src.formats.vault import VaultParser
-from src.formats.pak import PakParser
-from src.formats.wks import WksParser
-from src.formats.wpd import WpdParser
-from src.formats.bravo import BravoParser
-from src.formats.cvt import CvtParser
-from src.formats.ebcdic import EbcdicDumpParser
-from src.formats.wad import WadParser
+from src.decoders.libra98 import Libra98Decoder
+from src.decoders.lablog import LablogDecoder
+from src.decoders.vault import VaultDecoder
+from src.decoders.wad_pak import WadDecoder, PakDecoder
+from src.decoders.legacy_real import WksDecoder, WpdDecoder, BravoDecoder, CvtDecoder, Archive000Decoder
 
 class SalvageEngine:
-    """Coordinates reading, detection, parsing, and recovery."""
+    """Coordinates reading, detection, parsing, and recovery with zero-crash guarantee."""
 
     def __init__(self) -> None:
-        self._parsers: dict[str, BaseParser] = {
+        self._decoders = {
             "UNKNOWN": UnknownParser(),
             "EMPTY": UnknownParser(),
-            "LIBRA-98": Libra98Parser(),
-            "LABLOG": LablogParser(),
-            "VAULT": VaultParser(),
-            "PAK": PakParser(),
-            "WKS": WksParser(),
-            "WPD": WpdParser(),
-            "BRAVO": BravoParser(),
-            "CVT": CvtParser(),
-            "EBCDIC-DUMP": EbcdicDumpParser(),
-            "WAD": WadParser(),
+            "LIBRA-98": Libra98Decoder(),
+            "LABLOG": LablogDecoder(),
+            "VAULT": VaultDecoder(),
+            "WAD": WadDecoder(),
+            "PAK": PakDecoder(),
+            "WKS": WksDecoder(),
+            "WPD": WpdDecoder(),
+            "BRAVO": BravoDecoder(),
+            "CVT": CvtDecoder(),
+            "EBCDIC-DUMP": Archive000Decoder(),
+            "ARCHIVE-000": Archive000Decoder(),
         }
 
-    def register_parser(self, format_name: str, parser: BaseParser) -> None:
-        self._parsers[format_name] = parser
+    def register_parser(self, format_name: str, parser: Any) -> None:
+        self._decoders[format_name] = parser
 
     def process_bytes(self, filename: str, data: bytes) -> FileRecoveryResult:
-        match = FormatDetector.detect(data)
-        reader = BoundedBinaryReader(data)
-        parser = self._parsers.get(match.format_name, self._parsers["UNKNOWN"])
-        return parser.parse(filename, reader)
+        match = FormatRouter.identify(data, filename)
+        cursor = SafeByteCursor(data)
+        decoder = self._decoders.get(match.format_name, self._decoders["UNKNOWN"])
+
+        try:
+            if hasattr(decoder, "decode"):
+                res = decoder.decode(filename, cursor)
+            else:
+                reader = BoundedBinaryReader(data)
+                res = decoder.parse(filename, reader)
+            res.detected_format = match.format_name
+            res.confidence = match.confidence
+            return res
+        except Exception as e:
+            cursor.log_damage(
+                severity="ERROR",
+                component="engine_exception",
+                message=f"Handled internal exception: {e}",
+                offset_start=0,
+                offset_end=len(data),
+                legacy_kind=DamageKind.INVALID_VALUE,
+            )
+            return FileRecoveryResult(
+                filename=filename,
+                format_name=match.format_name if match.format_name != "EMPTY" else "UNKNOWN",
+                status=OutputStatus.FAILED,
+                damages=cursor.legacy_damages,
+                damage_events=cursor.damages,
+                metadata={"error": str(e)},
+                file_size=len(data),
+            )
 
     def process_file(self, file_path: Path) -> FileRecoveryResult:
         filename = file_path.name

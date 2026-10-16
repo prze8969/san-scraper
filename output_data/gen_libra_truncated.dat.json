@@ -1,0 +1,23 @@
+{
+  "source_file": "gen_libra_truncated.dat",
+  "file": "gen_libra_truncated.dat",
+  "format": "LIBRA-98",
+  "status": "partial",
+  "metadata": {
+    "version": 2,
+    "encoding": "cp437",
+    "created": "1998-10-03T11:20:22",
+    "branch_id": 576,
+    "declared_record_count": 1,
+    "data_offset": 16
+  },
+  "records": [],
+  "damage": [
+    {
+      "kind": "truncated",
+      "offset": 16,
+      "detail": "File truncated within record",
+      "lossy": true
+    }
+  ]
+}

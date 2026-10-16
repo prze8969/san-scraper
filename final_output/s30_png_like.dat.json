@@ -1,0 +1,20 @@
+{
+  "source_file": "s30_png_like.dat",
+  "file": "s30_png_like.dat",
+  "format": "UNKNOWN",
+  "status": "unrecognized",
+  "metadata": {
+    "preview_hex": "89504e470d0a1a0a0000000000000000000000000000000000000000",
+    "preview_text": ".PNG........................",
+    "size": 28
+  },
+  "records": [],
+  "damage": [
+    {
+      "kind": "unknown_record",
+      "offset": 0,
+      "detail": "Unrecognized binary format (magic: 89504e470d0a1a0a)",
+      "lossy": true
+    }
+  ]
+}

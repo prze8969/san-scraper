@@ -1,0 +1,82 @@
+{
+  "source_file": "s03.dat",
+  "file": "s03.dat",
+  "format": "LIBRA-98",
+  "status": "ok",
+  "metadata": {
+    "version": 258,
+    "encoding": "cp437",
+    "created": "1999-12-21T14:56:44",
+    "branch_id": 552,
+    "declared_record_count": 5,
+    "data_offset": 40
+  },
+  "records": [
+    {
+      "id": 1004,
+      "title": "Alice\u00c6s Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "year": 1865,
+      "price_cents": 1599,
+      "copies": 2,
+      "isbn": "2277599107",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": null
+    },
+    {
+      "id": 1011,
+      "title": "Walden",
+      "author": "Henry David Thoreau",
+      "year": 1854,
+      "price_cents": 1250,
+      "copies": 2,
+      "isbn": "9321457569",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": null
+    },
+    {
+      "id": 1015,
+      "title": "Emma",
+      "author": "Jane Austen",
+      "year": 1815,
+      "price_cents": 0,
+      "copies": 0,
+      "isbn": "7018791995",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": null
+    },
+    {
+      "id": 1023,
+      "title": "Das Schlo\u2580",
+      "author": "Franz Kafka",
+      "year": 1926,
+      "price_cents": 850,
+      "copies": 1,
+      "isbn": "8897410952",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": null
+    },
+    {
+      "id": 1031,
+      "title": "Frankenstein",
+      "author": "Mary Shelley",
+      "year": 1818,
+      "price_cents": 1099,
+      "copies": 1,
+      "isbn": "6228610473",
+      "checked_out": false,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": null
+    }
+  ],
+  "damage": []
+}

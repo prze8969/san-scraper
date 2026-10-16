@@ -1,0 +1,30 @@
+{
+  "source_file": "gen_libra_clean.dat",
+  "file": "gen_libra_clean.dat",
+  "format": "LIBRA-98",
+  "status": "ok",
+  "metadata": {
+    "version": 2,
+    "encoding": "cp437",
+    "created": "1998-10-03T11:20:22",
+    "branch_id": 576,
+    "declared_record_count": 1,
+    "data_offset": 16
+  },
+  "records": [
+    {
+      "id": 1001,
+      "title": "Dracula",
+      "author": "Bram Stoker",
+      "year": 1897,
+      "price_cents": 499,
+      "copies": 3,
+      "isbn": "4010278714",
+      "checked_out": true,
+      "deleted": false,
+      "reference_only": false,
+      "due_date": "1998-10-19"
+    }
+  ],
+  "damage": []
+}

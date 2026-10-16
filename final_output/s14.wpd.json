@@ -1,0 +1,45 @@
+{
+  "source_file": "s14.wpd",
+  "file": "s14.wpd",
+  "format": "WPD",
+  "status": "ok",
+  "metadata": {
+    "version": "2.0",
+    "product_type": 1,
+    "file_type": 10,
+    "encrypted": false
+  },
+  "records": [
+    {
+      "index": 0,
+      "type": "paragraph",
+      "text": "MEMORANDUM"
+    },
+    {
+      "index": 1,
+      "type": "paragraph",
+      "text": "To: All staff"
+    },
+    {
+      "index": 2,
+      "type": "paragraph",
+      "text": "Subject: Revised filing deadline"
+    },
+    {
+      "index": 3,
+      "type": "paragraph",
+      "text": "The quarterly returns are due on the\r15th. Late submissions will be\rreturned unprocessed."
+    },
+    {
+      "index": 4,
+      "type": "paragraph",
+      "text": "Ref:\tMr.Smith, cooperation notes attached."
+    },
+    {
+      "index": 5,
+      "type": "paragraph",
+      "text": "'Notice Municipal WorksMunicipal Works"
+    }
+  ],
+  "damage": []
+}
