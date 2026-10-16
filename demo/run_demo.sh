@@ -18,5 +18,10 @@ report = json.loads(Path('$ROOT_DIR/demo/output/report.json').read_text(encoding
 print(json.dumps(report['summary'], indent=2))
 print('\nFiles Processed:')
 for f in report['files']:
-    print(f' - {f[\"file\"]}: format={f[\"format\"]}, valid_header={f[\"is_valid_header\"]}, records={f[\"records_recovered\"]}, damages={f[\"damage_count\"]}')
+    carved_cnt = f.get('analysis_summary', {}).get('carved_count', 0)
+    verif = f.get('verified_records', 0)
+    heur = f.get('heuristic_records', 0)
+    verif_cov = f.get('verified_coverage_pct', 0.0)
+    heur_cov = f.get('heuristic_coverage_pct', 0.0)
+    print(f' - {f[\"file\"]}: format={f[\"format\"]} (conf={f[\"confidence\"]}), records={f[\"records_recovered\"]} (verif={verif}, heur={heur}), carved={carved_cnt}, verif_cov={verif_cov}%, heur_cov={heur_cov}%, damages={f[\"damage_count\"]}')
 "

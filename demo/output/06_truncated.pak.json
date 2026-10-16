@@ -17,7 +17,8 @@
         "name": "textures/wall.wal",
         "raw_name": "textures/wall.wal",
         "offset": 12,
-        "size": 23
+        "size": 23,
+        "extracted_path": "C:\\Users\\Pranav Shewale\\zebro-scraper\\demo\\output\\06_truncated.pak.extracted\\textures\\wall.wal"
       }
     }
   ],
@@ -33,5 +34,157 @@
     "directory_offset": 55,
     "directory_length": 88,
     "total_entries": 1
-  }
+  },
+  "analysis": {
+    "size": 143,
+    "sha256": "0fa554519cb69b7440a2c7dc47dab12f056b7a624c1d4554127a48d9a765cee5",
+    "extension_hint": "pak",
+    "signatures": [
+      {
+        "format": "PAK",
+        "offset": 0,
+        "length": 4,
+        "confidence": 1.0,
+        "description": "id Software Quake PAK archive"
+      }
+    ],
+    "entropy": {
+      "overall": 4.135,
+      "block_size": 256,
+      "block_count": 1,
+      "blocks": [
+        4.135
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 143,
+          "type": "mixed",
+          "avg_entropy": 4.135
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 0,
+        "length": 5,
+        "encoding": "ascii",
+        "string": "PACK7"
+      },
+      {
+        "offset": 12,
+        "length": 60,
+        "encoding": "ascii",
+        "string": "WALL_TEXTURE_DATA_CHUNKecho 'Config loaded'textures/wall.wal"
+      },
+      {
+        "offset": 119,
+        "length": 20,
+        "encoding": "ascii",
+        "string": "scripts/autoexec.cfg"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1262698832 at offset 0",
+        "details": {
+          "offset": 0,
+          "value": 1262698832,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1280065879 at offset 12",
+        "details": {
+          "offset": 12,
+          "value": 1280065879,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1480938591 at offset 16",
+        "details": {
+          "offset": 16,
+          "value": 1480938591,
+          "endian": "little"
+        }
+      }
+    ],
+    "damage_indicators": []
+  },
+  "detection_candidates": [
+    {
+      "format": "PAK",
+      "confidence": 1.0,
+      "method": "exact_magic_offset_0",
+      "offset": 0,
+      "evidence": "Exact magic match at offset 0: id Software Quake PAK archive"
+    }
+  ],
+  "carved_objects": [],
+  "coverage": {
+    "total_bytes": 143,
+    "recovered_bytes": 23,
+    "verified_bytes": 23,
+    "heuristic_bytes": 0,
+    "unaccounted_bytes": 120,
+    "coverage_pct": 16.08,
+    "verified_coverage_pct": 16.08,
+    "heuristic_coverage_pct": 0.0,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 12
+      },
+      {
+        "offset": 35,
+        "length": 108
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 453,
+    "matched_probes": 96
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        12
+      ],
+      "role": "PAK_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        12,
+        72
+      ],
+      "role": "PAK_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "footer",
+      "offset_range": [
+        72,
+        143
+      ],
+      "role": "trailer_TAR_NULL_BLOCK",
+      "status": "hypothesized",
+      "confidence": 0.9
+    }
+  ]
 }

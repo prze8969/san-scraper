@@ -1,0 +1,215 @@
+{
+  "file": "13_valid.zip",
+  "format": "ZIP",
+  "file_size": 161,
+  "is_valid_header": true,
+  "total_records_recovered": 2,
+  "total_declared_records": 2,
+  "records": [
+    {
+      "id": 0,
+      "status": "complete",
+      "byte_range": [
+        0,
+        81
+      ],
+      "data": {
+        "name": "notes.txt",
+        "raw_name": "notes.txt",
+        "offset": 39,
+        "compressed_size": 42,
+        "uncompressed_size": 42,
+        "method": "stored",
+        "crc32": "0x8D71319A",
+        "crc_status": "verified",
+        "decompressed_data": "Salvaged notes from documented ZIP parser!",
+        "extracted_path": "C:\\Users\\Pranav Shewale\\zebro-scraper\\demo\\output\\13_valid.zip.extracted\\notes.txt"
+      }
+    },
+    {
+      "id": 1,
+      "status": "complete",
+      "byte_range": [
+        81,
+        161
+      ],
+      "data": {
+        "name": "compressed/data.log",
+        "raw_name": "compressed/data.log",
+        "offset": 130,
+        "compressed_size": 31,
+        "uncompressed_size": 480,
+        "method": "deflate",
+        "crc32": "0xD5BA0566",
+        "crc_status": "verified",
+        "decompressed_data": "LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_LOG_ENTRY_REPEAT_STRING_",
+        "extracted_path": "C:\\Users\\Pranav Shewale\\zebro-scraper\\demo\\output\\13_valid.zip.extracted\\compressed\\data.log"
+      }
+    }
+  ],
+  "damages": [
+    {
+      "offset": 97,
+      "length": 64,
+      "type": "truncation",
+      "description": "Missing or truncated End of Central Directory (EOCD)"
+    }
+  ],
+  "metadata": {
+    "has_eocd": false,
+    "recovered_entries": 2
+  },
+  "analysis": {
+    "size": 161,
+    "sha256": "4b7068f32e216b0fb5df2d4a063b1eb8506e84a35d7a220f9268ee6c14a281d1",
+    "extension_hint": "zip",
+    "signatures": [
+      {
+        "format": "ZIP",
+        "offset": 0,
+        "length": 4,
+        "confidence": 1.0,
+        "description": "ZIP / PKZip archive"
+      },
+      {
+        "format": "ZIP",
+        "offset": 81,
+        "length": 4,
+        "confidence": 0.85,
+        "description": "ZIP / PKZip archive"
+      }
+    ],
+    "entropy": {
+      "overall": 5.155,
+      "block_size": 256,
+      "block_count": 1,
+      "blocks": [
+        5.155
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 161,
+          "type": "mixed",
+          "avg_entropy": 5.155
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 30,
+        "length": 53,
+        "encoding": "ascii",
+        "string": "notes.txtSalvaged notes from documented ZIP parser!PK"
+      },
+      {
+        "offset": 111,
+        "length": 19,
+        "encoding": "ascii",
+        "string": "compressed/data.log"
+      },
+      {
+        "offset": 141,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "r\rpu"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 832176128 at offset 12",
+        "details": {
+          "offset": 12,
+          "value": 832176128,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1869479936 at offset 28",
+        "details": {
+          "offset": 28,
+          "value": 1869479936,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1400141940 at offset 36",
+        "details": {
+          "offset": 36,
+          "value": 1400141940,
+          "endian": "little"
+        }
+      }
+    ],
+    "damage_indicators": []
+  },
+  "detection_candidates": [
+    {
+      "format": "ZIP",
+      "confidence": 1.0,
+      "method": "exact_magic_offset_0",
+      "offset": 0,
+      "evidence": "Exact magic match at offset 0: ZIP / PKZip archive"
+    }
+  ],
+  "carved_objects": [
+    {
+      "format": "ZIP",
+      "offset": 0,
+      "carved": false,
+      "reason": "End-of-Central-Directory (EOCD) signature not found or truncated"
+    },
+    {
+      "format": "ZIP",
+      "offset": 81,
+      "carved": false,
+      "reason": "End-of-Central-Directory (EOCD) signature not found or truncated"
+    }
+  ],
+  "coverage": {
+    "total_bytes": 161,
+    "recovered_bytes": 161,
+    "verified_bytes": 161,
+    "heuristic_bytes": 0,
+    "unaccounted_bytes": 0,
+    "coverage_pct": 100.0,
+    "verified_coverage_pct": 100.0,
+    "heuristic_coverage_pct": 0.0,
+    "unaccounted_regions": []
+  },
+  "probe_summary": {
+    "total_probes": 455,
+    "matched_probes": 75
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        32
+      ],
+      "role": "ZIP_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        32,
+        161
+      ],
+      "role": "ZIP_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    }
+  ]
+}

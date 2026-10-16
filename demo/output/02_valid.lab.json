@@ -56,5 +56,179 @@
   "metadata": {
     "version": 1,
     "created_timestamp": 1710000000
-  }
+  },
+  "analysis": {
+    "size": 201,
+    "sha256": "6796be3880ae03dbab4542d460730eb5d4f3c7fabbc48e63f9bd2dcecadce8b5",
+    "extension_hint": "lab",
+    "signatures": [
+      {
+        "format": "LABLOG",
+        "offset": 0,
+        "length": 8,
+        "confidence": 1.0,
+        "description": "Laboratory Log journal"
+      },
+      {
+        "format": "WKS",
+        "offset": 146,
+        "length": 4,
+        "confidence": 0.85,
+        "description": "Lotus 1-2-3 BOF record"
+      }
+    ],
+    "entropy": {
+      "overall": 5.101,
+      "block_size": 256,
+      "block_count": 1,
+      "blocks": [
+        5.101
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 201,
+          "type": "mixed",
+          "avg_entropy": 5.101
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 0,
+        "length": 6,
+        "encoding": "ascii",
+        "string": "LABLOG"
+      },
+      {
+        "offset": 24,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "BLOK"
+      },
+      {
+        "offset": 46,
+        "length": 37,
+        "encoding": "ascii",
+        "string": "ffSystem boot sequence initiated.BLOK"
+      },
+      {
+        "offset": 101,
+        "length": 43,
+        "encoding": "ascii",
+        "string": "ffCore temperature stabilized at 38.5C.BLOK"
+      },
+      {
+        "offset": 162,
+        "length": 39,
+        "encoding": "ascii",
+        "string": "ffNotice: routine health ping received."
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1279410508 at offset 0",
+        "details": {
+          "offset": 0,
+          "value": 1279410508,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1710000000 at offset 16",
+        "details": {
+          "offset": 16,
+          "value": 1710000000,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1263488066 at offset 24",
+        "details": {
+          "offset": 24,
+          "value": 1263488066,
+          "endian": "little"
+        }
+      }
+    ],
+    "damage_indicators": []
+  },
+  "detection_candidates": [
+    {
+      "format": "LABLOG",
+      "confidence": 1.0,
+      "method": "exact_magic_offset_0",
+      "offset": 0,
+      "evidence": "Exact magic match at offset 0: Laboratory Log journal"
+    },
+    {
+      "format": "WKS",
+      "confidence": 0.85,
+      "method": "magic_nonzero_offset",
+      "offset": 146,
+      "evidence": "Magic found at non-zero offset 146: Lotus 1-2-3 BOF record"
+    }
+  ],
+  "carved_objects": [],
+  "coverage": {
+    "total_bytes": 201,
+    "recovered_bytes": 177,
+    "verified_bytes": 177,
+    "heuristic_bytes": 0,
+    "unaccounted_bytes": 24,
+    "coverage_pct": 88.06,
+    "verified_coverage_pct": 88.06,
+    "heuristic_coverage_pct": 0.0,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 24
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 457,
+    "matched_probes": 80
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        24
+      ],
+      "role": "LABLOG_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        24,
+        32
+      ],
+      "role": "LABLOG_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "footer",
+      "offset_range": [
+        32,
+        201
+      ],
+      "role": "trailer_WKS_EOF",
+      "status": "hypothesized",
+      "confidence": 0.9
+    }
+  ]
 }

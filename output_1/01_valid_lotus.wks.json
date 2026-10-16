@@ -1,0 +1,1947 @@
+{
+  "file": "01_valid_lotus.wks",
+  "format": "WKS",
+  "file_size": 2361,
+  "is_valid_header": true,
+  "total_records_recovered": 82,
+  "total_declared_records": 82,
+  "records": [
+    {
+      "id": 0,
+      "status": "complete",
+      "byte_range": [
+        6,
+        26
+      ],
+      "data": {
+        "opcode": 6,
+        "payload_len": 16,
+        "record_type": "UNKNOWN_OPCODE_0x0006",
+        "raw_hex": "00000000060010000000000000000000"
+      }
+    },
+    {
+      "id": 1,
+      "status": "complete",
+      "byte_range": [
+        26,
+        31
+      ],
+      "data": {
+        "opcode": 2,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x0002",
+        "raw_hex": "ff"
+      }
+    },
+    {
+      "id": 2,
+      "status": "complete",
+      "byte_range": [
+        31,
+        36
+      ],
+      "data": {
+        "opcode": 3,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x0003",
+        "raw_hex": "00"
+      }
+    },
+    {
+      "id": 3,
+      "status": "complete",
+      "byte_range": [
+        36,
+        41
+      ],
+      "data": {
+        "opcode": 47,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x002F",
+        "raw_hex": "01"
+      }
+    },
+    {
+      "id": 4,
+      "status": "complete",
+      "byte_range": [
+        41,
+        484
+      ],
+      "data": {
+        "opcode": 45,
+        "payload_len": 439,
+        "record_type": "UNKNOWN_OPCODE_0x002D",
+        "raw_hex": "00000c000000100001000c000100100002000c000200100003000c0003001000"
+      }
+    },
+    {
+      "id": 5,
+      "status": "complete",
+      "byte_range": [
+        484,
+        943
+      ],
+      "data": {
+        "opcode": 46,
+        "payload_len": 455,
+        "record_type": "UNKNOWN_OPCODE_0x002E",
+        "raw_hex": "4368617274310000000000000000000000000c000000100001000c0001001000"
+      }
+    },
+    {
+      "id": 6,
+      "status": "complete",
+      "byte_range": [
+        943,
+        955
+      ],
+      "data": {
+        "opcode": 26,
+        "payload_len": 8,
+        "record_type": "UNKNOWN_OPCODE_0x001A",
+        "raw_hex": "ffffffffffffffff"
+      }
+    },
+    {
+      "id": 7,
+      "status": "complete",
+      "byte_range": [
+        955,
+        960
+      ],
+      "data": {
+        "opcode": 37,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x0025",
+        "raw_hex": "00"
+      }
+    },
+    {
+      "id": 8,
+      "status": "complete",
+      "byte_range": [
+        960,
+        965
+      ],
+      "data": {
+        "opcode": 38,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x0026",
+        "raw_hex": "00"
+      }
+    },
+    {
+      "id": 9,
+      "status": "complete",
+      "byte_range": [
+        965,
+        970
+      ],
+      "data": {
+        "opcode": 39,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x0027",
+        "raw_hex": "00"
+      }
+    },
+    {
+      "id": 10,
+      "status": "complete",
+      "byte_range": [
+        970,
+        984
+      ],
+      "data": {
+        "opcode": 40,
+        "payload_len": 10,
+        "record_type": "UNKNOWN_OPCODE_0x0028",
+        "raw_hex": "04004c004200e0010200"
+      }
+    },
+    {
+      "id": 11,
+      "status": "complete",
+      "byte_range": [
+        984,
+        989
+      ],
+      "data": {
+        "opcode": 48,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x0030",
+        "raw_hex": "00"
+      }
+    },
+    {
+      "id": 12,
+      "status": "complete",
+      "byte_range": [
+        989,
+        1009
+      ],
+      "data": {
+        "opcode": 42,
+        "payload_len": 16,
+        "record_type": "UNKNOWN_OPCODE_0x002A",
+        "raw_hex": "ffffffffffffffffffffffffffffffff"
+      }
+    },
+    {
+      "id": 13,
+      "status": "complete",
+      "byte_range": [
+        1009,
+        1021
+      ],
+      "data": {
+        "opcode": 28,
+        "payload_len": 8,
+        "record_type": "UNKNOWN_OPCODE_0x001C",
+        "raw_hex": "ffffffffffffffff"
+      }
+    },
+    {
+      "id": 14,
+      "status": "complete",
+      "byte_range": [
+        1021,
+        1050
+      ],
+      "data": {
+        "opcode": 24,
+        "payload_len": 25,
+        "record_type": "UNKNOWN_OPCODE_0x0018",
+        "raw_hex": "00ffffffffffffffff00e3f3f400e3f3f4ffffffffffffffff"
+      }
+    },
+    {
+      "id": 15,
+      "status": "complete",
+      "byte_range": [
+        1050,
+        1079
+      ],
+      "data": {
+        "opcode": 25,
+        "payload_len": 25,
+        "record_type": "UNKNOWN_OPCODE_0x0019",
+        "raw_hex": "ffffffffffffffff00e3f3f400e3f3f4ffffffffffffffff00"
+      }
+    },
+    {
+      "id": 16,
+      "status": "complete",
+      "byte_range": [
+        1079,
+        1091
+      ],
+      "data": {
+        "opcode": 27,
+        "payload_len": 8,
+        "record_type": "UNKNOWN_OPCODE_0x001B",
+        "raw_hex": "ffffffffffffffff"
+      }
+    },
+    {
+      "id": 17,
+      "status": "complete",
+      "byte_range": [
+        1091,
+        1104
+      ],
+      "data": {
+        "opcode": 29,
+        "payload_len": 9,
+        "record_type": "UNKNOWN_OPCODE_0x001D",
+        "raw_hex": "ffffffffffffffffff"
+      }
+    },
+    {
+      "id": 18,
+      "status": "complete",
+      "byte_range": [
+        1104,
+        1117
+      ],
+      "data": {
+        "opcode": 35,
+        "payload_len": 9,
+        "record_type": "UNKNOWN_OPCODE_0x0023",
+        "raw_hex": "ffffffffffffffffff"
+      }
+    },
+    {
+      "id": 19,
+      "status": "complete",
+      "byte_range": [
+        1117,
+        1137
+      ],
+      "data": {
+        "opcode": 32,
+        "payload_len": 16,
+        "record_type": "UNKNOWN_OPCODE_0x0020",
+        "raw_hex": "ffffffffffffffffffffffffffffffff"
+      }
+    },
+    {
+      "id": 20,
+      "status": "complete",
+      "byte_range": [
+        1137,
+        1142
+      ],
+      "data": {
+        "opcode": 36,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x0024",
+        "raw_hex": "00"
+      }
+    },
+    {
+      "id": 21,
+      "status": "complete",
+      "byte_range": [
+        1142,
+        1147
+      ],
+      "data": {
+        "opcode": 4,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x0004",
+        "raw_hex": "00"
+      }
+    },
+    {
+      "id": 22,
+      "status": "complete",
+      "byte_range": [
+        1147,
+        1152
+      ],
+      "data": {
+        "opcode": 5,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x0005",
+        "raw_hex": "ff"
+      }
+    },
+    {
+      "id": 23,
+      "status": "complete",
+      "byte_range": [
+        1152,
+        1187
+      ],
+      "data": {
+        "opcode": 7,
+        "payload_len": 31,
+        "record_type": "UNKNOWN_OPCODE_0x0007",
+        "raw_hex": "000000007100090008001300000000000000000000000000040004004c0000"
+      }
+    },
+    {
+      "id": 24,
+      "status": "complete",
+      "byte_range": [
+        1187,
+        1192
+      ],
+      "data": {
+        "opcode": 41,
+        "payload_len": 1,
+        "record_type": "UNKNOWN_OPCODE_0x0029",
+        "raw_hex": "27"
+      }
+    },
+    {
+      "id": 25,
+      "status": "complete",
+      "byte_range": [
+        1192,
+        1199
+      ],
+      "data": {
+        "opcode": 8,
+        "payload_len": 3,
+        "record_type": "UNKNOWN_OPCODE_0x0008",
+        "raw_hex": "00000d"
+      }
+    },
+    {
+      "id": 26,
+      "status": "complete",
+      "byte_range": [
+        1199,
+        1206
+      ],
+      "data": {
+        "opcode": 8,
+        "payload_len": 3,
+        "record_type": "UNKNOWN_OPCODE_0x0008",
+        "raw_hex": "050014"
+      }
+    },
+    {
+      "id": 27,
+      "status": "complete",
+      "byte_range": [
+        1206,
+        1230
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 20,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 0,
+        "align_prefix": "'",
+        "text": "WKS test file",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 28,
+      "status": "complete",
+      "byte_range": [
+        1230,
+        1249
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 15,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 2,
+        "align_prefix": "'",
+        "text": "Purpose:",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 29,
+      "status": "complete",
+      "byte_range": [
+        1249,
+        1294
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 41,
+        "record_type": "LABEL",
+        "col": 1,
+        "row": 2,
+        "align_prefix": "'",
+        "text": "Provide example file for this type",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 30,
+      "status": "complete",
+      "byte_range": [
+        1294,
+        1320
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 22,
+        "record_type": "LABEL",
+        "col": 5,
+        "row": 2,
+        "align_prefix": "'",
+        "text": "File created by",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 31,
+      "status": "complete",
+      "byte_range": [
+        1320,
+        1361
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 37,
+        "record_type": "LABEL",
+        "col": 6,
+        "row": 2,
+        "align_prefix": "'",
+        "text": "http://www.online-convert.com/",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 32,
+      "status": "complete",
+      "byte_range": [
+        1361,
+        1382
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 17,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 3,
+        "align_prefix": "'",
+        "text": "File type:",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 33,
+      "status": "complete",
+      "byte_range": [
+        1382,
+        1396
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 10,
+        "record_type": "LABEL",
+        "col": 1,
+        "row": 3,
+        "align_prefix": "'",
+        "text": "WKS",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 34,
+      "status": "complete",
+      "byte_range": [
+        1396,
+        1426
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 26,
+        "record_type": "LABEL",
+        "col": 5,
+        "row": 3,
+        "align_prefix": "'",
+        "text": "More example files:",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 35,
+      "status": "complete",
+      "byte_range": [
+        1426,
+        1476
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 46,
+        "record_type": "LABEL",
+        "col": 6,
+        "row": 3,
+        "align_prefix": "'",
+        "text": "http://www.online-convert.com/file-type",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 36,
+      "status": "complete",
+      "byte_range": [
+        1476,
+        1495
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 15,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 4,
+        "align_prefix": "'",
+        "text": "Version:",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 37,
+      "status": "complete",
+      "byte_range": [
+        1495,
+        1512
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 1,
+        "row": 4,
+        "value": 1.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 38,
+      "status": "complete",
+      "byte_range": [
+        1512,
+        1531
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 15,
+        "record_type": "LABEL",
+        "col": 5,
+        "row": 4,
+        "align_prefix": "'",
+        "text": "License:",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 39,
+      "status": "complete",
+      "byte_range": [
+        1531,
+        1577
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 42,
+        "record_type": "LABEL",
+        "col": 6,
+        "row": 4,
+        "align_prefix": "'",
+        "text": "Attribution-ShareAlike 3.0 Unported",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 40,
+      "status": "complete",
+      "byte_range": [
+        1577,
+        1595
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 14,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 5,
+        "align_prefix": "'",
+        "text": "Remark:",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 41,
+      "status": "complete",
+      "byte_range": [
+        1595,
+        1652
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 53,
+        "record_type": "LABEL",
+        "col": 6,
+        "row": 5,
+        "align_prefix": "'",
+        "text": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 42,
+      "status": "complete",
+      "byte_range": [
+        1652,
+        1679
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 23,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 7,
+        "align_prefix": "'",
+        "text": "Example content:",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 43,
+      "status": "complete",
+      "byte_range": [
+        1679,
+        1757
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 74,
+        "record_type": "LABEL",
+        "col": 4,
+        "row": 7,
+        "align_prefix": "'",
+        "text": "Feel free to use and share the file according to the license above.",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 44,
+      "status": "complete",
+      "byte_range": [
+        1757,
+        1780
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 19,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 9,
+        "align_prefix": "'",
+        "text": "Pocket Money",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 45,
+      "status": "complete",
+      "byte_range": [
+        1780,
+        1796
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 12,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 11,
+        "align_prefix": "'",
+        "text": "Month",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 46,
+      "status": "complete",
+      "byte_range": [
+        1796,
+        1814
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 14,
+        "record_type": "LABEL",
+        "col": 1,
+        "row": 11,
+        "align_prefix": "'",
+        "text": "Cecilia",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 47,
+      "status": "complete",
+      "byte_range": [
+        1814,
+        1830
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 12,
+        "record_type": "LABEL",
+        "col": 2,
+        "row": 11,
+        "align_prefix": "'",
+        "text": "Patty",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 48,
+      "status": "complete",
+      "byte_range": [
+        1830,
+        1847
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 13,
+        "record_type": "LABEL",
+        "col": 3,
+        "row": 11,
+        "align_prefix": "'",
+        "text": "Robert",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 49,
+      "status": "complete",
+      "byte_range": [
+        1847,
+        1863
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 12,
+        "record_type": "LABEL",
+        "col": 4,
+        "row": 11,
+        "align_prefix": "'",
+        "text": "Frank",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 50,
+      "status": "complete",
+      "byte_range": [
+        1863,
+        1879
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 12,
+        "record_type": "LABEL",
+        "col": 5,
+        "row": 11,
+        "align_prefix": "'",
+        "text": "total",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 51,
+      "status": "complete",
+      "byte_range": [
+        1879,
+        1897
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 14,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 12,
+        "align_prefix": "'",
+        "text": "January",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 52,
+      "status": "complete",
+      "byte_range": [
+        1897,
+        1914
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 1,
+        "row": 12,
+        "value": 5.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 53,
+      "status": "complete",
+      "byte_range": [
+        1914,
+        1931
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 2,
+        "row": 12,
+        "value": 5.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 54,
+      "status": "complete",
+      "byte_range": [
+        1931,
+        1948
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 3,
+        "row": 12,
+        "value": 7.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 55,
+      "status": "complete",
+      "byte_range": [
+        1948,
+        1965
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 4,
+        "row": 12,
+        "value": 25.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 56,
+      "status": "complete",
+      "byte_range": [
+        1965,
+        1976
+      ],
+      "data": {
+        "opcode": 13,
+        "payload_len": 7,
+        "record_type": "INTEGER",
+        "col": 5,
+        "row": 12,
+        "value": 42,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 57,
+      "status": "complete",
+      "byte_range": [
+        1976,
+        1995
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 15,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 13,
+        "align_prefix": "'",
+        "text": "February",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 58,
+      "status": "complete",
+      "byte_range": [
+        1995,
+        2012
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 1,
+        "row": 13,
+        "value": 15.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 59,
+      "status": "complete",
+      "byte_range": [
+        2012,
+        2029
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 2,
+        "row": 13,
+        "value": 15.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 60,
+      "status": "complete",
+      "byte_range": [
+        2029,
+        2046
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 3,
+        "row": 13,
+        "value": 10.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 61,
+      "status": "complete",
+      "byte_range": [
+        2046,
+        2063
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 4,
+        "row": 13,
+        "value": 5.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 62,
+      "status": "complete",
+      "byte_range": [
+        2063,
+        2074
+      ],
+      "data": {
+        "opcode": 13,
+        "payload_len": 7,
+        "record_type": "INTEGER",
+        "col": 5,
+        "row": 13,
+        "value": 45,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 63,
+      "status": "complete",
+      "byte_range": [
+        2074,
+        2090
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 12,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 14,
+        "align_prefix": "'",
+        "text": "March",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 64,
+      "status": "complete",
+      "byte_range": [
+        2090,
+        2107
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 1,
+        "row": 14,
+        "value": 7.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 65,
+      "status": "complete",
+      "byte_range": [
+        2107,
+        2124
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 2,
+        "row": 14,
+        "value": 10.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 66,
+      "status": "complete",
+      "byte_range": [
+        2124,
+        2141
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 3,
+        "row": 14,
+        "value": 0.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 67,
+      "status": "complete",
+      "byte_range": [
+        2141,
+        2158
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 4,
+        "row": 14,
+        "value": 15.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 68,
+      "status": "complete",
+      "byte_range": [
+        2158,
+        2169
+      ],
+      "data": {
+        "opcode": 13,
+        "payload_len": 7,
+        "record_type": "INTEGER",
+        "col": 5,
+        "row": 14,
+        "value": 32,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 69,
+      "status": "complete",
+      "byte_range": [
+        2169,
+        2185
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 12,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 15,
+        "align_prefix": "'",
+        "text": "April",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 70,
+      "status": "complete",
+      "byte_range": [
+        2185,
+        2202
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 1,
+        "row": 15,
+        "value": 5.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 71,
+      "status": "complete",
+      "byte_range": [
+        2202,
+        2219
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 2,
+        "row": 15,
+        "value": 5.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 72,
+      "status": "complete",
+      "byte_range": [
+        2219,
+        2236
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 3,
+        "row": 15,
+        "value": 15.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 73,
+      "status": "complete",
+      "byte_range": [
+        2236,
+        2253
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 4,
+        "row": 15,
+        "value": 23.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 74,
+      "status": "complete",
+      "byte_range": [
+        2253,
+        2264
+      ],
+      "data": {
+        "opcode": 13,
+        "payload_len": 7,
+        "record_type": "INTEGER",
+        "col": 5,
+        "row": 15,
+        "value": 48,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 75,
+      "status": "complete",
+      "byte_range": [
+        2264,
+        2278
+      ],
+      "data": {
+        "opcode": 15,
+        "payload_len": 10,
+        "record_type": "LABEL",
+        "col": 0,
+        "row": 16,
+        "align_prefix": "'",
+        "text": "May",
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 76,
+      "status": "complete",
+      "byte_range": [
+        2278,
+        2295
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 1,
+        "row": 16,
+        "value": 15.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 77,
+      "status": "complete",
+      "byte_range": [
+        2295,
+        2312
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 2,
+        "row": 16,
+        "value": 5.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 78,
+      "status": "complete",
+      "byte_range": [
+        2312,
+        2329
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 3,
+        "row": 16,
+        "value": 5.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 79,
+      "status": "complete",
+      "byte_range": [
+        2329,
+        2346
+      ],
+      "data": {
+        "opcode": 14,
+        "payload_len": 13,
+        "record_type": "NUMBER",
+        "col": 4,
+        "row": 16,
+        "value": 18.0,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 80,
+      "status": "complete",
+      "byte_range": [
+        2346,
+        2357
+      ],
+      "data": {
+        "opcode": 13,
+        "payload_len": 7,
+        "record_type": "INTEGER",
+        "col": 5,
+        "row": 16,
+        "value": 43,
+        "format_byte": 255
+      }
+    },
+    {
+      "id": 81,
+      "status": "complete",
+      "byte_range": [
+        2357,
+        2361
+      ],
+      "data": {
+        "record_type": "EOF",
+        "opcode": 1
+      }
+    }
+  ],
+  "damages": [],
+  "metadata": {
+    "saw_bof": true,
+    "saw_eof": true,
+    "version_code": "0x0404",
+    "grid": {
+      "R0C0": {
+        "type": "LABEL",
+        "value": "WKS test file"
+      },
+      "R2C0": {
+        "type": "LABEL",
+        "value": "Purpose:"
+      },
+      "R2C1": {
+        "type": "LABEL",
+        "value": "Provide example file for this type"
+      },
+      "R2C5": {
+        "type": "LABEL",
+        "value": "File created by"
+      },
+      "R2C6": {
+        "type": "LABEL",
+        "value": "http://www.online-convert.com/"
+      },
+      "R3C0": {
+        "type": "LABEL",
+        "value": "File type:"
+      },
+      "R3C1": {
+        "type": "LABEL",
+        "value": "WKS"
+      },
+      "R3C5": {
+        "type": "LABEL",
+        "value": "More example files:"
+      },
+      "R3C6": {
+        "type": "LABEL",
+        "value": "http://www.online-convert.com/file-type"
+      },
+      "R4C0": {
+        "type": "LABEL",
+        "value": "Version:"
+      },
+      "R4C1": {
+        "type": "NUMBER",
+        "value": 1.0
+      },
+      "R4C5": {
+        "type": "LABEL",
+        "value": "License:"
+      },
+      "R4C6": {
+        "type": "LABEL",
+        "value": "Attribution-ShareAlike 3.0 Unported"
+      },
+      "R5C0": {
+        "type": "LABEL",
+        "value": "Remark:"
+      },
+      "R5C6": {
+        "type": "LABEL",
+        "value": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      "R7C0": {
+        "type": "LABEL",
+        "value": "Example content:"
+      },
+      "R7C4": {
+        "type": "LABEL",
+        "value": "Feel free to use and share the file according to the license above."
+      },
+      "R9C0": {
+        "type": "LABEL",
+        "value": "Pocket Money"
+      },
+      "R11C0": {
+        "type": "LABEL",
+        "value": "Month"
+      },
+      "R11C1": {
+        "type": "LABEL",
+        "value": "Cecilia"
+      },
+      "R11C2": {
+        "type": "LABEL",
+        "value": "Patty"
+      },
+      "R11C3": {
+        "type": "LABEL",
+        "value": "Robert"
+      },
+      "R11C4": {
+        "type": "LABEL",
+        "value": "Frank"
+      },
+      "R11C5": {
+        "type": "LABEL",
+        "value": "total"
+      },
+      "R12C0": {
+        "type": "LABEL",
+        "value": "January"
+      },
+      "R12C1": {
+        "type": "NUMBER",
+        "value": 5.0
+      },
+      "R12C2": {
+        "type": "NUMBER",
+        "value": 5.0
+      },
+      "R12C3": {
+        "type": "NUMBER",
+        "value": 7.0
+      },
+      "R12C4": {
+        "type": "NUMBER",
+        "value": 25.0
+      },
+      "R12C5": {
+        "type": "INTEGER",
+        "value": 42
+      },
+      "R13C0": {
+        "type": "LABEL",
+        "value": "February"
+      },
+      "R13C1": {
+        "type": "NUMBER",
+        "value": 15.0
+      },
+      "R13C2": {
+        "type": "NUMBER",
+        "value": 15.0
+      },
+      "R13C3": {
+        "type": "NUMBER",
+        "value": 10.0
+      },
+      "R13C4": {
+        "type": "NUMBER",
+        "value": 5.0
+      },
+      "R13C5": {
+        "type": "INTEGER",
+        "value": 45
+      },
+      "R14C0": {
+        "type": "LABEL",
+        "value": "March"
+      },
+      "R14C1": {
+        "type": "NUMBER",
+        "value": 7.0
+      },
+      "R14C2": {
+        "type": "NUMBER",
+        "value": 10.0
+      },
+      "R14C3": {
+        "type": "NUMBER",
+        "value": 0.0
+      },
+      "R14C4": {
+        "type": "NUMBER",
+        "value": 15.0
+      },
+      "R14C5": {
+        "type": "INTEGER",
+        "value": 32
+      },
+      "R15C0": {
+        "type": "LABEL",
+        "value": "April"
+      },
+      "R15C1": {
+        "type": "NUMBER",
+        "value": 5.0
+      },
+      "R15C2": {
+        "type": "NUMBER",
+        "value": 5.0
+      },
+      "R15C3": {
+        "type": "NUMBER",
+        "value": 15.0
+      },
+      "R15C4": {
+        "type": "NUMBER",
+        "value": 23.0
+      },
+      "R15C5": {
+        "type": "INTEGER",
+        "value": 48
+      },
+      "R16C0": {
+        "type": "LABEL",
+        "value": "May"
+      },
+      "R16C1": {
+        "type": "NUMBER",
+        "value": 15.0
+      },
+      "R16C2": {
+        "type": "NUMBER",
+        "value": 5.0
+      },
+      "R16C3": {
+        "type": "NUMBER",
+        "value": 5.0
+      },
+      "R16C4": {
+        "type": "NUMBER",
+        "value": 18.0
+      },
+      "R16C5": {
+        "type": "INTEGER",
+        "value": 43
+      }
+    }
+  },
+  "analysis": {
+    "size": 2361,
+    "sha256": "93982a551877eabcd8c22715cdd59ee03271034500ca9215130bc31c2975d9c4",
+    "extension_hint": "wks",
+    "signatures": [
+      {
+        "format": "WKS",
+        "offset": 0,
+        "length": 4,
+        "confidence": 1.0,
+        "description": "Lotus 1-2-3 BOF record"
+      },
+      {
+        "format": "WKS",
+        "offset": 24,
+        "length": 4,
+        "confidence": 0.85,
+        "description": "Lotus 1-2-3 BOF record"
+      },
+      {
+        "format": "WKS",
+        "offset": 1235,
+        "length": 4,
+        "confidence": 0.85,
+        "description": "Lotus 1-2-3 BOF record"
+      }
+    ],
+    "entropy": {
+      "overall": 3.686,
+      "block_size": 256,
+      "block_count": 10,
+      "blocks": [
+        2.117,
+        1.066,
+        1.685,
+        1.992,
+        3.654,
+        4.791,
+        4.951,
+        3.634,
+        2.968,
+        2.394
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 2361,
+          "type": "mixed",
+          "avg_entropy": 2.117
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 358,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "\\B12"
+      },
+      {
+        "offset": 378,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "\\C12"
+      },
+      {
+        "offset": 398,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "\\D12"
+      },
+      {
+        "offset": 418,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "\\E12"
+      },
+      {
+        "offset": 438,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "\\F12"
+      },
+      {
+        "offset": 488,
+        "length": 6,
+        "encoding": "ascii",
+        "string": "Chart1"
+      },
+      {
+        "offset": 817,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "\\B12"
+      },
+      {
+        "offset": 837,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "\\C12"
+      },
+      {
+        "offset": 857,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "\\D12"
+      },
+      {
+        "offset": 877,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "\\E12"
+      },
+      {
+        "offset": 897,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "\\F12"
+      },
+      {
+        "offset": 1215,
+        "length": 14,
+        "encoding": "ascii",
+        "string": "'WKS test file"
+      },
+      {
+        "offset": 1239,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "'Purpose:"
+      },
+      {
+        "offset": 1258,
+        "length": 35,
+        "encoding": "ascii",
+        "string": "'Provide example file for this type"
+      },
+      {
+        "offset": 1303,
+        "length": 16,
+        "encoding": "ascii",
+        "string": "'File created by"
+      },
+      {
+        "offset": 1329,
+        "length": 31,
+        "encoding": "ascii",
+        "string": "'http://www.online-convert.com/"
+      },
+      {
+        "offset": 1370,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "'File type:"
+      },
+      {
+        "offset": 1391,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "'WKS"
+      },
+      {
+        "offset": 1405,
+        "length": 20,
+        "encoding": "ascii",
+        "string": "'More example files:"
+      },
+      {
+        "offset": 1435,
+        "length": 40,
+        "encoding": "ascii",
+        "string": "'http://www.online-convert.com/file-type"
+      },
+      {
+        "offset": 1485,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "'Version:"
+      },
+      {
+        "offset": 1521,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "'License:"
+      },
+      {
+        "offset": 1540,
+        "length": 36,
+        "encoding": "ascii",
+        "string": "'Attribution-ShareAlike 3.0 Unported"
+      },
+      {
+        "offset": 1586,
+        "length": 8,
+        "encoding": "ascii",
+        "string": "'Remark:"
+      },
+      {
+        "offset": 1604,
+        "length": 47,
+        "encoding": "ascii",
+        "string": "'http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "offset": 1661,
+        "length": 17,
+        "encoding": "ascii",
+        "string": "'Example content:"
+      },
+      {
+        "offset": 1688,
+        "length": 68,
+        "encoding": "ascii",
+        "string": "'Feel free to use and share the file according to the license above."
+      },
+      {
+        "offset": 1766,
+        "length": 13,
+        "encoding": "ascii",
+        "string": "'Pocket Money"
+      },
+      {
+        "offset": 1789,
+        "length": 6,
+        "encoding": "ascii",
+        "string": "'Month"
+      },
+      {
+        "offset": 1805,
+        "length": 8,
+        "encoding": "ascii",
+        "string": "'Cecilia"
+      },
+      {
+        "offset": 1823,
+        "length": 6,
+        "encoding": "ascii",
+        "string": "'Patty"
+      },
+      {
+        "offset": 1839,
+        "length": 7,
+        "encoding": "ascii",
+        "string": "'Robert"
+      },
+      {
+        "offset": 1856,
+        "length": 6,
+        "encoding": "ascii",
+        "string": "'Frank"
+      },
+      {
+        "offset": 1872,
+        "length": 6,
+        "encoding": "ascii",
+        "string": "'total"
+      },
+      {
+        "offset": 1888,
+        "length": 8,
+        "encoding": "ascii",
+        "string": "'January"
+      },
+      {
+        "offset": 1985,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "'February"
+      },
+      {
+        "offset": 2083,
+        "length": 6,
+        "encoding": "ascii",
+        "string": "'March"
+      },
+      {
+        "offset": 2178,
+        "length": 6,
+        "encoding": "ascii",
+        "string": "'April"
+      },
+      {
+        "offset": 2273,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "'May"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "fixed_width_record_stride",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.59,
+        "evidence": "Record stride of 32 bytes with 59% structural pattern alignment across consecutive blocks",
+        "details": {
+          "stride_bytes": 32,
+          "estimated_record_count": 73
+        }
+      }
+    ],
+    "damage_indicators": [
+      {
+        "type": "zero_filled_gap",
+        "offset": 198,
+        "length": 160,
+        "description": "Zero-filled gap of 160 bytes detected"
+      },
+      {
+        "type": "zero_filled_gap",
+        "offset": 657,
+        "length": 160,
+        "description": "Zero-filled gap of 160 bytes detected"
+      }
+    ]
+  },
+  "detection_candidates": [
+    {
+      "format": "WKS",
+      "confidence": 1.0,
+      "method": "exact_magic_offset_0",
+      "offset": 0,
+      "evidence": "Exact magic match at offset 0: Lotus 1-2-3 BOF record"
+    }
+  ],
+  "carved_objects": [],
+  "coverage": {
+    "total_bytes": 2361,
+    "recovered_bytes": 2355,
+    "verified_bytes": 2355,
+    "heuristic_bytes": 0,
+    "unaccounted_bytes": 6,
+    "coverage_pct": 99.75,
+    "verified_coverage_pct": 99.75,
+    "heuristic_coverage_pct": 0.0,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 463,
+    "matched_probes": 121
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        6
+      ],
+      "role": "WKS_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        6,
+        2357
+      ],
+      "role": "WKS_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "footer",
+      "offset_range": [
+        2357,
+        2361
+      ],
+      "role": "trailer_WKS_EOF",
+      "status": "hypothesized",
+      "confidence": 0.9
+    }
+  ]
+}

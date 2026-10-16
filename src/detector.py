@@ -21,6 +21,9 @@ class FormatDetector:
         ("WAD", b"IWAD", 0, "Doom Internal WAD"),
         ("WAD", b"PWAD", 0, "Doom Patch WAD"),
         ("WKS", b"\x00\x00\x02\x00", 0, "Lotus 1-2-3 BOF record"),
+        ("ZIP", b"PK\x03\x04", 0, "ZIP archive"),
+        ("GZIP", b"\x1f\x8b", 0, "GZIP compressed archive"),
+        ("PNG", b"\x89PNG\r\n\x1a\n", 0, "Portable Network Graphics"),
     ]
 
     @classmethod

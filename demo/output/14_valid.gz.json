@@ -1,0 +1,184 @@
+{
+  "file": "14_valid.gz",
+  "format": "GZIP",
+  "file_size": 78,
+  "is_valid_header": true,
+  "total_records_recovered": 1,
+  "total_declared_records": 1,
+  "records": [
+    {
+      "id": 0,
+      "status": "complete",
+      "byte_range": [
+        10,
+        70
+      ],
+      "data": {
+        "name": "14_valid",
+        "orig_filename": "",
+        "mtime": 1792134273,
+        "compressed_size": 60,
+        "uncompressed_size": 62,
+        "crc_status": "verified",
+        "decompressed_data": "RFC 1952 GZIP compressed stream rescued with validated CRC-32.",
+        "extracted_path": "C:\\Users\\Pranav Shewale\\zebro-scraper\\demo\\output\\14_valid.gz.extracted\\14_valid"
+      }
+    }
+  ],
+  "damages": [],
+  "metadata": {
+    "mtime": 1792134273,
+    "orig_filename": "",
+    "trailer_crc": "0x6AB8C10B",
+    "trailer_isize": 62
+  },
+  "analysis": {
+    "size": 78,
+    "sha256": "8da8e86605fa28a61217807810c3284f1193e13a537343e3fb71fcf87c1faf47",
+    "extension_hint": "gz",
+    "signatures": [
+      {
+        "format": "GZIP",
+        "offset": 0,
+        "length": 3,
+        "confidence": 1.0,
+        "description": "GZIP compressed data"
+      }
+    ],
+    "entropy": {
+      "overall": 5.59,
+      "block_size": 256,
+      "block_count": 1,
+      "blocks": [
+        5.59
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 78,
+          "type": "mixed",
+          "avg_entropy": 5.59
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 11,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "rsV0"
+      },
+      {
+        "offset": 16,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "45Rp"
+      },
+      {
+        "offset": 27,
+        "length": 13,
+        "encoding": "ascii",
+        "string": "-(J-.NMQ(.)JM"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1792134273 at offset 4",
+        "details": {
+          "offset": 4,
+          "value": 1792134273,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1884435764 at offset 16",
+        "details": {
+          "offset": 16,
+          "value": 1884435764,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1343025807 at offset 20",
+        "details": {
+          "offset": 20,
+          "value": 1343025807,
+          "endian": "little"
+        }
+      }
+    ],
+    "damage_indicators": []
+  },
+  "detection_candidates": [
+    {
+      "format": "GZIP",
+      "confidence": 1.0,
+      "method": "exact_magic_offset_0",
+      "offset": 0,
+      "evidence": "Exact magic match at offset 0: GZIP compressed data"
+    }
+  ],
+  "carved_objects": [
+    {
+      "format": "GZIP",
+      "offset": 0,
+      "carved": false,
+      "reason": "Carving skipped for GZIP: ambiguous or unsupported end-boundary definition"
+    }
+  ],
+  "coverage": {
+    "total_bytes": 78,
+    "recovered_bytes": 60,
+    "verified_bytes": 60,
+    "heuristic_bytes": 0,
+    "unaccounted_bytes": 18,
+    "coverage_pct": 76.92,
+    "verified_coverage_pct": 76.92,
+    "heuristic_coverage_pct": 0.0,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 10
+      },
+      {
+        "offset": 70,
+        "length": 8
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 446,
+    "matched_probes": 7
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        32
+      ],
+      "role": "GZIP_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        32,
+        78
+      ],
+      "role": "GZIP_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "summary": {
+    "total_files_processed": 1,
+    "total_records_recovered": 82,
+    "total_verified_records": 82,
+    "total_heuristic_records": 0,
+    "total_damaged_blocks": 0,
+    "formats": {
+      "WKS": 1
+    }
+  },
+  "files": [
+    {
+      "file": "01_valid_lotus.wks",
+      "format": "WKS",
+      "detection_result": "WKS",
+      "confidence": 1.0,
+      "is_valid_header": true,
+      "records_recovered": 82,
+      "verified_records": 82,
+      "heuristic_records": 0,
+      "coverage_pct": 99.75,
+      "verified_coverage_pct": 99.75,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 0,
+      "analysis_summary": {
+        "size": 2361,
+        "sha256": "93982a551877eabcd8c22715cdd59ee03271034500ca9215130bc31c2975d9c4",
+        "entropy": 3.686,
+        "carved_count": 0
+      }
+    }
+  ]
+}

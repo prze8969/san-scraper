@@ -285,6 +285,30 @@ class WksParser(BaseParser):
                 )
             )
 
+        # Build grid-style cell table for metadata
+        grid: dict[str, Any] = {}
+        for r in recovered_records:
+            if "row" in r.fields and "col" in r.fields:
+                row_idx = r.fields["row"]
+                col_idx = r.fields["col"]
+                cell_key = f"R{row_idx}C{col_idx}"
+                cell_info: dict[str, Any] = {"type": r.fields.get("record_type")}
+                if "value" in r.fields:
+                    cell_info["value"] = r.fields["value"]
+                elif "text" in r.fields:
+                    cell_info["value"] = r.fields["text"]
+                elif "cached_value" in r.fields:
+                    cell_info["value"] = r.fields["cached_value"]
+                grid[cell_key] = cell_info
+
+        meta = {
+            "saw_bof": saw_bof,
+            "saw_eof": saw_eof,
+            "version_code": f"0x{version_code:04X}" if version_code is not None else None,
+        }
+        if grid:
+            meta["grid"] = grid
+
         return FileRecoveryResult(
             filename=filename,
             format_name="WKS",
@@ -293,9 +317,5 @@ class WksParser(BaseParser):
             total_records=len(recovered_records),
             recovered_records=recovered_records,
             damages=damages,
-            metadata={
-                "saw_bof": saw_bof,
-                "saw_eof": saw_eof,
-                "version_code": f"0x{version_code:04X}" if version_code is not None else None,
-            },
+            metadata=meta,
         )

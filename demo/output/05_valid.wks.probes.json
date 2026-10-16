@@ -1,0 +1,7151 @@
+{
+  "file": "05_valid.wks",
+  "file_size": 85,
+  "probes_executed": 447,
+  "probes_matched": 102,
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        6
+      ],
+      "role": "WKS_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        6,
+        81
+      ],
+      "role": "WKS_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "footer",
+      "offset_range": [
+        81,
+        85
+      ],
+      "role": "trailer_WKS_EOF",
+      "status": "hypothesized",
+      "confidence": 0.9
+    }
+  ],
+  "probes": [
+    {
+      "id": "sig_LIBRA-98_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "LIBRA-98",
+        "target_offset": 0,
+        "signature_hex": "4c49425241393800"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for LIBRA-98 magic at offset 0"
+    },
+    {
+      "id": "sig_LIBRA-98_file_end",
+      "family": "signatures",
+      "byte_range": [
+        77,
+        77
+      ],
+      "parameters": {
+        "format": "LIBRA-98",
+        "target_offset": 77,
+        "signature_hex": "4c49425241393800"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for LIBRA-98 at file end"
+    },
+    {
+      "id": "sig_LIBRA-98_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "LIBRA-98",
+        "signature_hex": "4c49425241393800"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for LIBRA-98"
+    },
+    {
+      "id": "sig_LABLOG_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "LABLOG",
+        "target_offset": 0,
+        "signature_hex": "4c41424c4f470100"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for LABLOG magic at offset 0"
+    },
+    {
+      "id": "sig_LABLOG_file_end",
+      "family": "signatures",
+      "byte_range": [
+        77,
+        77
+      ],
+      "parameters": {
+        "format": "LABLOG",
+        "target_offset": 77,
+        "signature_hex": "4c41424c4f470100"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for LABLOG at file end"
+    },
+    {
+      "id": "sig_LABLOG_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "LABLOG",
+        "signature_hex": "4c41424c4f470100"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for LABLOG"
+    },
+    {
+      "id": "sig_VAULT_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "VAULT",
+        "target_offset": 0,
+        "signature_hex": "5641554c54010000"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for VAULT magic at offset 0"
+    },
+    {
+      "id": "sig_VAULT_file_end",
+      "family": "signatures",
+      "byte_range": [
+        77,
+        77
+      ],
+      "parameters": {
+        "format": "VAULT",
+        "target_offset": 77,
+        "signature_hex": "5641554c54010000"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for VAULT at file end"
+    },
+    {
+      "id": "sig_VAULT_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "VAULT",
+        "signature_hex": "5641554c54010000"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for VAULT"
+    },
+    {
+      "id": "sig_PAK_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "PAK",
+        "target_offset": 0,
+        "signature_hex": "5041434b"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for PAK magic at offset 0"
+    },
+    {
+      "id": "sig_PAK_file_end",
+      "family": "signatures",
+      "byte_range": [
+        81,
+        81
+      ],
+      "parameters": {
+        "format": "PAK",
+        "target_offset": 81,
+        "signature_hex": "5041434b"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for PAK at file end"
+    },
+    {
+      "id": "sig_PAK_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "PAK",
+        "signature_hex": "5041434b"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for PAK"
+    },
+    {
+      "id": "sig_WKS_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        4
+      ],
+      "parameters": {
+        "format": "WKS",
+        "target_offset": 0,
+        "signature_hex": "00000200"
+      },
+      "result": "match",
+      "score": 1.0,
+      "evidence": "Exact magic match at offset 0: Lotus 1-2-3 BOF record"
+    },
+    {
+      "id": "sig_WKS_file_end",
+      "family": "signatures",
+      "byte_range": [
+        81,
+        81
+      ],
+      "parameters": {
+        "format": "WKS",
+        "target_offset": 81,
+        "signature_hex": "00000200"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for WKS at file end"
+    },
+    {
+      "id": "sig_WKS_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        29,
+        33
+      ],
+      "parameters": {
+        "format": "WKS",
+        "signature_hex": "00000200"
+      },
+      "result": "match",
+      "score": 0.85,
+      "evidence": "Magic for WKS found at offset 29"
+    },
+    {
+      "id": "sig_WAD_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "WAD",
+        "target_offset": 0,
+        "signature_hex": "49574144"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for WAD magic at offset 0"
+    },
+    {
+      "id": "sig_WAD_file_end",
+      "family": "signatures",
+      "byte_range": [
+        81,
+        81
+      ],
+      "parameters": {
+        "format": "WAD",
+        "target_offset": 81,
+        "signature_hex": "49574144"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for WAD at file end"
+    },
+    {
+      "id": "sig_WAD_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "WAD",
+        "signature_hex": "49574144"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for WAD"
+    },
+    {
+      "id": "sig_WAD_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "WAD",
+        "target_offset": 0,
+        "signature_hex": "50574144"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for WAD magic at offset 0"
+    },
+    {
+      "id": "sig_WAD_file_end",
+      "family": "signatures",
+      "byte_range": [
+        81,
+        81
+      ],
+      "parameters": {
+        "format": "WAD",
+        "target_offset": 81,
+        "signature_hex": "50574144"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for WAD at file end"
+    },
+    {
+      "id": "sig_WAD_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "WAD",
+        "signature_hex": "50574144"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for WAD"
+    },
+    {
+      "id": "sig_ZIP_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "ZIP",
+        "target_offset": 0,
+        "signature_hex": "504b0304"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for ZIP magic at offset 0"
+    },
+    {
+      "id": "sig_ZIP_file_end",
+      "family": "signatures",
+      "byte_range": [
+        81,
+        81
+      ],
+      "parameters": {
+        "format": "ZIP",
+        "target_offset": 81,
+        "signature_hex": "504b0304"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for ZIP at file end"
+    },
+    {
+      "id": "sig_ZIP_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "ZIP",
+        "signature_hex": "504b0304"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for ZIP"
+    },
+    {
+      "id": "sig_ZIP_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "ZIP",
+        "target_offset": 0,
+        "signature_hex": "504b0506"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for ZIP magic at offset 0"
+    },
+    {
+      "id": "sig_ZIP_file_end",
+      "family": "signatures",
+      "byte_range": [
+        81,
+        81
+      ],
+      "parameters": {
+        "format": "ZIP",
+        "target_offset": 81,
+        "signature_hex": "504b0506"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for ZIP at file end"
+    },
+    {
+      "id": "sig_ZIP_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "ZIP",
+        "signature_hex": "504b0506"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for ZIP"
+    },
+    {
+      "id": "sig_PNG_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "PNG",
+        "target_offset": 0,
+        "signature_hex": "89504e470d0a1a0a"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for PNG magic at offset 0"
+    },
+    {
+      "id": "sig_PNG_file_end",
+      "family": "signatures",
+      "byte_range": [
+        77,
+        77
+      ],
+      "parameters": {
+        "format": "PNG",
+        "target_offset": 77,
+        "signature_hex": "89504e470d0a1a0a"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for PNG at file end"
+    },
+    {
+      "id": "sig_PNG_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "PNG",
+        "signature_hex": "89504e470d0a1a0a"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for PNG"
+    },
+    {
+      "id": "sig_GIF_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "GIF",
+        "target_offset": 0,
+        "signature_hex": "474946383761"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for GIF magic at offset 0"
+    },
+    {
+      "id": "sig_GIF_file_end",
+      "family": "signatures",
+      "byte_range": [
+        79,
+        79
+      ],
+      "parameters": {
+        "format": "GIF",
+        "target_offset": 79,
+        "signature_hex": "474946383761"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for GIF at file end"
+    },
+    {
+      "id": "sig_GIF_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "GIF",
+        "signature_hex": "474946383761"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for GIF"
+    },
+    {
+      "id": "sig_GIF_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "GIF",
+        "target_offset": 0,
+        "signature_hex": "474946383961"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for GIF magic at offset 0"
+    },
+    {
+      "id": "sig_GIF_file_end",
+      "family": "signatures",
+      "byte_range": [
+        79,
+        79
+      ],
+      "parameters": {
+        "format": "GIF",
+        "target_offset": 79,
+        "signature_hex": "474946383961"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for GIF at file end"
+    },
+    {
+      "id": "sig_GIF_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "GIF",
+        "signature_hex": "474946383961"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for GIF"
+    },
+    {
+      "id": "sig_JPEG_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "JPEG",
+        "target_offset": 0,
+        "signature_hex": "ffd8ff"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for JPEG magic at offset 0"
+    },
+    {
+      "id": "sig_JPEG_file_end",
+      "family": "signatures",
+      "byte_range": [
+        82,
+        82
+      ],
+      "parameters": {
+        "format": "JPEG",
+        "target_offset": 82,
+        "signature_hex": "ffd8ff"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for JPEG at file end"
+    },
+    {
+      "id": "sig_JPEG_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "JPEG",
+        "signature_hex": "ffd8ff"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for JPEG"
+    },
+    {
+      "id": "sig_PDF_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "PDF",
+        "target_offset": 0,
+        "signature_hex": "255044462d"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for PDF magic at offset 0"
+    },
+    {
+      "id": "sig_PDF_file_end",
+      "family": "signatures",
+      "byte_range": [
+        80,
+        80
+      ],
+      "parameters": {
+        "format": "PDF",
+        "target_offset": 80,
+        "signature_hex": "255044462d"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for PDF at file end"
+    },
+    {
+      "id": "sig_PDF_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "PDF",
+        "signature_hex": "255044462d"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for PDF"
+    },
+    {
+      "id": "sig_GZIP_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "GZIP",
+        "target_offset": 0,
+        "signature_hex": "1f8b08"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for GZIP magic at offset 0"
+    },
+    {
+      "id": "sig_GZIP_file_end",
+      "family": "signatures",
+      "byte_range": [
+        82,
+        82
+      ],
+      "parameters": {
+        "format": "GZIP",
+        "target_offset": 82,
+        "signature_hex": "1f8b08"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for GZIP at file end"
+    },
+    {
+      "id": "sig_GZIP_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "GZIP",
+        "signature_hex": "1f8b08"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for GZIP"
+    },
+    {
+      "id": "sig_SQLite_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "SQLite",
+        "target_offset": 0,
+        "signature_hex": "53514c69746520666f726d6174203300"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for SQLite magic at offset 0"
+    },
+    {
+      "id": "sig_SQLite_file_end",
+      "family": "signatures",
+      "byte_range": [
+        69,
+        69
+      ],
+      "parameters": {
+        "format": "SQLite",
+        "target_offset": 69,
+        "signature_hex": "53514c69746520666f726d6174203300"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for SQLite at file end"
+    },
+    {
+      "id": "sig_SQLite_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "SQLite",
+        "signature_hex": "53514c69746520666f726d6174203300"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for SQLite"
+    },
+    {
+      "id": "sig_RIFF_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "RIFF",
+        "target_offset": 0,
+        "signature_hex": "52494646"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for RIFF magic at offset 0"
+    },
+    {
+      "id": "sig_RIFF_file_end",
+      "family": "signatures",
+      "byte_range": [
+        81,
+        81
+      ],
+      "parameters": {
+        "format": "RIFF",
+        "target_offset": 81,
+        "signature_hex": "52494646"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for RIFF at file end"
+    },
+    {
+      "id": "sig_RIFF_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "RIFF",
+        "signature_hex": "52494646"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for RIFF"
+    },
+    {
+      "id": "sig_OLE2/CFB_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "OLE2/CFB",
+        "target_offset": 0,
+        "signature_hex": "d0cf11e0a1b11ae1"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for OLE2/CFB magic at offset 0"
+    },
+    {
+      "id": "sig_OLE2/CFB_file_end",
+      "family": "signatures",
+      "byte_range": [
+        77,
+        77
+      ],
+      "parameters": {
+        "format": "OLE2/CFB",
+        "target_offset": 77,
+        "signature_hex": "d0cf11e0a1b11ae1"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for OLE2/CFB at file end"
+    },
+    {
+      "id": "sig_OLE2/CFB_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "OLE2/CFB",
+        "signature_hex": "d0cf11e0a1b11ae1"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for OLE2/CFB"
+    },
+    {
+      "id": "sig_7z_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "7z",
+        "target_offset": 0,
+        "signature_hex": "377abcaf271c"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for 7z magic at offset 0"
+    },
+    {
+      "id": "sig_7z_file_end",
+      "family": "signatures",
+      "byte_range": [
+        79,
+        79
+      ],
+      "parameters": {
+        "format": "7z",
+        "target_offset": 79,
+        "signature_hex": "377abcaf271c"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for 7z at file end"
+    },
+    {
+      "id": "sig_7z_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "7z",
+        "signature_hex": "377abcaf271c"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for 7z"
+    },
+    {
+      "id": "sig_RAR_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "RAR",
+        "target_offset": 0,
+        "signature_hex": "526172211a0700"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for RAR magic at offset 0"
+    },
+    {
+      "id": "sig_RAR_file_end",
+      "family": "signatures",
+      "byte_range": [
+        78,
+        78
+      ],
+      "parameters": {
+        "format": "RAR",
+        "target_offset": 78,
+        "signature_hex": "526172211a0700"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for RAR at file end"
+    },
+    {
+      "id": "sig_RAR_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "RAR",
+        "signature_hex": "526172211a0700"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for RAR"
+    },
+    {
+      "id": "sig_RAR_offset_0",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "RAR",
+        "target_offset": 0,
+        "signature_hex": "526172211a070100"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for RAR magic at offset 0"
+    },
+    {
+      "id": "sig_RAR_file_end",
+      "family": "signatures",
+      "byte_range": [
+        77,
+        77
+      ],
+      "parameters": {
+        "format": "RAR",
+        "target_offset": 77,
+        "signature_hex": "526172211a070100"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No match for RAR at file end"
+    },
+    {
+      "id": "sig_RAR_nonzero_offset",
+      "family": "signatures",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {
+        "format": "RAR",
+        "signature_hex": "526172211a070100"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "No non-zero match for RAR"
+    },
+    {
+      "id": "hdr_u32_le_off_0",
+      "family": "header",
+      "byte_range": [
+        0,
+        4
+      ],
+      "parameters": {
+        "offset": 0,
+        "type": "uint32_le",
+        "value": 131072
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 0: uint32_LE 131072"
+    },
+    {
+      "id": "hdr_u32_be_off_0",
+      "family": "header",
+      "byte_range": [
+        0,
+        4
+      ],
+      "parameters": {
+        "offset": 0,
+        "type": "uint32_be",
+        "value": 512
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 0: uint32_BE 512"
+    },
+    {
+      "id": "hdr_u16_le_off_0",
+      "family": "header",
+      "byte_range": [
+        0,
+        2
+      ],
+      "parameters": {
+        "offset": 0,
+        "type": "uint16_le",
+        "value": 0
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 0: uint16_LE 0"
+    },
+    {
+      "id": "hdr_u32_le_off_2",
+      "family": "header",
+      "byte_range": [
+        2,
+        6
+      ],
+      "parameters": {
+        "offset": 2,
+        "type": "uint32_le",
+        "value": 67371010
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 2: uint32_LE 67371010"
+    },
+    {
+      "id": "hdr_u32_be_off_2",
+      "family": "header",
+      "byte_range": [
+        2,
+        6
+      ],
+      "parameters": {
+        "offset": 2,
+        "type": "uint32_be",
+        "value": 33555460
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 2: uint32_BE 33555460"
+    },
+    {
+      "id": "hdr_u16_le_off_2",
+      "family": "header",
+      "byte_range": [
+        2,
+        4
+      ],
+      "parameters": {
+        "offset": 2,
+        "type": "uint16_le",
+        "value": 2
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 2: uint16_LE 2"
+    },
+    {
+      "id": "hdr_u32_le_off_4",
+      "family": "header",
+      "byte_range": [
+        4,
+        8
+      ],
+      "parameters": {
+        "offset": 4,
+        "type": "uint32_le",
+        "value": 787460
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 4: uint32_LE 787460"
+    },
+    {
+      "id": "hdr_u32_be_off_4",
+      "family": "header",
+      "byte_range": [
+        4,
+        8
+      ],
+      "parameters": {
+        "offset": 4,
+        "type": "uint32_be",
+        "value": 67374080
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 4: uint32_BE 67374080"
+    },
+    {
+      "id": "hdr_u16_le_off_4",
+      "family": "header",
+      "byte_range": [
+        4,
+        6
+      ],
+      "parameters": {
+        "offset": 4,
+        "type": "uint16_le",
+        "value": 1028
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 4: uint16_LE 1028"
+    },
+    {
+      "id": "hdr_u32_le_off_8",
+      "family": "header",
+      "byte_range": [
+        8,
+        12
+      ],
+      "parameters": {
+        "offset": 8,
+        "type": "uint32_le",
+        "value": 5
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 8: uint32_LE 5"
+    },
+    {
+      "id": "hdr_u32_be_off_8",
+      "family": "header",
+      "byte_range": [
+        8,
+        12
+      ],
+      "parameters": {
+        "offset": 8,
+        "type": "uint32_be",
+        "value": 83886080
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 8: uint32_BE 83886080"
+    },
+    {
+      "id": "hdr_u16_le_off_8",
+      "family": "header",
+      "byte_range": [
+        8,
+        10
+      ],
+      "parameters": {
+        "offset": 8,
+        "type": "uint16_le",
+        "value": 5
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 8: uint16_LE 5"
+    },
+    {
+      "id": "hdr_u32_le_off_12",
+      "family": "header",
+      "byte_range": [
+        12,
+        16
+      ],
+      "parameters": {
+        "offset": 12,
+        "type": "uint32_le",
+        "value": 218103808
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 12: uint32_LE 218103808"
+    },
+    {
+      "id": "hdr_u32_be_off_12",
+      "family": "header",
+      "byte_range": [
+        12,
+        16
+      ],
+      "parameters": {
+        "offset": 12,
+        "type": "uint32_be",
+        "value": 13
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 12: uint32_BE 13"
+    },
+    {
+      "id": "hdr_u16_le_off_12",
+      "family": "header",
+      "byte_range": [
+        12,
+        14
+      ],
+      "parameters": {
+        "offset": 12,
+        "type": "uint16_le",
+        "value": 0
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 12: uint16_LE 0"
+    },
+    {
+      "id": "hdr_u32_le_off_16",
+      "family": "header",
+      "byte_range": [
+        16,
+        20
+      ],
+      "parameters": {
+        "offset": 16,
+        "type": "uint32_le",
+        "value": 1792
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 16: uint32_LE 1792"
+    },
+    {
+      "id": "hdr_u32_be_off_16",
+      "family": "header",
+      "byte_range": [
+        16,
+        20
+      ],
+      "parameters": {
+        "offset": 16,
+        "type": "uint32_be",
+        "value": 458752
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 16: uint32_BE 458752"
+    },
+    {
+      "id": "hdr_u16_le_off_16",
+      "family": "header",
+      "byte_range": [
+        16,
+        18
+      ],
+      "parameters": {
+        "offset": 16,
+        "type": "uint16_le",
+        "value": 1792
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 16: uint16_LE 1792"
+    },
+    {
+      "id": "hdr_u32_le_off_20",
+      "family": "header",
+      "byte_range": [
+        20,
+        24
+      ],
+      "parameters": {
+        "offset": 20,
+        "type": "uint32_le",
+        "value": 131073
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 20: uint32_LE 131073"
+    },
+    {
+      "id": "hdr_u32_be_off_20",
+      "family": "header",
+      "byte_range": [
+        20,
+        24
+      ],
+      "parameters": {
+        "offset": 20,
+        "type": "uint32_be",
+        "value": 16777728
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 20: uint32_BE 16777728"
+    },
+    {
+      "id": "hdr_u16_le_off_20",
+      "family": "header",
+      "byte_range": [
+        20,
+        22
+      ],
+      "parameters": {
+        "offset": 20,
+        "type": "uint16_le",
+        "value": 1
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 20: uint16_LE 1"
+    },
+    {
+      "id": "hdr_u32_le_off_24",
+      "family": "header",
+      "byte_range": [
+        24,
+        28
+      ],
+      "parameters": {
+        "offset": 24,
+        "type": "uint32_le",
+        "value": 917546
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 24: uint32_LE 917546"
+    },
+    {
+      "id": "hdr_u32_be_off_24",
+      "family": "header",
+      "byte_range": [
+        24,
+        28
+      ],
+      "parameters": {
+        "offset": 24,
+        "type": "uint32_be",
+        "value": 704646656
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 24: uint32_BE 704646656"
+    },
+    {
+      "id": "hdr_u16_le_off_24",
+      "family": "header",
+      "byte_range": [
+        24,
+        26
+      ],
+      "parameters": {
+        "offset": 24,
+        "type": "uint16_le",
+        "value": 42
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 24: uint16_LE 42"
+    },
+    {
+      "id": "hdr_u32_le_off_28",
+      "family": "header",
+      "byte_range": [
+        28,
+        32
+      ],
+      "parameters": {
+        "offset": 28,
+        "type": "uint32_le",
+        "value": 33554445
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 28: uint32_LE 33554445"
+    },
+    {
+      "id": "hdr_u32_be_off_28",
+      "family": "header",
+      "byte_range": [
+        28,
+        32
+      ],
+      "parameters": {
+        "offset": 28,
+        "type": "uint32_be",
+        "value": 218103810
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 28: uint32_BE 218103810"
+    },
+    {
+      "id": "hdr_u16_le_off_28",
+      "family": "header",
+      "byte_range": [
+        28,
+        30
+      ],
+      "parameters": {
+        "offset": 28,
+        "type": "uint16_le",
+        "value": 13
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 28: uint16_LE 13"
+    },
+    {
+      "id": "hdr_u32_le_off_32",
+      "family": "header",
+      "byte_range": [
+        32,
+        36
+      ],
+      "parameters": {
+        "offset": 32,
+        "type": "uint32_le",
+        "value": 1711276544
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 32: uint32_LE 1711276544"
+    },
+    {
+      "id": "hdr_u32_be_off_32",
+      "family": "header",
+      "byte_range": [
+        32,
+        36
+      ],
+      "parameters": {
+        "offset": 32,
+        "type": "uint32_be",
+        "value": 131174
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 32: uint32_BE 131174"
+    },
+    {
+      "id": "hdr_u16_le_off_32",
+      "family": "header",
+      "byte_range": [
+        32,
+        34
+      ],
+      "parameters": {
+        "offset": 32,
+        "type": "uint16_le",
+        "value": 512
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 32: uint16_LE 512"
+    },
+    {
+      "id": "hdr_u32_le_off_36",
+      "family": "header",
+      "byte_range": [
+        36,
+        40
+      ],
+      "parameters": {
+        "offset": 36,
+        "type": "uint32_le",
+        "value": 1717986918
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 36: uint32_LE 1717986918"
+    },
+    {
+      "id": "hdr_u32_be_off_36",
+      "family": "header",
+      "byte_range": [
+        36,
+        40
+      ],
+      "parameters": {
+        "offset": 36,
+        "type": "uint32_be",
+        "value": 1717986918
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 36: uint32_BE 1717986918"
+    },
+    {
+      "id": "hdr_u16_le_off_36",
+      "family": "header",
+      "byte_range": [
+        36,
+        38
+      ],
+      "parameters": {
+        "offset": 36,
+        "type": "uint16_le",
+        "value": 26214
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 36: uint16_LE 26214"
+    },
+    {
+      "id": "hdr_u32_le_off_40",
+      "family": "header",
+      "byte_range": [
+        40,
+        44
+      ],
+      "parameters": {
+        "offset": 40,
+        "type": "uint32_le",
+        "value": 255875238
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 40: uint32_LE 255875238"
+    },
+    {
+      "id": "hdr_u32_be_off_40",
+      "family": "header",
+      "byte_range": [
+        40,
+        44
+      ],
+      "parameters": {
+        "offset": 40,
+        "type": "uint32_be",
+        "value": 2790801423
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 40: uint32_BE 2790801423"
+    },
+    {
+      "id": "hdr_u16_le_off_40",
+      "family": "header",
+      "byte_range": [
+        40,
+        42
+      ],
+      "parameters": {
+        "offset": 40,
+        "type": "uint16_le",
+        "value": 22694
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 40: uint16_LE 22694"
+    },
+    {
+      "id": "hdr_u32_le_off_48",
+      "family": "header",
+      "byte_range": [
+        48,
+        52
+      ],
+      "parameters": {
+        "offset": 48,
+        "type": "uint32_le",
+        "value": 196611
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 48: uint32_LE 196611"
+    },
+    {
+      "id": "hdr_u32_be_off_48",
+      "family": "header",
+      "byte_range": [
+        48,
+        52
+      ],
+      "parameters": {
+        "offset": 48,
+        "type": "uint32_be",
+        "value": 50332416
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 48: uint32_BE 50332416"
+    },
+    {
+      "id": "hdr_u16_le_off_48",
+      "family": "header",
+      "byte_range": [
+        48,
+        50
+      ],
+      "parameters": {
+        "offset": 48,
+        "type": "uint16_le",
+        "value": 3
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 48: uint16_LE 3"
+    },
+    {
+      "id": "hdr_u32_le_off_56",
+      "family": "header",
+      "byte_range": [
+        56,
+        60
+      ],
+      "parameters": {
+        "offset": 56,
+        "type": "uint32_le",
+        "value": 1163218501
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 56: uint32_LE 1163218501"
+    },
+    {
+      "id": "hdr_u32_be_off_56",
+      "family": "header",
+      "byte_range": [
+        56,
+        60
+      ],
+      "parameters": {
+        "offset": 56,
+        "type": "uint32_be",
+        "value": 1162761541
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 56: uint32_BE 1162761541"
+    },
+    {
+      "id": "hdr_u16_le_off_56",
+      "family": "header",
+      "byte_range": [
+        56,
+        58
+      ],
+      "parameters": {
+        "offset": 56,
+        "type": "uint16_le",
+        "value": 20037
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 56: uint16_LE 20037"
+    },
+    {
+      "id": "hdr_u32_le_off_60",
+      "family": "header",
+      "byte_range": [
+        60,
+        64
+      ],
+      "parameters": {
+        "offset": 60,
+        "type": "uint32_le",
+        "value": 3232095
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 60: uint32_LE 3232095"
+    },
+    {
+      "id": "hdr_u32_be_off_60",
+      "family": "header",
+      "byte_range": [
+        60,
+        64
+      ],
+      "parameters": {
+        "offset": 60,
+        "type": "uint32_be",
+        "value": 1599156480
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 60: uint32_BE 1599156480"
+    },
+    {
+      "id": "hdr_u16_le_off_60",
+      "family": "header",
+      "byte_range": [
+        60,
+        62
+      ],
+      "parameters": {
+        "offset": 60,
+        "type": "uint16_le",
+        "value": 20831
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 60: uint16_LE 20831"
+    },
+    {
+      "id": "footer_PNG_IEND",
+      "family": "footer",
+      "byte_range": [
+        85,
+        85
+      ],
+      "parameters": {
+        "marker": "PNG_IEND",
+        "marker_hex": "49454e44ae426082"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Trailer PNG_IEND not found in last 85 bytes"
+    },
+    {
+      "id": "footer_PNG_IEND_SHORT",
+      "family": "footer",
+      "byte_range": [
+        85,
+        85
+      ],
+      "parameters": {
+        "marker": "PNG_IEND_SHORT",
+        "marker_hex": "49454e44"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Trailer PNG_IEND_SHORT not found in last 85 bytes"
+    },
+    {
+      "id": "footer_ZIP_EOCD",
+      "family": "footer",
+      "byte_range": [
+        85,
+        85
+      ],
+      "parameters": {
+        "marker": "ZIP_EOCD",
+        "marker_hex": "504b0506"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Trailer ZIP_EOCD not found in last 85 bytes"
+    },
+    {
+      "id": "footer_JPEG_EOI",
+      "family": "footer",
+      "byte_range": [
+        85,
+        85
+      ],
+      "parameters": {
+        "marker": "JPEG_EOI",
+        "marker_hex": "ffd9"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Trailer JPEG_EOI not found in last 85 bytes"
+    },
+    {
+      "id": "footer_WKS_EOF",
+      "family": "footer",
+      "byte_range": [
+        81,
+        85
+      ],
+      "parameters": {
+        "marker": "WKS_EOF",
+        "marker_hex": "01000000"
+      },
+      "result": "match",
+      "score": 0.9,
+      "evidence": "Found WKS_EOF trailer marker at byte offset 81"
+    },
+    {
+      "id": "footer_PDF_EOF",
+      "family": "footer",
+      "byte_range": [
+        85,
+        85
+      ],
+      "parameters": {
+        "marker": "PDF_EOF",
+        "marker_hex": "2525454f46"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Trailer PDF_EOF not found in last 85 bytes"
+    },
+    {
+      "id": "footer_TAR_NULL_BLOCK",
+      "family": "footer",
+      "byte_range": [
+        85,
+        85
+      ],
+      "parameters": {
+        "marker": "TAR_NULL_BLOCK",
+        "marker_hex": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Trailer TAR_NULL_BLOCK not found in last 85 bytes"
+    },
+    {
+      "id": "footer_XML_HTML_CLOSE",
+      "family": "footer",
+      "byte_range": [
+        85,
+        85
+      ],
+      "parameters": {
+        "marker": "XML_HTML_CLOSE",
+        "marker_hex": "3c2f"
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Trailer XML_HTML_CLOSE not found in last 85 bytes"
+    },
+    {
+      "id": "chk_crc32_whole_buffer",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "algorithm": "crc32",
+        "range": "whole_buffer",
+        "computed": 3085545084
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "CRC32(whole_buffer) = 0xb7e9ae7c"
+    },
+    {
+      "id": "chk_adler32_whole_buffer",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "algorithm": "adler32",
+        "range": "whole_buffer",
+        "computed": 672598361
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Adler32(whole_buffer) = 0x28170959"
+    },
+    {
+      "id": "chk_xor8_whole_buffer",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "algorithm": "xor8",
+        "range": "whole_buffer",
+        "computed": 50
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR8(whole_buffer) = 0x32"
+    },
+    {
+      "id": "chk_crc32_buffer_minus_4_trailer",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        81
+      ],
+      "parameters": {
+        "algorithm": "crc32",
+        "range": "buffer_minus_4_trailer",
+        "computed": 2827236079
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "CRC32(buffer_minus_4_trailer) = 0xa88432ef"
+    },
+    {
+      "id": "chk_adler32_buffer_minus_4_trailer",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        81
+      ],
+      "parameters": {
+        "algorithm": "adler32",
+        "range": "buffer_minus_4_trailer",
+        "computed": 45287768
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Adler32(buffer_minus_4_trailer) = 0x02b30958"
+    },
+    {
+      "id": "chk_xor8_buffer_minus_4_trailer",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        81
+      ],
+      "parameters": {
+        "algorithm": "xor8",
+        "range": "buffer_minus_4_trailer",
+        "computed": 51
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR8(buffer_minus_4_trailer) = 0x33"
+    },
+    {
+      "id": "chk_crc32_buffer_minus_2_trailer",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        83
+      ],
+      "parameters": {
+        "algorithm": "crc32",
+        "range": "buffer_minus_2_trailer",
+        "computed": 1240675737
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "CRC32(buffer_minus_2_trailer) = 0x49f33599"
+    },
+    {
+      "id": "chk_adler32_buffer_minus_2_trailer",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        83
+      ],
+      "parameters": {
+        "algorithm": "adler32",
+        "range": "buffer_minus_2_trailer",
+        "computed": 358943065
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Adler32(buffer_minus_2_trailer) = 0x15650959"
+    },
+    {
+      "id": "chk_xor8_buffer_minus_2_trailer",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        83
+      ],
+      "parameters": {
+        "algorithm": "xor8",
+        "range": "buffer_minus_2_trailer",
+        "computed": 50
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR8(buffer_minus_2_trailer) = 0x32"
+    },
+    {
+      "id": "chk_crc32_header_32",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        32
+      ],
+      "parameters": {
+        "algorithm": "crc32",
+        "range": "header_32",
+        "computed": 3388267219
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "CRC32(header_32) = 0xc9f4dad3"
+    },
+    {
+      "id": "chk_adler32_header_32",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        32
+      ],
+      "parameters": {
+        "algorithm": "adler32",
+        "range": "header_32",
+        "computed": 103284858
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Adler32(header_32) = 0x0628007a"
+    },
+    {
+      "id": "chk_xor8_header_32",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        32
+      ],
+      "parameters": {
+        "algorithm": "xor8",
+        "range": "header_32",
+        "computed": 41
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR8(header_32) = 0x29"
+    },
+    {
+      "id": "chk_crc32_body_skip_header_32",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        53
+      ],
+      "parameters": {
+        "algorithm": "crc32",
+        "range": "body_skip_header_32",
+        "computed": 358152467
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "CRC32(body_skip_header_32) = 0x1558f913"
+    },
+    {
+      "id": "chk_adler32_body_skip_header_32",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        53
+      ],
+      "parameters": {
+        "algorithm": "adler32",
+        "range": "body_skip_header_32",
+        "computed": 149031136
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Adler32(body_skip_header_32) = 0x08e208e0"
+    },
+    {
+      "id": "chk_xor8_body_skip_header_32",
+      "family": "checksums",
+      "byte_range": [
+        0,
+        53
+      ],
+      "parameters": {
+        "algorithm": "xor8",
+        "range": "body_skip_header_32",
+        "computed": 27
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR8(body_skip_header_32) = 0x1b"
+    },
+    {
+      "id": "struct_stride_2",
+      "family": "structure",
+      "byte_range": [
+        0,
+        16
+      ],
+      "parameters": {
+        "stride_bytes": 2,
+        "blocks_checked": 8,
+        "correlation": 0.429
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 2 autocorrelation: 42% structural pattern alignment across 8 blocks"
+    },
+    {
+      "id": "struct_stride_4",
+      "family": "structure",
+      "byte_range": [
+        0,
+        32
+      ],
+      "parameters": {
+        "stride_bytes": 4,
+        "blocks_checked": 8,
+        "correlation": 0.357
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 4 autocorrelation: 35% structural pattern alignment across 8 blocks"
+    },
+    {
+      "id": "struct_stride_6",
+      "family": "structure",
+      "byte_range": [
+        0,
+        48
+      ],
+      "parameters": {
+        "stride_bytes": 6,
+        "blocks_checked": 8,
+        "correlation": 0.214
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 6 autocorrelation: 21% structural pattern alignment across 8 blocks"
+    },
+    {
+      "id": "struct_stride_8",
+      "family": "structure",
+      "byte_range": [
+        0,
+        64
+      ],
+      "parameters": {
+        "stride_bytes": 8,
+        "blocks_checked": 8,
+        "correlation": 0.125
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 8 autocorrelation: 12% structural pattern alignment across 8 blocks"
+    },
+    {
+      "id": "struct_stride_10",
+      "family": "structure",
+      "byte_range": [
+        0,
+        80
+      ],
+      "parameters": {
+        "stride_bytes": 10,
+        "blocks_checked": 8,
+        "correlation": 0.114
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 10 autocorrelation: 11% structural pattern alignment across 8 blocks"
+    },
+    {
+      "id": "struct_stride_12",
+      "family": "structure",
+      "byte_range": [
+        0,
+        84
+      ],
+      "parameters": {
+        "stride_bytes": 12,
+        "blocks_checked": 7,
+        "correlation": 0.153
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 12 autocorrelation: 15% structural pattern alignment across 7 blocks"
+    },
+    {
+      "id": "struct_stride_14",
+      "family": "structure",
+      "byte_range": [
+        0,
+        84
+      ],
+      "parameters": {
+        "stride_bytes": 14,
+        "blocks_checked": 6,
+        "correlation": 0.171
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 14 autocorrelation: 17% structural pattern alignment across 6 blocks"
+    },
+    {
+      "id": "struct_stride_16",
+      "family": "structure",
+      "byte_range": [
+        0,
+        80
+      ],
+      "parameters": {
+        "stride_bytes": 16,
+        "blocks_checked": 5,
+        "correlation": 0.203
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 16 autocorrelation: 20% structural pattern alignment across 5 blocks"
+    },
+    {
+      "id": "struct_stride_20",
+      "family": "structure",
+      "byte_range": [
+        0,
+        80
+      ],
+      "parameters": {
+        "stride_bytes": 20,
+        "blocks_checked": 4,
+        "correlation": 0.183
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 20 autocorrelation: 18% structural pattern alignment across 4 blocks"
+    },
+    {
+      "id": "struct_stride_24",
+      "family": "structure",
+      "byte_range": [
+        0,
+        72
+      ],
+      "parameters": {
+        "stride_bytes": 24,
+        "blocks_checked": 3,
+        "correlation": 0.167
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 24 autocorrelation: 16% structural pattern alignment across 3 blocks"
+    },
+    {
+      "id": "struct_stride_28",
+      "family": "structure",
+      "byte_range": [
+        0,
+        84
+      ],
+      "parameters": {
+        "stride_bytes": 28,
+        "blocks_checked": 3,
+        "correlation": 0.125
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 28 autocorrelation: 12% structural pattern alignment across 3 blocks"
+    },
+    {
+      "id": "struct_stride_32",
+      "family": "structure",
+      "byte_range": [
+        0,
+        64
+      ],
+      "parameters": {
+        "stride_bytes": 32,
+        "blocks_checked": 2,
+        "correlation": 0.125
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 32 autocorrelation: 12% structural pattern alignment across 2 blocks"
+    },
+    {
+      "id": "struct_stride_36",
+      "family": "structure",
+      "byte_range": [
+        0,
+        72
+      ],
+      "parameters": {
+        "stride_bytes": 36,
+        "blocks_checked": 2,
+        "correlation": 0.194
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 36 autocorrelation: 19% structural pattern alignment across 2 blocks"
+    },
+    {
+      "id": "struct_stride_40",
+      "family": "structure",
+      "byte_range": [
+        0,
+        80
+      ],
+      "parameters": {
+        "stride_bytes": 40,
+        "blocks_checked": 2,
+        "correlation": 0.2
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Record stride 40 autocorrelation: 20% structural pattern alignment across 2 blocks"
+    },
+    {
+      "id": "struct_marker_BLOK",
+      "family": "structure",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "marker": "BLOK",
+        "count": 0
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Marker 'BLOK' occurs 0 times"
+    },
+    {
+      "id": "struct_marker_RECD",
+      "family": "structure",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "marker": "RECD",
+        "count": 0
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Marker 'RECD' occurs 0 times"
+    },
+    {
+      "id": "struct_marker_DATA",
+      "family": "structure",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "marker": "DATA",
+        "count": 0
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Marker 'DATA' occurs 0 times"
+    },
+    {
+      "id": "struct_marker_HEAD",
+      "family": "structure",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "marker": "HEAD",
+        "count": 0
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Marker 'HEAD' occurs 0 times"
+    },
+    {
+      "id": "struct_marker_SYNC",
+      "family": "structure",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "marker": "SYNC",
+        "count": 0
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Marker 'SYNC' occurs 0 times"
+    },
+    {
+      "id": "struct_marker_ITEM",
+      "family": "structure",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "marker": "ITEM",
+        "count": 0
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Marker 'ITEM' occurs 0 times"
+    },
+    {
+      "id": "struct_marker_FILE",
+      "family": "structure",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "marker": "FILE",
+        "count": 0
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Marker 'FILE' occurs 0 times"
+    },
+    {
+      "id": "struct_marker_FORM",
+      "family": "structure",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "marker": "FORM",
+        "count": 0
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Marker 'FORM' occurs 0 times"
+    },
+    {
+      "id": "enc_ascii",
+      "family": "encoding",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "encoding": "ascii",
+        "printable_ratio": 0.349,
+        "chars": 83
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "ASCII 7-bit text ratio: 34% (29/83 chars printable)"
+    },
+    {
+      "id": "enc_utf_8",
+      "family": "encoding",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "encoding": "utf-8",
+        "printable_ratio": 0.349,
+        "chars": 83
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "UTF-8 Unicode text ratio: 34% (29/83 chars printable)"
+    },
+    {
+      "id": "enc_utf_16le",
+      "family": "encoding",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "encoding": "utf-16le",
+        "printable_ratio": 0.341,
+        "chars": 42
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "UTF-16LE Unicode text ratio: 34% (27/42 chars printable)"
+    },
+    {
+      "id": "enc_utf_16be",
+      "family": "encoding",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "encoding": "utf-16be",
+        "printable_ratio": 0.341,
+        "chars": 42
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "UTF-16BE Unicode text ratio: 34% (28/42 chars printable)"
+    },
+    {
+      "id": "enc_cp437",
+      "family": "encoding",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "encoding": "cp437",
+        "printable_ratio": 0.341,
+        "chars": 85
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "DOS Code Page 437 text ratio: 34% (31/85 chars printable)"
+    },
+    {
+      "id": "enc_cp1252",
+      "family": "encoding",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "encoding": "cp1252",
+        "printable_ratio": 0.341,
+        "chars": 85
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Windows-1252 Western text ratio: 34% (31/85 chars printable)"
+    },
+    {
+      "id": "enc_iso_8859_1",
+      "family": "encoding",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "encoding": "iso-8859-1",
+        "printable_ratio": 0.341,
+        "chars": 85
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "ISO-8859-1 Latin-1 text ratio: 34% (30/85 chars printable)"
+    },
+    {
+      "id": "_probe_compression_and_entropy_fail",
+      "family": "system",
+      "byte_range": [
+        0,
+        0
+      ],
+      "parameters": {},
+      "result": "error",
+      "score": 0.0,
+      "evidence": "Probe family error: name 'is_high_ent' is not defined"
+    },
+    {
+      "id": "obfusc_xor_key_00",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 0,
+        "key_hex": "0x00",
+        "printable_ratio": 0.341
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x00: 34% printable"
+    },
+    {
+      "id": "obfusc_xor_key_01",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 1,
+        "key_hex": "0x01",
+        "printable_ratio": 0.318
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x01: 31% printable"
+    },
+    {
+      "id": "obfusc_xor_key_02",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 2,
+        "key_hex": "0x02",
+        "printable_ratio": 0.318
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x02: 31% printable"
+    },
+    {
+      "id": "obfusc_xor_key_03",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 3,
+        "key_hex": "0x03",
+        "printable_ratio": 0.318
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x03: 31% printable"
+    },
+    {
+      "id": "obfusc_xor_key_04",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 4,
+        "key_hex": "0x04",
+        "printable_ratio": 0.353
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x04: 35% printable"
+    },
+    {
+      "id": "obfusc_xor_key_05",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 5,
+        "key_hex": "0x05",
+        "printable_ratio": 0.329
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x05: 32% printable"
+    },
+    {
+      "id": "obfusc_xor_key_06",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 6,
+        "key_hex": "0x06",
+        "printable_ratio": 0.329
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x06: 32% printable"
+    },
+    {
+      "id": "obfusc_xor_key_07",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 7,
+        "key_hex": "0x07",
+        "printable_ratio": 0.353
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x07: 35% printable"
+    },
+    {
+      "id": "obfusc_xor_key_08",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 8,
+        "key_hex": "0x08",
+        "printable_ratio": 0.388
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x08: 38% printable"
+    },
+    {
+      "id": "obfusc_xor_key_09",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 9,
+        "key_hex": "0x09",
+        "printable_ratio": 0.788
+      },
+      "result": "match",
+      "score": 0.79,
+      "evidence": "XOR key 0x09 deobfuscates to 78% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_0a",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 10,
+        "key_hex": "0x0a",
+        "printable_ratio": 0.753
+      },
+      "result": "match",
+      "score": 0.75,
+      "evidence": "XOR key 0x0a deobfuscates to 75% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_0b",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 11,
+        "key_hex": "0x0b",
+        "printable_ratio": 0.376
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x0b: 37% printable"
+    },
+    {
+      "id": "obfusc_xor_key_0c",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 12,
+        "key_hex": "0x0c",
+        "printable_ratio": 0.341
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x0c: 34% printable"
+    },
+    {
+      "id": "obfusc_xor_key_0d",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 13,
+        "key_hex": "0x0d",
+        "printable_ratio": 0.776
+      },
+      "result": "match",
+      "score": 0.78,
+      "evidence": "XOR key 0x0d deobfuscates to 77% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_0e",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 14,
+        "key_hex": "0x0e",
+        "printable_ratio": 0.388
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x0e: 38% printable"
+    },
+    {
+      "id": "obfusc_xor_key_0f",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 15,
+        "key_hex": "0x0f",
+        "printable_ratio": 0.365
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x0f: 36% printable"
+    },
+    {
+      "id": "obfusc_xor_key_10",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 16,
+        "key_hex": "0x10",
+        "printable_ratio": 0.306
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x10: 30% printable"
+    },
+    {
+      "id": "obfusc_xor_key_11",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 17,
+        "key_hex": "0x11",
+        "printable_ratio": 0.306
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x11: 30% printable"
+    },
+    {
+      "id": "obfusc_xor_key_12",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 18,
+        "key_hex": "0x12",
+        "printable_ratio": 0.306
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x12: 30% printable"
+    },
+    {
+      "id": "obfusc_xor_key_13",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 19,
+        "key_hex": "0x13",
+        "printable_ratio": 0.306
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x13: 30% printable"
+    },
+    {
+      "id": "obfusc_xor_key_14",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 20,
+        "key_hex": "0x14",
+        "printable_ratio": 0.306
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x14: 30% printable"
+    },
+    {
+      "id": "obfusc_xor_key_15",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 21,
+        "key_hex": "0x15",
+        "printable_ratio": 0.306
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x15: 30% printable"
+    },
+    {
+      "id": "obfusc_xor_key_16",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 22,
+        "key_hex": "0x16",
+        "printable_ratio": 0.306
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x16: 30% printable"
+    },
+    {
+      "id": "obfusc_xor_key_17",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 23,
+        "key_hex": "0x17",
+        "printable_ratio": 0.306
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x17: 30% printable"
+    },
+    {
+      "id": "obfusc_xor_key_18",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 24,
+        "key_hex": "0x18",
+        "printable_ratio": 0.318
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x18: 31% printable"
+    },
+    {
+      "id": "obfusc_xor_key_19",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 25,
+        "key_hex": "0x19",
+        "printable_ratio": 0.259
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x19: 25% printable"
+    },
+    {
+      "id": "obfusc_xor_key_1a",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 26,
+        "key_hex": "0x1a",
+        "printable_ratio": 0.318
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x1a: 31% printable"
+    },
+    {
+      "id": "obfusc_xor_key_1b",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 27,
+        "key_hex": "0x1b",
+        "printable_ratio": 0.318
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x1b: 31% printable"
+    },
+    {
+      "id": "obfusc_xor_key_1c",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 28,
+        "key_hex": "0x1c",
+        "printable_ratio": 0.318
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x1c: 31% printable"
+    },
+    {
+      "id": "obfusc_xor_key_1d",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 29,
+        "key_hex": "0x1d",
+        "printable_ratio": 0.318
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x1d: 31% printable"
+    },
+    {
+      "id": "obfusc_xor_key_1e",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 30,
+        "key_hex": "0x1e",
+        "printable_ratio": 0.294
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x1e: 29% printable"
+    },
+    {
+      "id": "obfusc_xor_key_1f",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 31,
+        "key_hex": "0x1f",
+        "printable_ratio": 0.306
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x1f: 30% printable"
+    },
+    {
+      "id": "obfusc_xor_key_20",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 32,
+        "key_hex": "0x20",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x20 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_21",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 33,
+        "key_hex": "0x21",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x21 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_22",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 34,
+        "key_hex": "0x22",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x22 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_23",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 35,
+        "key_hex": "0x23",
+        "printable_ratio": 0.894
+      },
+      "result": "match",
+      "score": 0.89,
+      "evidence": "XOR key 0x23 deobfuscates to 89% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_24",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 36,
+        "key_hex": "0x24",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x24 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_25",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 37,
+        "key_hex": "0x25",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x25 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_26",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 38,
+        "key_hex": "0x26",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x26 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_27",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 39,
+        "key_hex": "0x27",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x27 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_28",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 40,
+        "key_hex": "0x28",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x28 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_29",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 41,
+        "key_hex": "0x29",
+        "printable_ratio": 0.871
+      },
+      "result": "match",
+      "score": 0.87,
+      "evidence": "XOR key 0x29 deobfuscates to 87% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_2a",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 42,
+        "key_hex": "0x2a",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x2a deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_2b",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 43,
+        "key_hex": "0x2b",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x2b deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_2c",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 44,
+        "key_hex": "0x2c",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x2c deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_2d",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 45,
+        "key_hex": "0x2d",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x2d deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_2e",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 46,
+        "key_hex": "0x2e",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x2e deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_2f",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 47,
+        "key_hex": "0x2f",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x2f deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_30",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 48,
+        "key_hex": "0x30",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x30 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_31",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 49,
+        "key_hex": "0x31",
+        "printable_ratio": 0.871
+      },
+      "result": "match",
+      "score": 0.87,
+      "evidence": "XOR key 0x31 deobfuscates to 87% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_32",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 50,
+        "key_hex": "0x32",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x32 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_33",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 51,
+        "key_hex": "0x33",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x33 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_34",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 52,
+        "key_hex": "0x34",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x34 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_35",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 53,
+        "key_hex": "0x35",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x35 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_36",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 54,
+        "key_hex": "0x36",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x36 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_37",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 55,
+        "key_hex": "0x37",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x37 deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_38",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 56,
+        "key_hex": "0x38",
+        "printable_ratio": 0.894
+      },
+      "result": "match",
+      "score": 0.89,
+      "evidence": "XOR key 0x38 deobfuscates to 89% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_39",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 57,
+        "key_hex": "0x39",
+        "printable_ratio": 0.941
+      },
+      "result": "match",
+      "score": 0.94,
+      "evidence": "XOR key 0x39 deobfuscates to 94% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_3a",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 58,
+        "key_hex": "0x3a",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x3a deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_3b",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 59,
+        "key_hex": "0x3b",
+        "printable_ratio": 0.894
+      },
+      "result": "match",
+      "score": 0.89,
+      "evidence": "XOR key 0x3b deobfuscates to 89% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_3c",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 60,
+        "key_hex": "0x3c",
+        "printable_ratio": 0.894
+      },
+      "result": "match",
+      "score": 0.89,
+      "evidence": "XOR key 0x3c deobfuscates to 89% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_3d",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 61,
+        "key_hex": "0x3d",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x3d deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_3e",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 62,
+        "key_hex": "0x3e",
+        "printable_ratio": 0.941
+      },
+      "result": "match",
+      "score": 0.94,
+      "evidence": "XOR key 0x3e deobfuscates to 94% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_3f",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 63,
+        "key_hex": "0x3f",
+        "printable_ratio": 0.859
+      },
+      "result": "match",
+      "score": 0.86,
+      "evidence": "XOR key 0x3f deobfuscates to 85% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_40",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 64,
+        "key_hex": "0x40",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x40 deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_41",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 65,
+        "key_hex": "0x41",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x41 deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_42",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 66,
+        "key_hex": "0x42",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x42 deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_43",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 67,
+        "key_hex": "0x43",
+        "printable_ratio": 0.847
+      },
+      "result": "match",
+      "score": 0.85,
+      "evidence": "XOR key 0x43 deobfuscates to 84% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_44",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 68,
+        "key_hex": "0x44",
+        "printable_ratio": 0.847
+      },
+      "result": "match",
+      "score": 0.85,
+      "evidence": "XOR key 0x44 deobfuscates to 84% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_45",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 69,
+        "key_hex": "0x45",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x45 deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_46",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 70,
+        "key_hex": "0x46",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x46 deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_47",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 71,
+        "key_hex": "0x47",
+        "printable_ratio": 0.847
+      },
+      "result": "match",
+      "score": 0.85,
+      "evidence": "XOR key 0x47 deobfuscates to 84% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_48",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 72,
+        "key_hex": "0x48",
+        "printable_ratio": 0.871
+      },
+      "result": "match",
+      "score": 0.87,
+      "evidence": "XOR key 0x48 deobfuscates to 87% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_49",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 73,
+        "key_hex": "0x49",
+        "printable_ratio": 0.859
+      },
+      "result": "match",
+      "score": 0.86,
+      "evidence": "XOR key 0x49 deobfuscates to 85% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_4a",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 74,
+        "key_hex": "0x4a",
+        "printable_ratio": 0.859
+      },
+      "result": "match",
+      "score": 0.86,
+      "evidence": "XOR key 0x4a deobfuscates to 85% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_4b",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 75,
+        "key_hex": "0x4b",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x4b deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_4c",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 76,
+        "key_hex": "0x4c",
+        "printable_ratio": 0.812
+      },
+      "result": "match",
+      "score": 0.81,
+      "evidence": "XOR key 0x4c deobfuscates to 81% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_4d",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 77,
+        "key_hex": "0x4d",
+        "printable_ratio": 0.859
+      },
+      "result": "match",
+      "score": 0.86,
+      "evidence": "XOR key 0x4d deobfuscates to 85% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_4e",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 78,
+        "key_hex": "0x4e",
+        "printable_ratio": 0.824
+      },
+      "result": "match",
+      "score": 0.82,
+      "evidence": "XOR key 0x4e deobfuscates to 82% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_4f",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 79,
+        "key_hex": "0x4f",
+        "printable_ratio": 0.871
+      },
+      "result": "match",
+      "score": 0.87,
+      "evidence": "XOR key 0x4f deobfuscates to 87% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_50",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 80,
+        "key_hex": "0x50",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x50 deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_51",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 81,
+        "key_hex": "0x51",
+        "printable_ratio": 0.847
+      },
+      "result": "match",
+      "score": 0.85,
+      "evidence": "XOR key 0x51 deobfuscates to 84% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_52",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 82,
+        "key_hex": "0x52",
+        "printable_ratio": 0.859
+      },
+      "result": "match",
+      "score": 0.86,
+      "evidence": "XOR key 0x52 deobfuscates to 85% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_53",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 83,
+        "key_hex": "0x53",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x53 deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_54",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 84,
+        "key_hex": "0x54",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x54 deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_55",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 85,
+        "key_hex": "0x55",
+        "printable_ratio": 0.847
+      },
+      "result": "match",
+      "score": 0.85,
+      "evidence": "XOR key 0x55 deobfuscates to 84% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_56",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 86,
+        "key_hex": "0x56",
+        "printable_ratio": 0.847
+      },
+      "result": "match",
+      "score": 0.85,
+      "evidence": "XOR key 0x56 deobfuscates to 84% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_57",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 87,
+        "key_hex": "0x57",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x57 deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_58",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 88,
+        "key_hex": "0x58",
+        "printable_ratio": 0.859
+      },
+      "result": "match",
+      "score": 0.86,
+      "evidence": "XOR key 0x58 deobfuscates to 85% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_59",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 89,
+        "key_hex": "0x59",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x59 deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_5a",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 90,
+        "key_hex": "0x5a",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x5a deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_5b",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 91,
+        "key_hex": "0x5b",
+        "printable_ratio": 0.871
+      },
+      "result": "match",
+      "score": 0.87,
+      "evidence": "XOR key 0x5b deobfuscates to 87% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_5c",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 92,
+        "key_hex": "0x5c",
+        "printable_ratio": 0.871
+      },
+      "result": "match",
+      "score": 0.87,
+      "evidence": "XOR key 0x5c deobfuscates to 87% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_5d",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 93,
+        "key_hex": "0x5d",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x5d deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_5e",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 94,
+        "key_hex": "0x5e",
+        "printable_ratio": 0.835
+      },
+      "result": "match",
+      "score": 0.84,
+      "evidence": "XOR key 0x5e deobfuscates to 83% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_5f",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 95,
+        "key_hex": "0x5f",
+        "printable_ratio": 0.871
+      },
+      "result": "match",
+      "score": 0.87,
+      "evidence": "XOR key 0x5f deobfuscates to 87% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_60",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 96,
+        "key_hex": "0x60",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x60 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_61",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 97,
+        "key_hex": "0x61",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x61 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_62",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 98,
+        "key_hex": "0x62",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x62 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_63",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 99,
+        "key_hex": "0x63",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x63 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_64",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 100,
+        "key_hex": "0x64",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x64 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_65",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 101,
+        "key_hex": "0x65",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x65 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_66",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 102,
+        "key_hex": "0x66",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x66 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_67",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 103,
+        "key_hex": "0x67",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x67 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_68",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 104,
+        "key_hex": "0x68",
+        "printable_ratio": 0.918
+      },
+      "result": "match",
+      "score": 0.92,
+      "evidence": "XOR key 0x68 deobfuscates to 91% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_69",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 105,
+        "key_hex": "0x69",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x69 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_6a",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 106,
+        "key_hex": "0x6a",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x6a deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_6b",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 107,
+        "key_hex": "0x6b",
+        "printable_ratio": 0.976
+      },
+      "result": "match",
+      "score": 0.98,
+      "evidence": "XOR key 0x6b deobfuscates to 97% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_6c",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 108,
+        "key_hex": "0x6c",
+        "printable_ratio": 0.976
+      },
+      "result": "match",
+      "score": 0.98,
+      "evidence": "XOR key 0x6c deobfuscates to 97% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_6d",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 109,
+        "key_hex": "0x6d",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x6d deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_6e",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 110,
+        "key_hex": "0x6e",
+        "printable_ratio": 0.894
+      },
+      "result": "match",
+      "score": 0.89,
+      "evidence": "XOR key 0x6e deobfuscates to 89% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_6f",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 111,
+        "key_hex": "0x6f",
+        "printable_ratio": 0.953
+      },
+      "result": "match",
+      "score": 0.95,
+      "evidence": "XOR key 0x6f deobfuscates to 95% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_70",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 112,
+        "key_hex": "0x70",
+        "printable_ratio": 0.894
+      },
+      "result": "match",
+      "score": 0.89,
+      "evidence": "XOR key 0x70 deobfuscates to 89% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_71",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 113,
+        "key_hex": "0x71",
+        "printable_ratio": 0.894
+      },
+      "result": "match",
+      "score": 0.89,
+      "evidence": "XOR key 0x71 deobfuscates to 89% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_72",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 114,
+        "key_hex": "0x72",
+        "printable_ratio": 0.871
+      },
+      "result": "match",
+      "score": 0.87,
+      "evidence": "XOR key 0x72 deobfuscates to 87% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_73",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 115,
+        "key_hex": "0x73",
+        "printable_ratio": 0.894
+      },
+      "result": "match",
+      "score": 0.89,
+      "evidence": "XOR key 0x73 deobfuscates to 89% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_74",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 116,
+        "key_hex": "0x74",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x74 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_75",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 117,
+        "key_hex": "0x75",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x75 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_76",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 118,
+        "key_hex": "0x76",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x76 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_77",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 119,
+        "key_hex": "0x77",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x77 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_78",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 120,
+        "key_hex": "0x78",
+        "printable_ratio": 0.894
+      },
+      "result": "match",
+      "score": 0.89,
+      "evidence": "XOR key 0x78 deobfuscates to 89% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_79",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 121,
+        "key_hex": "0x79",
+        "printable_ratio": 0.906
+      },
+      "result": "match",
+      "score": 0.91,
+      "evidence": "XOR key 0x79 deobfuscates to 90% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_7a",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 122,
+        "key_hex": "0x7a",
+        "printable_ratio": 0.894
+      },
+      "result": "match",
+      "score": 0.89,
+      "evidence": "XOR key 0x7a deobfuscates to 89% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_7b",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 123,
+        "key_hex": "0x7b",
+        "printable_ratio": 0.859
+      },
+      "result": "match",
+      "score": 0.86,
+      "evidence": "XOR key 0x7b deobfuscates to 85% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_7c",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 124,
+        "key_hex": "0x7c",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x7c deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_7d",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 125,
+        "key_hex": "0x7d",
+        "printable_ratio": 0.859
+      },
+      "result": "match",
+      "score": 0.86,
+      "evidence": "XOR key 0x7d deobfuscates to 85% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_7e",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 126,
+        "key_hex": "0x7e",
+        "printable_ratio": 0.882
+      },
+      "result": "match",
+      "score": 0.88,
+      "evidence": "XOR key 0x7e deobfuscates to 88% printable text"
+    },
+    {
+      "id": "obfusc_xor_key_7f",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 127,
+        "key_hex": "0x7f",
+        "printable_ratio": 0.494
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x7f: 49% printable"
+    },
+    {
+      "id": "obfusc_xor_key_80",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 128,
+        "key_hex": "0x80",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x80: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_81",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 129,
+        "key_hex": "0x81",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x81: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_82",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 130,
+        "key_hex": "0x82",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x82: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_83",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 131,
+        "key_hex": "0x83",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x83: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_84",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 132,
+        "key_hex": "0x84",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x84: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_85",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 133,
+        "key_hex": "0x85",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x85: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_86",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 134,
+        "key_hex": "0x86",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x86: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_87",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 135,
+        "key_hex": "0x87",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x87: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_88",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 136,
+        "key_hex": "0x88",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x88: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_89",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 137,
+        "key_hex": "0x89",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x89: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_8a",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 138,
+        "key_hex": "0x8a",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x8a: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_8b",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 139,
+        "key_hex": "0x8b",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x8b: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_8c",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 140,
+        "key_hex": "0x8c",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x8c: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_8d",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 141,
+        "key_hex": "0x8d",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x8d: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_8e",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 142,
+        "key_hex": "0x8e",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x8e: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_8f",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 143,
+        "key_hex": "0x8f",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x8f: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_90",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 144,
+        "key_hex": "0x90",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x90: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_91",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 145,
+        "key_hex": "0x91",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x91: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_92",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 146,
+        "key_hex": "0x92",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x92: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_93",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 147,
+        "key_hex": "0x93",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x93: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_94",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 148,
+        "key_hex": "0x94",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x94: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_95",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 149,
+        "key_hex": "0x95",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x95: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_96",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 150,
+        "key_hex": "0x96",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x96: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_97",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 151,
+        "key_hex": "0x97",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x97: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_98",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 152,
+        "key_hex": "0x98",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x98: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_99",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 153,
+        "key_hex": "0x99",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x99: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_9a",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 154,
+        "key_hex": "0x9a",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x9a: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_9b",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 155,
+        "key_hex": "0x9b",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x9b: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_9c",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 156,
+        "key_hex": "0x9c",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x9c: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_9d",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 157,
+        "key_hex": "0x9d",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x9d: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_9e",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 158,
+        "key_hex": "0x9e",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x9e: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_9f",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 159,
+        "key_hex": "0x9f",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0x9f: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_a0",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 160,
+        "key_hex": "0xa0",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xa0: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_a1",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 161,
+        "key_hex": "0xa1",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xa1: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_a2",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 162,
+        "key_hex": "0xa2",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xa2: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_a3",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 163,
+        "key_hex": "0xa3",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xa3: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_a4",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 164,
+        "key_hex": "0xa4",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xa4: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_a5",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 165,
+        "key_hex": "0xa5",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xa5: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_a6",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 166,
+        "key_hex": "0xa6",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xa6: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_a7",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 167,
+        "key_hex": "0xa7",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xa7: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_a8",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 168,
+        "key_hex": "0xa8",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xa8: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_a9",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 169,
+        "key_hex": "0xa9",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xa9: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_aa",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 170,
+        "key_hex": "0xaa",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xaa: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ab",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 171,
+        "key_hex": "0xab",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xab: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ac",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 172,
+        "key_hex": "0xac",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xac: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ad",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 173,
+        "key_hex": "0xad",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xad: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ae",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 174,
+        "key_hex": "0xae",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xae: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_af",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 175,
+        "key_hex": "0xaf",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xaf: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_b0",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 176,
+        "key_hex": "0xb0",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xb0: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_b1",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 177,
+        "key_hex": "0xb1",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xb1: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_b2",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 178,
+        "key_hex": "0xb2",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xb2: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_b3",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 179,
+        "key_hex": "0xb3",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xb3: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_b4",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 180,
+        "key_hex": "0xb4",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xb4: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_b5",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 181,
+        "key_hex": "0xb5",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xb5: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_b6",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 182,
+        "key_hex": "0xb6",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xb6: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_b7",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 183,
+        "key_hex": "0xb7",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xb7: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_b8",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 184,
+        "key_hex": "0xb8",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xb8: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_b9",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 185,
+        "key_hex": "0xb9",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xb9: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ba",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 186,
+        "key_hex": "0xba",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xba: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_bb",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 187,
+        "key_hex": "0xbb",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xbb: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_bc",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 188,
+        "key_hex": "0xbc",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xbc: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_bd",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 189,
+        "key_hex": "0xbd",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xbd: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_be",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 190,
+        "key_hex": "0xbe",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xbe: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_bf",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 191,
+        "key_hex": "0xbf",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xbf: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_c0",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 192,
+        "key_hex": "0xc0",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xc0: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_c1",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 193,
+        "key_hex": "0xc1",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xc1: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_c2",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 194,
+        "key_hex": "0xc2",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xc2: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_c3",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 195,
+        "key_hex": "0xc3",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xc3: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_c4",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 196,
+        "key_hex": "0xc4",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xc4: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_c5",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 197,
+        "key_hex": "0xc5",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xc5: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_c6",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 198,
+        "key_hex": "0xc6",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xc6: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_c7",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 199,
+        "key_hex": "0xc7",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xc7: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_c8",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 200,
+        "key_hex": "0xc8",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xc8: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_c9",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 201,
+        "key_hex": "0xc9",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xc9: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ca",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 202,
+        "key_hex": "0xca",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xca: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_cb",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 203,
+        "key_hex": "0xcb",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xcb: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_cc",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 204,
+        "key_hex": "0xcc",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xcc: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_cd",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 205,
+        "key_hex": "0xcd",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xcd: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ce",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 206,
+        "key_hex": "0xce",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xce: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_cf",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 207,
+        "key_hex": "0xcf",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xcf: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_d0",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 208,
+        "key_hex": "0xd0",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xd0: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_d1",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 209,
+        "key_hex": "0xd1",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xd1: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_d2",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 210,
+        "key_hex": "0xd2",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xd2: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_d3",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 211,
+        "key_hex": "0xd3",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xd3: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_d4",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 212,
+        "key_hex": "0xd4",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xd4: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_d5",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 213,
+        "key_hex": "0xd5",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xd5: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_d6",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 214,
+        "key_hex": "0xd6",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xd6: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_d7",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 215,
+        "key_hex": "0xd7",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xd7: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_d8",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 216,
+        "key_hex": "0xd8",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xd8: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_d9",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 217,
+        "key_hex": "0xd9",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xd9: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_da",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 218,
+        "key_hex": "0xda",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xda: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_db",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 219,
+        "key_hex": "0xdb",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xdb: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_dc",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 220,
+        "key_hex": "0xdc",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xdc: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_dd",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 221,
+        "key_hex": "0xdd",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xdd: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_de",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 222,
+        "key_hex": "0xde",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xde: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_df",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 223,
+        "key_hex": "0xdf",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xdf: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_e0",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 224,
+        "key_hex": "0xe0",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xe0: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_e1",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 225,
+        "key_hex": "0xe1",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xe1: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_e2",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 226,
+        "key_hex": "0xe2",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xe2: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_e3",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 227,
+        "key_hex": "0xe3",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xe3: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_e4",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 228,
+        "key_hex": "0xe4",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xe4: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_e5",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 229,
+        "key_hex": "0xe5",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xe5: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_e6",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 230,
+        "key_hex": "0xe6",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xe6: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_e7",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 231,
+        "key_hex": "0xe7",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xe7: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_e8",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 232,
+        "key_hex": "0xe8",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xe8: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_e9",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 233,
+        "key_hex": "0xe9",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xe9: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ea",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 234,
+        "key_hex": "0xea",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xea: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_eb",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 235,
+        "key_hex": "0xeb",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xeb: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ec",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 236,
+        "key_hex": "0xec",
+        "printable_ratio": 0.012
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xec: 1% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ed",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 237,
+        "key_hex": "0xed",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xed: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ee",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 238,
+        "key_hex": "0xee",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xee: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ef",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 239,
+        "key_hex": "0xef",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xef: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_f0",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 240,
+        "key_hex": "0xf0",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xf0: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_f1",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 241,
+        "key_hex": "0xf1",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xf1: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_f2",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 242,
+        "key_hex": "0xf2",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xf2: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_f3",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 243,
+        "key_hex": "0xf3",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xf3: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_f4",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 244,
+        "key_hex": "0xf4",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xf4: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_f5",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 245,
+        "key_hex": "0xf5",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xf5: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_f6",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 246,
+        "key_hex": "0xf6",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xf6: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_f7",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 247,
+        "key_hex": "0xf7",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xf7: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_f8",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 248,
+        "key_hex": "0xf8",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xf8: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_f9",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 249,
+        "key_hex": "0xf9",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xf9: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_fa",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 250,
+        "key_hex": "0xfa",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xfa: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_fb",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 251,
+        "key_hex": "0xfb",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xfb: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_fc",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 252,
+        "key_hex": "0xfc",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xfc: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_fd",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 253,
+        "key_hex": "0xfd",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xfd: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_fe",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 254,
+        "key_hex": "0xfe",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xfe: 2% printable"
+    },
+    {
+      "id": "obfusc_xor_key_ff",
+      "family": "obfuscation",
+      "byte_range": [
+        0,
+        85
+      ],
+      "parameters": {
+        "xor_key": 255,
+        "key_hex": "0xff",
+        "printable_ratio": 0.024
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "XOR key 0xff: 2% printable"
+    },
+    {
+      "id": "time_unix_le_off_0",
+      "family": "timestamps",
+      "byte_range": [
+        0,
+        4
+      ],
+      "parameters": {
+        "offset": 0,
+        "type": "unix_epoch_le",
+        "value": 131072
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 0: value 131072 not in epoch range"
+    },
+    {
+      "id": "time_unix_be_off_0",
+      "family": "timestamps",
+      "byte_range": [
+        0,
+        4
+      ],
+      "parameters": {
+        "offset": 0,
+        "type": "unix_epoch_be",
+        "value": 512
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 0: not Unix BE"
+    },
+    {
+      "id": "time_filetime_off_0",
+      "family": "timestamps",
+      "byte_range": [
+        0,
+        8
+      ],
+      "parameters": {
+        "offset": 0,
+        "type": "filetime_le",
+        "value": 3382114947039232
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 0: not FILETIME"
+    },
+    {
+      "id": "time_unix_le_off_4",
+      "family": "timestamps",
+      "byte_range": [
+        4,
+        8
+      ],
+      "parameters": {
+        "offset": 4,
+        "type": "unix_epoch_le",
+        "value": 787460
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 4: value 787460 not in epoch range"
+    },
+    {
+      "id": "time_unix_be_off_4",
+      "family": "timestamps",
+      "byte_range": [
+        4,
+        8
+      ],
+      "parameters": {
+        "offset": 4,
+        "type": "unix_epoch_be",
+        "value": 67374080
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 4: not Unix BE"
+    },
+    {
+      "id": "time_filetime_off_4",
+      "family": "timestamps",
+      "byte_range": [
+        4,
+        12
+      ],
+      "parameters": {
+        "offset": 4,
+        "type": "filetime_le",
+        "value": 21475623940
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 4: not FILETIME"
+    },
+    {
+      "id": "time_unix_le_off_8",
+      "family": "timestamps",
+      "byte_range": [
+        8,
+        12
+      ],
+      "parameters": {
+        "offset": 8,
+        "type": "unix_epoch_le",
+        "value": 5
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 8: value 5 not in epoch range"
+    },
+    {
+      "id": "time_unix_be_off_8",
+      "family": "timestamps",
+      "byte_range": [
+        8,
+        12
+      ],
+      "parameters": {
+        "offset": 8,
+        "type": "unix_epoch_be",
+        "value": 83886080
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 8: not Unix BE"
+    },
+    {
+      "id": "time_filetime_off_8",
+      "family": "timestamps",
+      "byte_range": [
+        8,
+        16
+      ],
+      "parameters": {
+        "offset": 8,
+        "type": "filetime_le",
+        "value": 936748722493063173
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 8: not FILETIME"
+    },
+    {
+      "id": "time_unix_le_off_12",
+      "family": "timestamps",
+      "byte_range": [
+        12,
+        16
+      ],
+      "parameters": {
+        "offset": 12,
+        "type": "unix_epoch_le",
+        "value": 218103808
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 12: value 218103808 not in epoch range"
+    },
+    {
+      "id": "time_unix_be_off_12",
+      "family": "timestamps",
+      "byte_range": [
+        12,
+        16
+      ],
+      "parameters": {
+        "offset": 12,
+        "type": "unix_epoch_be",
+        "value": 13
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 12: not Unix BE"
+    },
+    {
+      "id": "time_filetime_off_12",
+      "family": "timestamps",
+      "byte_range": [
+        12,
+        20
+      ],
+      "parameters": {
+        "offset": 12,
+        "type": "filetime_le",
+        "value": 7696799498240
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 12: not FILETIME"
+    },
+    {
+      "id": "time_unix_le_off_16",
+      "family": "timestamps",
+      "byte_range": [
+        16,
+        20
+      ],
+      "parameters": {
+        "offset": 16,
+        "type": "unix_epoch_le",
+        "value": 1792
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 16: value 1792 not in epoch range"
+    },
+    {
+      "id": "time_unix_be_off_16",
+      "family": "timestamps",
+      "byte_range": [
+        16,
+        20
+      ],
+      "parameters": {
+        "offset": 16,
+        "type": "unix_epoch_be",
+        "value": 458752
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 16: not Unix BE"
+    },
+    {
+      "id": "time_filetime_off_16",
+      "family": "timestamps",
+      "byte_range": [
+        16,
+        24
+      ],
+      "parameters": {
+        "offset": 16,
+        "type": "filetime_le",
+        "value": 562954248390400
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 16: not FILETIME"
+    },
+    {
+      "id": "time_unix_le_off_20",
+      "family": "timestamps",
+      "byte_range": [
+        20,
+        24
+      ],
+      "parameters": {
+        "offset": 20,
+        "type": "unix_epoch_le",
+        "value": 131073
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 20: value 131073 not in epoch range"
+    },
+    {
+      "id": "time_unix_be_off_20",
+      "family": "timestamps",
+      "byte_range": [
+        20,
+        24
+      ],
+      "parameters": {
+        "offset": 20,
+        "type": "unix_epoch_be",
+        "value": 16777728
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 20: not Unix BE"
+    },
+    {
+      "id": "time_filetime_off_20",
+      "family": "timestamps",
+      "byte_range": [
+        20,
+        28
+      ],
+      "parameters": {
+        "offset": 20,
+        "type": "filetime_le",
+        "value": 3940830062706689
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 20: not FILETIME"
+    },
+    {
+      "id": "time_unix_le_off_24",
+      "family": "timestamps",
+      "byte_range": [
+        24,
+        28
+      ],
+      "parameters": {
+        "offset": 24,
+        "type": "unix_epoch_le",
+        "value": 917546
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 24: value 917546 not in epoch range"
+    },
+    {
+      "id": "time_unix_be_off_24",
+      "family": "timestamps",
+      "byte_range": [
+        24,
+        28
+      ],
+      "parameters": {
+        "offset": 24,
+        "type": "unix_epoch_be",
+        "value": 704646656
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 24: not Unix BE"
+    },
+    {
+      "id": "time_filetime_off_24",
+      "family": "timestamps",
+      "byte_range": [
+        24,
+        32
+      ],
+      "parameters": {
+        "offset": 24,
+        "type": "filetime_le",
+        "value": 144115243911348266
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 24: not FILETIME"
+    },
+    {
+      "id": "time_unix_le_off_28",
+      "family": "timestamps",
+      "byte_range": [
+        28,
+        32
+      ],
+      "parameters": {
+        "offset": 28,
+        "type": "unix_epoch_le",
+        "value": 33554445
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 28: value 33554445 not in epoch range"
+    },
+    {
+      "id": "time_unix_be_off_28",
+      "family": "timestamps",
+      "byte_range": [
+        28,
+        32
+      ],
+      "parameters": {
+        "offset": 28,
+        "type": "unix_epoch_be",
+        "value": 218103810
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 28: not Unix BE"
+    },
+    {
+      "id": "time_filetime_off_28",
+      "family": "timestamps",
+      "byte_range": [
+        28,
+        36
+      ],
+      "parameters": {
+        "offset": 28,
+        "type": "filetime_le",
+        "value": 7349876790925459469
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 28: not FILETIME"
+    },
+    {
+      "id": "time_unix_le_off_32",
+      "family": "timestamps",
+      "byte_range": [
+        32,
+        36
+      ],
+      "parameters": {
+        "offset": 32,
+        "type": "unix_epoch_le",
+        "value": 1711276544
+      },
+      "result": "match",
+      "score": 0.75,
+      "evidence": "Offset 32: Plausible Unix timestamp 1711276544"
+    },
+    {
+      "id": "time_unix_be_off_32",
+      "family": "timestamps",
+      "byte_range": [
+        32,
+        36
+      ],
+      "parameters": {
+        "offset": 32,
+        "type": "unix_epoch_be",
+        "value": 131174
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 32: not Unix BE"
+    },
+    {
+      "id": "time_filetime_off_32",
+      "family": "timestamps",
+      "byte_range": [
+        32,
+        40
+      ],
+      "parameters": {
+        "offset": 32,
+        "type": "filetime_le",
+        "value": 7378697629477110272
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 32: not FILETIME"
+    },
+    {
+      "id": "time_unix_le_off_40",
+      "family": "timestamps",
+      "byte_range": [
+        40,
+        44
+      ],
+      "parameters": {
+        "offset": 40,
+        "type": "unix_epoch_le",
+        "value": 255875238
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 40: value 255875238 not in epoch range"
+    },
+    {
+      "id": "time_unix_be_off_40",
+      "family": "timestamps",
+      "byte_range": [
+        40,
+        44
+      ],
+      "parameters": {
+        "offset": 40,
+        "type": "unix_epoch_be",
+        "value": 2790801423
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 40: not Unix BE"
+    },
+    {
+      "id": "time_filetime_off_40",
+      "family": "timestamps",
+      "byte_range": [
+        40,
+        48
+      ],
+      "parameters": {
+        "offset": 40,
+        "type": "filetime_le",
+        "value": 18691953547430
+      },
+      "result": "no_match",
+      "score": 0.0,
+      "evidence": "Offset 40: not FILETIME"
+    }
+  ]
+}

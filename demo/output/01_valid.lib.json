@@ -53,5 +53,159 @@
   "metadata": {
     "version": 256,
     "flags": 1
-  }
+  },
+  "analysis": {
+    "size": 176,
+    "sha256": "13831e760c403254e32100bc9c80cadcf6a44a2becf3d0e06342d6fdf9d2efc1",
+    "extension_hint": "lib",
+    "signatures": [
+      {
+        "format": "LIBRA-98",
+        "offset": 0,
+        "length": 8,
+        "confidence": 1.0,
+        "description": "LIBRA-98 legacy database"
+      }
+    ],
+    "entropy": {
+      "overall": 3.722,
+      "block_size": 256,
+      "block_count": 1,
+      "blocks": [
+        3.722
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 176,
+          "type": "mixed",
+          "avg_entropy": 3.722
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 0,
+        "length": 7,
+        "encoding": "ascii",
+        "string": "LIBRA98"
+      },
+      {
+        "offset": 46,
+        "length": 15,
+        "encoding": "ascii",
+        "string": "Sensor_Alpha_OK"
+      },
+      {
+        "offset": 94,
+        "length": 14,
+        "encoding": "ascii",
+        "string": "Sensor_Beta_OK"
+      },
+      {
+        "offset": 142,
+        "length": 16,
+        "encoding": "ascii",
+        "string": "Calibration_Mark"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "fixed_width_record_stride",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.58,
+        "evidence": "Record stride of 48 bytes with 58% structural pattern alignment across consecutive blocks",
+        "details": {
+          "stride_bytes": 48,
+          "estimated_record_count": 3
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1380075852 at offset 0",
+        "details": {
+          "offset": 0,
+          "value": 1380075852,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1718000000 at offset 36",
+        "details": {
+          "offset": 36,
+          "value": 1718000000,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1699938304 at offset 44",
+        "details": {
+          "offset": 44,
+          "value": 1699938304,
+          "endian": "little"
+        }
+      }
+    ],
+    "damage_indicators": []
+  },
+  "detection_candidates": [
+    {
+      "format": "LIBRA-98",
+      "confidence": 1.0,
+      "method": "exact_magic_offset_0",
+      "offset": 0,
+      "evidence": "Exact magic match at offset 0: LIBRA-98 legacy database"
+    }
+  ],
+  "carved_objects": [],
+  "coverage": {
+    "total_bytes": 176,
+    "recovered_bytes": 144,
+    "verified_bytes": 144,
+    "heuristic_bytes": 0,
+    "unaccounted_bytes": 32,
+    "coverage_pct": 81.82,
+    "verified_coverage_pct": 81.82,
+    "heuristic_coverage_pct": 0.0,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 32
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 455,
+    "matched_probes": 97
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        32
+      ],
+      "role": "LIBRA-98_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        32,
+        176
+      ],
+      "role": "LIBRA-98_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    }
+  ]
 }

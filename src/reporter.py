@@ -39,13 +39,15 @@ class Reporter:
         return out_path
 
     def write_run_report(self) -> Path:
-        """Writes the aggregated report.json containing run statistics and damage summaries."""
+        """Writes the aggregated report.json containing run statistics, detection, coverage, and analysis summaries."""
         self.output_dir.mkdir(parents=True, exist_ok=True)
         report_path = self.output_dir / "report.json"
 
         total_files = len(self.results)
         formats_detected: dict[str, int] = {}
         total_records_recovered = 0
+        total_verified_records = 0
+        total_heuristic_records = 0
         total_damages = 0
         files_summary: list[dict[str, Any]] = []
 
@@ -53,18 +55,53 @@ class Reporter:
             formats_detected[r.format_name] = formats_detected.get(r.format_name, 0) + 1
             total_records_recovered += len(r.recovered_records)
             total_damages += len(r.damages)
-            files_summary.append({
+
+            verified_count = 0
+            heuristic_count = 0
+            for rec in r.recovered_records:
+                if rec.fields.get("recovery_lane") == "heuristic":
+                    heuristic_count += 1
+                else:
+                    verified_count += 1
+
+            total_verified_records += verified_count
+            total_heuristic_records += heuristic_count
+
+            top_cand = r.detection_candidates[0] if r.detection_candidates else {}
+            conf = top_cand.get("confidence", 1.0 if r.is_valid_header else 0.0)
+            cov_pct = r.coverage.get("coverage_pct", 0.0) if r.coverage else 0.0
+            verif_cov_pct = r.coverage.get("verified_coverage_pct", 0.0) if r.coverage else 0.0
+            heur_cov_pct = r.coverage.get("heuristic_coverage_pct", 0.0) if r.coverage else 0.0
+
+            file_entry = {
                 "file": r.filename,
                 "format": r.format_name,
+                "detection_result": top_cand.get("format", r.format_name),
+                "confidence": conf,
                 "is_valid_header": r.is_valid_header,
                 "records_recovered": len(r.recovered_records),
+                "verified_records": verified_count,
+                "heuristic_records": heuristic_count,
+                "coverage_pct": cov_pct,
+                "verified_coverage_pct": verif_cov_pct,
+                "heuristic_coverage_pct": heur_cov_pct,
                 "damage_count": len(r.damages),
-            })
+            }
+            if r.analysis:
+                file_entry["analysis_summary"] = {
+                    "size": r.analysis.get("size", r.file_size),
+                    "sha256": r.analysis.get("sha256", ""),
+                    "entropy": r.analysis.get("entropy", {}).get("overall", 0.0),
+                    "carved_count": len([c for c in r.carved_objects if c.get("carved")]),
+                }
+            files_summary.append(file_entry)
 
         report_payload = {
             "summary": {
                 "total_files_processed": total_files,
                 "total_records_recovered": total_records_recovered,
+                "total_verified_records": total_verified_records,
+                "total_heuristic_records": total_heuristic_records,
                 "total_damaged_blocks": total_damages,
                 "formats": formats_detected,
             },
@@ -75,3 +112,133 @@ class Reporter:
             json.dump(report_payload, f, indent=2)
 
         return report_path
+
+    @classmethod
+    def print_file_terminal_report(
+        cls,
+        result: FileRecoveryResult,
+        verbose: bool = False,
+    ) -> None:
+        """Prints formatted terminal report for a processed file."""
+        print(f"\n================================================================================")
+        print(f" FILE REPORT: {result.filename} ({result.file_size} bytes)")
+        print(f"================================================================================")
+
+        # 1. Format & confidence + probes count
+        top_cand = result.detection_candidates[0] if result.detection_candidates else {}
+        conf = top_cand.get("confidence", 1.0 if result.is_valid_header else 0.0)
+        p_total = result.probe_summary.get("total_probes", 0)
+        p_matched = result.probe_summary.get("matched_probes", 0)
+        print(f" Detected Format : {result.format_name} (Confidence: {conf:.2f}, Valid Header: {result.is_valid_header})")
+        print(f" Forensic Probes : {p_total} executed / {p_matched} matched")
+
+        # 2. Layout Map
+        print(f"\n [1] LAYOUT MAP:")
+        print(f"  {'REGION':<10} {'OFFSET RANGE':<18} {'ROLE':<35} {'STATUS':<12} {'CONF':<6}")
+        print(f"  {'-'*10} {'-'*18} {'-'*35} {'-'*12} {'-'*6}")
+        for reg in result.layout:
+            rng_str = f"[{reg['offset_range'][0]}:{reg['offset_range'][1]}]"
+            print(f"  {reg['region'].upper():<10} {rng_str:<18} {reg['role'][:35]:<35} {reg['status']:<12} {reg['confidence']:<6.2f}")
+
+        # 3. Extracted Content Table
+        print(f"\n [2] EXTRACTED CONTENT:")
+        if result.recovered_records:
+            print(f"  {'ITEM':<12} {'OFFSET':<8} {'LENGTH':<8} {'LANE':<10} {'TYPE':<16} {'PREVIEW (FIRST ~60 CHARS)'}")
+            print(f"  {'-'*12} {'-'*8} {'-'*8} {'-'*10} {'-'*16} {'-'*40}")
+            for rec in result.recovered_records[:25]:
+                lane = rec.fields.get("recovery_lane", "verified")
+                off = rec.byte_range[0]
+                length = rec.byte_range[1] - rec.byte_range[0]
+                rec_type = rec.fields.get("record_type") or rec.fields.get("type", "record")
+                
+                # Preview generation
+                preview = ""
+                if "text" in rec.fields:
+                    preview = str(rec.fields["text"])
+                elif "value" in rec.fields:
+                    preview = f"{rec.fields.get('col', '?')},{rec.fields.get('row', '?')}: {rec.fields['value']}"
+                elif "name" in rec.fields:
+                    preview = str(rec.fields["name"])
+                elif "data" in rec.fields:
+                    preview = str(rec.fields["data"])
+                elif "label" in rec.fields:
+                    preview = str(rec.fields["label"])
+                elif "chunk_type" in rec.fields:
+                    preview = f"{rec.fields['chunk_type']} len={rec.fields.get('length')}"
+                else:
+                    preview = str(rec.fields)
+                preview_clean = "".join(c if (c.isprintable() and c != "\n") else " " for c in preview)[:60].strip()
+
+                print(f"  {str(rec.record_id):<12} {off:<8} {length:<8} {lane:<10} {rec_type[:16]:<16} {preview_clean}")
+            if len(result.recovered_records) > 25:
+                print(f"  ... and {len(result.recovered_records) - 25} more records")
+        else:
+            print("  (No records recovered)")
+
+        # Grid view for spreadsheets (WKS / 1-2-3)
+        grid = result.metadata.get("grid")
+        if grid:
+            print(f"\n [2b] SPREADSHEET CELL GRID (Sample of {len(grid)} recovered cells):")
+            sample_cells = list(grid.items())[:12]
+            for coord, cell_info in sample_cells:
+                ctype = cell_info.get("type", "CELL")
+                cval = cell_info.get("value", "")
+                print(f"   - {coord:<8} [{ctype:<6}]: {cval}")
+            if len(grid) > 12:
+                print(f"   ... and {len(grid) - 12} more cells in JSON metadata['grid']")
+
+        # 4. Carved Objects
+        print(f"\n [3] CARVED OBJECTS:")
+        carved_matches = [c for c in result.carved_objects if c.get("carved")]
+        if carved_matches:
+            print(f"  {'FORMAT':<8} {'OFFSET':<8} {'SIZE':<8} {'SHA-256':<20} {'OUTPUT PATH'}")
+            print(f"  {'-'*8} {'-'*8} {'-'*8} {'-'*20} {'-'*30}")
+            for c in carved_matches:
+                print(f"  {c['format']:<8} {c['offset']:<8} {c['size']:<8} {c['sha256'][:18]}.. {c.get('filename')}")
+        else:
+            print("  (No carved objects)")
+
+        # 5. Coverage (split into verified and heuristic)
+        cov = result.coverage
+        cov_pct = cov.get("coverage_pct", 0.0)
+        verif_cov_pct = cov.get("verified_coverage_pct", 0.0)
+        heur_cov_pct = cov.get("heuristic_coverage_pct", 0.0)
+        verif_bytes = cov.get("verified_bytes", 0)
+        heur_bytes = cov.get("heuristic_bytes", 0)
+        tot_bytes = cov.get("total_bytes", result.file_size)
+        print(f"\n [4] COVERAGE:")
+        print(f"  Verified coverage  : {verif_bytes} / {tot_bytes} bytes ({verif_cov_pct:.1f}%)")
+        print(f"  Heuristic coverage : {heur_bytes} / {tot_bytes} bytes ({heur_cov_pct:.1f}%)")
+        print(f"  Total explained    : {verif_bytes + heur_bytes} / {tot_bytes} bytes ({cov_pct:.1f}%)")
+        unacc = cov.get("unaccounted_regions", [])
+        if unacc:
+            biggest = sorted(unacc, key=lambda u: -u["length"])[:3]
+            unacc_str = ", ".join(f"[{u['offset']}:{u['offset']+u['length']}] ({u['length']}B)" for u in biggest)
+            print(f"  Biggest unexplained ranges: {unacc_str}")
+        else:
+            print("  No unexplained byte ranges.")
+
+        # Verbose probe table
+        if verbose and result.analysis:
+            print(f"\n [5] PROBE TABLE (--verbose):")
+            signatures = result.analysis.get("signatures", [])
+            for s in signatures[:10]:
+                print(f"   - Match: {s['format']} at offset {s['offset']} (conf={s['confidence']}) - {s['description']}")
+
+    @classmethod
+    def print_batch_summary(cls, results: list[FileRecoveryResult]) -> None:
+        """Prints one-line-per-file summary at the end for multiple files."""
+        print(f"\n================================================================================")
+        print(f" BATCH RECOVERY SUMMARY ({len(results)} files processed)")
+        print(f"================================================================================")
+        print(f" {'FILE':<24} {'FORMAT':<10} {'CONF':<6} {'VERIF':<6} {'HEUR':<6} {'CARVED':<6} {'VERIF COV':<10} {'HEUR COV':<10} {'DAMAGES'}")
+        print(f" {'-'*24} {'-'*10} {'-'*6} {'-'*6} {'-'*6} {'-'*6} {'-'*10} {'-'*10} {'-'*8}")
+        for r in results:
+            top_cand = r.detection_candidates[0] if r.detection_candidates else {}
+            conf = top_cand.get("confidence", 1.0 if r.is_valid_header else 0.0)
+            verif = sum(1 for rec in r.recovered_records if rec.fields.get("recovery_lane") != "heuristic")
+            heur = sum(1 for rec in r.recovered_records if rec.fields.get("recovery_lane") == "heuristic")
+            carved_cnt = len([c for c in r.carved_objects if c.get("carved")])
+            verif_cov = f"{r.coverage.get('verified_coverage_pct', 0.0):.1f}%"
+            heur_cov = f"{r.coverage.get('heuristic_coverage_pct', 0.0):.1f}%"
+            print(f" {r.filename[:24]:<24} {r.format_name:<10} {conf:<6.2f} {verif:<6} {heur:<6} {carved_cnt:<6} {verif_cov:<10} {heur_cov:<10} {len(r.damages)}")

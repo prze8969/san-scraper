@@ -1,0 +1,200 @@
+{
+  "file": "11_header_damaged.pak",
+  "format": "PAK",
+  "file_size": 278,
+  "is_valid_header": true,
+  "total_records_recovered": 2,
+  "total_declared_records": 2,
+  "records": [
+    {
+      "id": 0,
+      "status": "complete",
+      "byte_range": [
+        76,
+        100
+      ],
+      "data": {
+        "name": "config.cfg",
+        "raw_name": "config.cfg",
+        "offset": 12,
+        "size": 24,
+        "extracted_path": "C:\\Users\\Pranav Shewale\\zebro-scraper\\demo\\output\\11_header_damaged.pak.extracted\\config.cfg"
+      }
+    },
+    {
+      "id": 1,
+      "status": "complete",
+      "byte_range": [
+        100,
+        150
+      ],
+      "data": {
+        "name": "autoexec.cfg",
+        "raw_name": "autoexec.cfg",
+        "offset": 36,
+        "size": 50,
+        "extracted_path": "C:\\Users\\Pranav Shewale\\zebro-scraper\\demo\\output\\11_header_damaged.pak.extracted\\autoexec.cfg"
+      }
+    }
+  ],
+  "damages": [],
+  "metadata": {
+    "directory_offset": 86,
+    "directory_length": 128,
+    "total_entries": 2,
+    "wrapped_offset": 64
+  },
+  "analysis": {
+    "size": 278,
+    "sha256": "370f39b5ee2d334bc014539eb43fac056b8412c3d840bc1ab96365d742852c15",
+    "extension_hint": "pak",
+    "signatures": [
+      {
+        "format": "PAK",
+        "offset": 64,
+        "length": 4,
+        "confidence": 0.85,
+        "description": "id Software Quake PAK archive"
+      }
+    ],
+    "entropy": {
+      "overall": 4.271,
+      "block_size": 256,
+      "block_count": 2,
+      "blocks": [
+        4.451,
+        0.53
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 278,
+          "type": "mixed",
+          "avg_entropy": 4.451
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 0,
+        "length": 69,
+        "encoding": "ascii",
+        "string": "CORRUPTED_PREFIX_WRAPPER_METADATA_HEADER_BLOB_PADDING_TO_OFFSET_PACKV"
+      },
+      {
+        "offset": 76,
+        "length": 84,
+        "encoding": "ascii",
+        "string": "bind 'MOUSE1' '+attack'\necho 'Header-damaged PAK recovered successfully!'\nconfig.cfg"
+      },
+      {
+        "offset": 214,
+        "length": 12,
+        "encoding": "ascii",
+        "string": "autoexec.cfg"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1381125955 at offset 0",
+        "details": {
+          "offset": 0,
+          "value": 1381125955,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1163153493 at offset 4",
+        "details": {
+          "offset": 4,
+          "value": 1163153493,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1380998980 at offset 8",
+        "details": {
+          "offset": 8,
+          "value": 1380998980,
+          "endian": "little"
+        }
+      }
+    ],
+    "damage_indicators": []
+  },
+  "detection_candidates": [
+    {
+      "format": "PAK",
+      "confidence": 0.85,
+      "method": "magic_nonzero_offset",
+      "offset": 64,
+      "evidence": "Magic found at non-zero offset 64: id Software Quake PAK archive"
+    }
+  ],
+  "carved_objects": [],
+  "coverage": {
+    "total_bytes": 278,
+    "recovered_bytes": 74,
+    "verified_bytes": 74,
+    "heuristic_bytes": 0,
+    "unaccounted_bytes": 204,
+    "coverage_pct": 26.62,
+    "verified_coverage_pct": 26.62,
+    "heuristic_coverage_pct": 0.0,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 76
+      },
+      {
+        "offset": 150,
+        "length": 128
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 458,
+    "matched_probes": 120
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        12
+      ],
+      "role": "PAK_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        12,
+        160
+      ],
+      "role": "PAK_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "footer",
+      "offset_range": [
+        160,
+        278
+      ],
+      "role": "trailer_TAR_NULL_BLOCK",
+      "status": "hypothesized",
+      "confidence": 0.9
+    }
+  ]
+}

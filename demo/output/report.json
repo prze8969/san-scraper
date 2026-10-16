@@ -1,73 +1,303 @@
 {
   "summary": {
-    "total_files_processed": 8,
-    "total_records_recovered": 22,
-    "total_damaged_blocks": 3,
+    "total_files_processed": 14,
+    "total_records_recovered": 97,
+    "total_verified_records": 32,
+    "total_heuristic_records": 65,
+    "total_damaged_blocks": 6,
     "formats": {
       "LIBRA-98": 1,
       "LABLOG": 2,
       "VAULT": 1,
-      "PAK": 2,
+      "PAK": 3,
       "WKS": 1,
-      "UNKNOWN": 1
+      "UNKNOWN": 2,
+      "PNG": 1,
+      "WAD": 1,
+      "ZIP": 1,
+      "GZIP": 1
     }
   },
   "files": [
     {
       "file": "01_valid.lib",
       "format": "LIBRA-98",
+      "detection_result": "LIBRA-98",
+      "confidence": 1.0,
       "is_valid_header": true,
       "records_recovered": 3,
-      "damage_count": 0
+      "verified_records": 3,
+      "heuristic_records": 0,
+      "coverage_pct": 81.82,
+      "verified_coverage_pct": 81.82,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 0,
+      "analysis_summary": {
+        "size": 176,
+        "sha256": "13831e760c403254e32100bc9c80cadcf6a44a2becf3d0e06342d6fdf9d2efc1",
+        "entropy": 3.722,
+        "carved_count": 0
+      }
     },
     {
       "file": "02_valid.lab",
       "format": "LABLOG",
+      "detection_result": "LABLOG",
+      "confidence": 1.0,
       "is_valid_header": true,
       "records_recovered": 3,
-      "damage_count": 0
+      "verified_records": 3,
+      "heuristic_records": 0,
+      "coverage_pct": 88.06,
+      "verified_coverage_pct": 88.06,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 0,
+      "analysis_summary": {
+        "size": 201,
+        "sha256": "6796be3880ae03dbab4542d460730eb5d4f3c7fabbc48e63f9bd2dcecadce8b5",
+        "entropy": 5.101,
+        "carved_count": 0
+      }
     },
     {
       "file": "03_valid.vlt",
       "format": "VAULT",
+      "detection_result": "VAULT",
+      "confidence": 1.0,
       "is_valid_header": true,
       "records_recovered": 3,
-      "damage_count": 0
+      "verified_records": 3,
+      "heuristic_records": 0,
+      "coverage_pct": 32.82,
+      "verified_coverage_pct": 32.82,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 0,
+      "analysis_summary": {
+        "size": 262,
+        "sha256": "c96a2336c05b3aa16919920f56de78bce95aafc3c54c62bb06f169d4a3488b45",
+        "entropy": 4.836,
+        "carved_count": 0
+      }
     },
     {
       "file": "04_valid.pak",
       "format": "PAK",
+      "detection_result": "PAK",
+      "confidence": 1.0,
       "is_valid_header": true,
       "records_recovered": 3,
-      "damage_count": 0
+      "verified_records": 3,
+      "heuristic_records": 0,
+      "coverage_pct": 35.44,
+      "verified_coverage_pct": 35.44,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 0,
+      "analysis_summary": {
+        "size": 316,
+        "sha256": "783b6c692686f6d4eb5b80dc2d22257510848df71c43095e04febcdda04e6c6f",
+        "entropy": 3.628,
+        "carved_count": 0
+      }
     },
     {
       "file": "05_valid.wks",
       "format": "WKS",
+      "detection_result": "WKS",
+      "confidence": 1.0,
       "is_valid_header": true,
       "records_recovered": 6,
-      "damage_count": 0
+      "verified_records": 6,
+      "heuristic_records": 0,
+      "coverage_pct": 92.94,
+      "verified_coverage_pct": 92.94,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 0,
+      "analysis_summary": {
+        "size": 85,
+        "sha256": "5521089275deeff08a6cc4251f958630d570a156b9aa66337d19679b9479333c",
+        "entropy": 3.653,
+        "carved_count": 0
+      }
     },
     {
       "file": "06_truncated.pak",
       "format": "PAK",
+      "detection_result": "PAK",
+      "confidence": 1.0,
       "is_valid_header": true,
       "records_recovered": 1,
-      "damage_count": 1
+      "verified_records": 1,
+      "heuristic_records": 0,
+      "coverage_pct": 16.08,
+      "verified_coverage_pct": 16.08,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 1,
+      "analysis_summary": {
+        "size": 143,
+        "sha256": "0fa554519cb69b7440a2c7dc47dab12f056b7a624c1d4554127a48d9a765cee5",
+        "entropy": 4.135,
+        "carved_count": 0
+      }
     },
     {
       "file": "07_corrupted_block.lab",
       "format": "LABLOG",
+      "detection_result": "LABLOG",
+      "confidence": 1.0,
       "is_valid_header": true,
       "records_recovered": 3,
-      "damage_count": 1
+      "verified_records": 3,
+      "heuristic_records": 0,
+      "coverage_pct": 88.63,
+      "verified_coverage_pct": 88.63,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 1,
+      "analysis_summary": {
+        "size": 211,
+        "sha256": "2c5f0fca73b88321e52036474a59b2490d414d10d2401a7b8b1cb055de1f768e",
+        "entropy": 5.067,
+        "carved_count": 0
+      }
     },
     {
       "file": "08_unknown.bin",
       "format": "UNKNOWN",
+      "detection_result": "UNKNOWN",
+      "confidence": 0.0,
       "is_valid_header": false,
-      "records_recovered": 0,
-      "damage_count": 1
+      "records_recovered": 1,
+      "verified_records": 0,
+      "heuristic_records": 1,
+      "coverage_pct": 98.57,
+      "verified_coverage_pct": 0.0,
+      "heuristic_coverage_pct": 98.57,
+      "damage_count": 1,
+      "analysis_summary": {
+        "size": 70,
+        "sha256": "5366fd78db0a19acfa985c2de9cd2824c93477cc5351db759c488b0835ccba27",
+        "entropy": 4.351,
+        "carved_count": 0
+      }
+    },
+    {
+      "file": "09_buried_png.bin",
+      "format": "PNG",
+      "detection_result": "PNG",
+      "confidence": 0.85,
+      "is_valid_header": true,
+      "records_recovered": 2,
+      "verified_records": 2,
+      "heuristic_records": 0,
+      "coverage_pct": 13.35,
+      "verified_coverage_pct": 10.98,
+      "heuristic_coverage_pct": 2.37,
+      "damage_count": 1,
+      "analysis_summary": {
+        "size": 337,
+        "sha256": "b40106ae6b6d4f399732e70ecc4e34c32d8aef7fb78846ab3fe6fba3e4b56407",
+        "entropy": 4.211,
+        "carved_count": 1
+      }
+    },
+    {
+      "file": "10_unknown_records.dat",
+      "format": "UNKNOWN",
+      "detection_result": "UNKNOWN",
+      "confidence": 0.0,
+      "is_valid_header": false,
+      "records_recovered": 64,
+      "verified_records": 0,
+      "heuristic_records": 64,
+      "coverage_pct": 100.0,
+      "verified_coverage_pct": 0.0,
+      "heuristic_coverage_pct": 100.0,
+      "damage_count": 1,
+      "analysis_summary": {
+        "size": 512,
+        "sha256": "c94d741f73b1de8309cbd89c765425ee9e1cffb8e704ce32f3589d3500dffbd0",
+        "entropy": 4.03,
+        "carved_count": 0
+      }
+    },
+    {
+      "file": "11_header_damaged.pak",
+      "format": "PAK",
+      "detection_result": "PAK",
+      "confidence": 0.85,
+      "is_valid_header": true,
+      "records_recovered": 2,
+      "verified_records": 2,
+      "heuristic_records": 0,
+      "coverage_pct": 26.62,
+      "verified_coverage_pct": 26.62,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 0,
+      "analysis_summary": {
+        "size": 278,
+        "sha256": "370f39b5ee2d334bc014539eb43fac056b8412c3d840bc1ab96365d742852c15",
+        "entropy": 4.271,
+        "carved_count": 0
+      }
+    },
+    {
+      "file": "12_valid.wad",
+      "format": "WAD",
+      "detection_result": "WAD",
+      "confidence": 1.0,
+      "is_valid_header": true,
+      "records_recovered": 3,
+      "verified_records": 3,
+      "heuristic_records": 0,
+      "coverage_pct": 42.86,
+      "verified_coverage_pct": 42.86,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 0,
+      "analysis_summary": {
+        "size": 105,
+        "sha256": "86798110d89d4cd0a2e2f20fad6bad673a77e1ff4d1cac3684a076302aa33923",
+        "entropy": 3.947,
+        "carved_count": 0
+      }
+    },
+    {
+      "file": "13_valid.zip",
+      "format": "ZIP",
+      "detection_result": "ZIP",
+      "confidence": 1.0,
+      "is_valid_header": true,
+      "records_recovered": 2,
+      "verified_records": 2,
+      "heuristic_records": 0,
+      "coverage_pct": 100.0,
+      "verified_coverage_pct": 100.0,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 1,
+      "analysis_summary": {
+        "size": 161,
+        "sha256": "4b7068f32e216b0fb5df2d4a063b1eb8506e84a35d7a220f9268ee6c14a281d1",
+        "entropy": 5.155,
+        "carved_count": 0
+      }
+    },
+    {
+      "file": "14_valid.gz",
+      "format": "GZIP",
+      "detection_result": "GZIP",
+      "confidence": 1.0,
+      "is_valid_header": true,
+      "records_recovered": 1,
+      "verified_records": 1,
+      "heuristic_records": 0,
+      "coverage_pct": 76.92,
+      "verified_coverage_pct": 76.92,
+      "heuristic_coverage_pct": 0.0,
+      "damage_count": 0,
+      "analysis_summary": {
+        "size": 78,
+        "sha256": "8da8e86605fa28a61217807810c3284f1193e13a537343e3fb71fcf87c1faf47",
+        "entropy": 5.59,
+        "carved_count": 0
+      }
     }
   ]
 }

@@ -44,11 +44,23 @@ class RecoveredRecord:
     errors: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
+        def _sanitize(val: Any) -> Any:
+            if isinstance(val, (bytes, bytearray)):
+                try:
+                    return val.decode("utf-8")
+                except UnicodeDecodeError:
+                    return val.decode("latin-1", errors="replace")
+            elif isinstance(val, dict):
+                return {k: _sanitize(v) for k, v in val.items()}
+            elif isinstance(val, list):
+                return [_sanitize(v) for v in val]
+            return val
+
         res: dict[str, Any] = {
             "id": self.record_id,
             "status": self.status.value,
             "byte_range": list(self.byte_range),
-            "data": self.fields,
+            "data": _sanitize(self.fields),
         }
         if self.errors:
             res["errors"] = self.errors
@@ -64,6 +76,12 @@ class FileRecoveryResult:
     recovered_records: list[RecoveredRecord] = field(default_factory=list)
     damages: list[DamageBlock] = field(default_factory=list)
     metadata: dict[str, Any] = field(default_factory=dict)
+    analysis: dict[str, Any] = field(default_factory=dict)
+    detection_candidates: list[dict[str, Any]] = field(default_factory=list)
+    carved_objects: list[dict[str, Any]] = field(default_factory=list)
+    coverage: dict[str, Any] = field(default_factory=dict)
+    probe_summary: dict[str, Any] = field(default_factory=dict)
+    layout: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -76,4 +94,10 @@ class FileRecoveryResult:
             "records": [r.to_dict() for r in self.recovered_records],
             "damages": [d.to_dict() for d in self.damages],
             "metadata": self.metadata,
+            "analysis": self.analysis,
+            "detection_candidates": self.detection_candidates,
+            "carved_objects": self.carved_objects,
+            "coverage": self.coverage,
+            "probe_summary": self.probe_summary,
+            "layout": self.layout,
         }

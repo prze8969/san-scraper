@@ -1,0 +1,46 @@
+================================================================================
+ FORENSIC PROBE BATTERY REPORT: 14_valid.gz
+ File Size: 78 bytes | Format: GZIP (valid_header=True)
+ Total Probes Executed: 446 | Matched: 7
+================================================================================
+
+--- PROBE FAMILIES SUMMARY ---
+ - checksums      :   0 matches /  15 executed (15 non-matches, 0 errors)
+ - encoding       :   0 matches /   7 executed (7 non-matches, 0 errors)
+ - footer         :   0 matches /   8 executed (8 non-matches, 0 errors)
+ - header         :   0 matches /  45 executed (45 non-matches, 0 errors)
+ - obfuscation    :   0 matches / 256 executed (256 non-matches, 0 errors)
+ - signatures     :   1 matches /  63 executed (62 non-matches, 0 errors)
+ - structure      :   0 matches /  21 executed (21 non-matches, 0 errors)
+ - system         :   0 matches /   1 executed (0 non-matches, 1 errors)
+ - timestamps     :   6 matches /  30 executed (24 non-matches, 0 errors)
+
+--- INFERRED BYTE LAYOUT ---
+ - HEADER   [0:32]           GZIP_header                         conf=1.00 (verified)
+ - BODY     [32:78]          GZIP_records_body                   conf=1.00 (verified)
+
+--- MATCHING PROBES WITH EVIDENCE ---
+ [SIGNATURES] id=sig_GZIP_offset_0 score=1.00 range=(0, 3)
+   Evidence: Exact magic match at offset 0: GZIP compressed data
+ [TIMESTAMPS] id=time_unix_le_off_4 score=0.75 range=(4, 8)
+   Evidence: Offset 4: Plausible Unix timestamp 1792134273
+ [TIMESTAMPS] id=time_unix_le_off_16 score=0.75 range=(16, 20)
+   Evidence: Offset 16: Plausible Unix timestamp 1884435764
+ [TIMESTAMPS] id=time_unix_be_off_16 score=0.75 range=(16, 20)
+   Evidence: Offset 16: Plausible Unix BE timestamp 875909744
+ [TIMESTAMPS] id=time_unix_le_off_20 score=0.75 range=(20, 24)
+   Evidence: Offset 20: Plausible Unix timestamp 1343025807
+ [TIMESTAMPS] id=time_unix_be_off_24 score=0.75 range=(24, 28)
+   Evidence: Offset 24: Plausible Unix BE timestamp 1221513005
+ [TIMESTAMPS] id=time_unix_be_off_32 score=0.75 range=(32, 36)
+   Evidence: Offset 32: Plausible Unix BE timestamp 1313689896
+
+--- FAMILIES WITH ZERO MATCHES ---
+ - checksums: All 15 probes returned no_match
+ - encoding: All 7 probes returned no_match
+ - footer: All 8 probes returned no_match
+ - header: All 45 probes returned no_match
+ - obfuscation: All 256 probes returned no_match
+ - structure: All 21 probes returned no_match
+ - system: All 1 probes returned no_match
+

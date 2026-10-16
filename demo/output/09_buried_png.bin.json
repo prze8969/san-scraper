@@ -1,0 +1,267 @@
+{
+  "file": "09_buried_png.bin",
+  "format": "PNG",
+  "file_size": 337,
+  "is_valid_header": true,
+  "total_records_recovered": 2,
+  "total_declared_records": 2,
+  "records": [
+    {
+      "id": 0,
+      "status": "corrupted",
+      "byte_range": [
+        208,
+        233
+      ],
+      "data": {
+        "chunk_type": "IHDR",
+        "length": 13,
+        "crc32": "0xC904E170",
+        "crc_status": "mismatch",
+        "width": 2,
+        "height": 2
+      },
+      "errors": [
+        "CRC-32 mismatch on chunk 'IHDR': declared 0xC904E170, computed 0xFDD49A73"
+      ]
+    },
+    {
+      "id": 1,
+      "status": "complete",
+      "byte_range": [
+        233,
+        245
+      ],
+      "data": {
+        "chunk_type": "IEND",
+        "length": 0,
+        "crc32": "0xAE426082",
+        "crc_status": "verified"
+      }
+    }
+  ],
+  "damages": [
+    {
+      "offset": 229,
+      "length": 4,
+      "type": "checksum_mismatch",
+      "description": "CRC-32 mismatch on chunk 'IHDR': declared 0xC904E170, computed 0xFDD49A73"
+    }
+  ],
+  "metadata": {
+    "saw_ihdr": true,
+    "saw_iend": true,
+    "width": 2,
+    "height": 2,
+    "chunk_count": 2,
+    "wrapped_offset": 200
+  },
+  "analysis": {
+    "size": 337,
+    "sha256": "b40106ae6b6d4f399732e70ecc4e34c32d8aef7fb78846ab3fe6fba3e4b56407",
+    "extension_hint": "bin",
+    "signatures": [
+      {
+        "format": "PNG",
+        "offset": 200,
+        "length": 8,
+        "confidence": 0.85,
+        "description": "Portable Network Graphics"
+      },
+      {
+        "format": "WKS",
+        "offset": 217,
+        "length": 4,
+        "confidence": 0.85,
+        "description": "Lotus 1-2-3 BOF record"
+      }
+    ],
+    "entropy": {
+      "overall": 4.211,
+      "block_size": 256,
+      "block_count": 2,
+      "blocks": [
+        4.287,
+        3.632
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 256,
+          "type": "mixed",
+          "avg_entropy": 4.287
+        },
+        {
+          "start": 256,
+          "end": 337,
+          "type": "text_like",
+          "avg_entropy": 3.632
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 0,
+        "length": 200,
+        "encoding": "ascii",
+        "string": "JUNK_BYTES_PADDING_START_JUNK_BYTES_PADDING_START_JUNK_BYTES_PADDING_START_JUNK_BYTES_PADDING_START_JUNK_BYTES_PADDING_START_JUNK_BYTES_PADDING_START_JUNK_BYTES_PADDING_START_JUNK_BYTES_PADDING_START_"
+      },
+      {
+        "offset": 211,
+        "length": 5,
+        "encoding": "ascii",
+        "string": "IHDR"
+      },
+      {
+        "offset": 237,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "IEND"
+      },
+      {
+        "offset": 245,
+        "length": 92,
+        "encoding": "ascii",
+        "string": "_JUNK_BYTES_PADDING_END_JUNK_BYTES_PADDING_END_JUNK_BYTES_PADDING_END_JUNK_BYTES_PADDING_END"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "repeated_sync_marker",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.75,
+        "evidence": "Repeated sync token JUNK found 3 times (avg interval 146 bytes)",
+        "details": {
+          "marker": "JUNK",
+          "count": 3,
+          "first_offsets": [
+            0,
+            100,
+            292
+          ]
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1263424842 at offset 0",
+        "details": {
+          "offset": 0,
+          "value": 1263424842,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1415135839 at offset 4",
+        "details": {
+          "offset": 4,
+          "value": 1415135839,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1348424517 at offset 8",
+        "details": {
+          "offset": 8,
+          "value": 1348424517,
+          "endian": "little"
+        }
+      }
+    ],
+    "damage_indicators": []
+  },
+  "detection_candidates": [
+    {
+      "format": "PNG",
+      "confidence": 0.85,
+      "method": "magic_nonzero_offset",
+      "offset": 200,
+      "evidence": "Magic found at non-zero offset 200: Portable Network Graphics"
+    },
+    {
+      "format": "WKS",
+      "confidence": 0.85,
+      "method": "magic_nonzero_offset",
+      "offset": 217,
+      "evidence": "Magic found at non-zero offset 217: Lotus 1-2-3 BOF record"
+    }
+  ],
+  "carved_objects": [
+    {
+      "format": "PNG",
+      "offset": 200,
+      "end_offset": 245,
+      "size": 45,
+      "sha256": "000383778eac5b78abb7d963944716fee011af688cd44f6d4f44ff26e2947468",
+      "carved": true,
+      "filename": "carved_000000c8.png",
+      "byte_range": [
+        200,
+        245
+      ]
+    }
+  ],
+  "coverage": {
+    "total_bytes": 337,
+    "recovered_bytes": 45,
+    "verified_bytes": 37,
+    "heuristic_bytes": 8,
+    "unaccounted_bytes": 292,
+    "coverage_pct": 13.35,
+    "verified_coverage_pct": 10.98,
+    "heuristic_coverage_pct": 2.37,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 200
+      },
+      {
+        "offset": 245,
+        "length": 92
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 459,
+    "matched_probes": 127
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        32
+      ],
+      "role": "PNG_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        32,
+        237
+      ],
+      "role": "PNG_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "footer",
+      "offset_range": [
+        237,
+        337
+      ],
+      "role": "trailer_PNG_IEND",
+      "status": "hypothesized",
+      "confidence": 0.9
+    }
+  ]
+}

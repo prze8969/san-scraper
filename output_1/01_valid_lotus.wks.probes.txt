@@ -1,0 +1,272 @@
+================================================================================
+ FORENSIC PROBE BATTERY REPORT: 01_valid_lotus.wks
+ File Size: 2361 bytes | Format: WKS (valid_header=True)
+ Total Probes Executed: 463 | Matched: 121
+================================================================================
+
+--- PROBE FAMILIES SUMMARY ---
+ - checksums      :   0 matches /  15 executed (15 non-matches, 0 errors)
+ - encoding       :   0 matches /   7 executed (7 non-matches, 0 errors)
+ - footer         :   1 matches /   8 executed (7 non-matches, 0 errors)
+ - header         :   1 matches /  45 executed (44 non-matches, 0 errors)
+ - obfuscation    :  98 matches / 256 executed (158 non-matches, 0 errors)
+ - signatures     :   2 matches /  63 executed (61 non-matches, 0 errors)
+ - structure      :  19 matches /  38 executed (19 non-matches, 0 errors)
+ - system         :   0 matches /   1 executed (0 non-matches, 1 errors)
+ - timestamps     :   0 matches /  30 executed (30 non-matches, 0 errors)
+
+--- INFERRED BYTE LAYOUT ---
+ - HEADER   [0:6]            WKS_header                          conf=1.00 (verified)
+ - BODY     [6:2357]         WKS_records_body                    conf=1.00 (verified)
+ - FOOTER   [2357:2361]      trailer_WKS_EOF                     conf=0.90 (hypothesized)
+
+--- MATCHING PROBES WITH EVIDENCE ---
+ [SIGNATURES] id=sig_WKS_offset_0 score=1.00 range=(0, 4)
+   Evidence: Exact magic match at offset 0: Lotus 1-2-3 BOF record
+ [FOOTER] id=footer_WKS_EOF score=0.90 range=(2357, 2361)
+   Evidence: Found WKS_EOF trailer marker at byte offset 2357
+ [OBFUSCATION] id=obfusc_xor_key_38 score=0.88 range=(0, 512)
+   Evidence: XOR key 0x38 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_3b score=0.88 range=(0, 512)
+   Evidence: XOR key 0x3b deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_78 score=0.88 range=(0, 512)
+   Evidence: XOR key 0x78 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_49 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x49 deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_51 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x51 deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_55 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x55 deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_56 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x56 deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_60 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x60 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_61 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x61 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_62 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x62 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_63 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x63 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_64 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x64 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_65 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x65 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_66 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x66 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_67 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x67 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_68 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x68 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_69 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x69 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_6a score=0.87 range=(0, 512)
+   Evidence: XOR key 0x6a deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_6b score=0.87 range=(0, 512)
+   Evidence: XOR key 0x6b deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_6c score=0.87 range=(0, 512)
+   Evidence: XOR key 0x6c deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_6d score=0.87 range=(0, 512)
+   Evidence: XOR key 0x6d deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_6e score=0.87 range=(0, 512)
+   Evidence: XOR key 0x6e deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_70 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x70 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_71 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x71 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_72 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x72 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_74 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x74 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_75 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x75 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_76 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x76 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_77 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x77 deobfuscates to 87% printable text
+ [OBFUSCATION] id=obfusc_xor_key_79 score=0.87 range=(0, 512)
+   Evidence: XOR key 0x79 deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_7a score=0.87 range=(0, 512)
+   Evidence: XOR key 0x7a deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_7d score=0.87 range=(0, 512)
+   Evidence: XOR key 0x7d deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_20 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x20 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_21 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x21 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_22 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x22 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_24 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x24 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_25 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x25 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_26 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x26 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_27 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x27 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_28 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x28 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_29 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x29 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_2a score=0.86 range=(0, 512)
+   Evidence: XOR key 0x2a deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_2b score=0.86 range=(0, 512)
+   Evidence: XOR key 0x2b deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_2c score=0.86 range=(0, 512)
+   Evidence: XOR key 0x2c deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_2d score=0.86 range=(0, 512)
+   Evidence: XOR key 0x2d deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_2e score=0.86 range=(0, 512)
+   Evidence: XOR key 0x2e deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_2f score=0.86 range=(0, 512)
+   Evidence: XOR key 0x2f deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_30 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x30 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_31 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x31 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_32 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x32 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_33 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x33 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_34 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x34 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_35 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x35 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_37 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x37 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_3c score=0.86 range=(0, 512)
+   Evidence: XOR key 0x3c deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_3e score=0.86 range=(0, 512)
+   Evidence: XOR key 0x3e deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_3f score=0.86 range=(0, 512)
+   Evidence: XOR key 0x3f deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_40 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x40 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_41 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x41 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_42 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x42 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_43 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x43 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_44 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x44 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_45 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x45 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_46 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x46 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_47 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x47 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_48 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x48 deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_4a score=0.86 range=(0, 512)
+   Evidence: XOR key 0x4a deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_4b score=0.86 range=(0, 512)
+   Evidence: XOR key 0x4b deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_4c score=0.86 range=(0, 512)
+   Evidence: XOR key 0x4c deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_4f score=0.86 range=(0, 512)
+   Evidence: XOR key 0x4f deobfuscates to 86% printable text
+ [OBFUSCATION] id=obfusc_xor_key_50 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x50 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_52 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x52 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_53 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x53 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_54 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x54 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_57 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x57 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_58 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x58 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_59 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x59 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_5a score=0.86 range=(0, 512)
+   Evidence: XOR key 0x5a deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_5b score=0.86 range=(0, 512)
+   Evidence: XOR key 0x5b deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_5c score=0.86 range=(0, 512)
+   Evidence: XOR key 0x5c deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_5d score=0.86 range=(0, 512)
+   Evidence: XOR key 0x5d deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_5e score=0.86 range=(0, 512)
+   Evidence: XOR key 0x5e deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_5f score=0.86 range=(0, 512)
+   Evidence: XOR key 0x5f deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_73 score=0.86 range=(0, 512)
+   Evidence: XOR key 0x73 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_7b score=0.86 range=(0, 512)
+   Evidence: XOR key 0x7b deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_7c score=0.86 range=(0, 512)
+   Evidence: XOR key 0x7c deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_7e score=0.86 range=(0, 512)
+   Evidence: XOR key 0x7e deobfuscates to 85% printable text
+ [SIGNATURES] id=sig_WKS_nonzero_offset score=0.85 range=(24, 28)
+   Evidence: Magic for WKS found at offset 24
+ [OBFUSCATION] id=obfusc_xor_key_23 score=0.85 range=(0, 512)
+   Evidence: XOR key 0x23 deobfuscates to 84% printable text
+ [OBFUSCATION] id=obfusc_xor_key_36 score=0.85 range=(0, 512)
+   Evidence: XOR key 0x36 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_39 score=0.85 range=(0, 512)
+   Evidence: XOR key 0x39 deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_3a score=0.85 range=(0, 512)
+   Evidence: XOR key 0x3a deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_3d score=0.85 range=(0, 512)
+   Evidence: XOR key 0x3d deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_4d score=0.85 range=(0, 512)
+   Evidence: XOR key 0x4d deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_4e score=0.85 range=(0, 512)
+   Evidence: XOR key 0x4e deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_6f score=0.85 range=(0, 512)
+   Evidence: XOR key 0x6f deobfuscates to 85% printable text
+ [OBFUSCATION] id=obfusc_xor_key_09 score=0.82 range=(0, 512)
+   Evidence: XOR key 0x09 deobfuscates to 81% printable text
+ [OBFUSCATION] id=obfusc_xor_key_0a score=0.80 range=(0, 512)
+   Evidence: XOR key 0x0a deobfuscates to 79% printable text
+ [OBFUSCATION] id=obfusc_xor_key_0d score=0.80 range=(0, 512)
+   Evidence: XOR key 0x0d deobfuscates to 79% printable text
+ [HEADER] id=hdr_u32_le_off_32 score=0.60 range=(32, 36)
+   Evidence: Offset 32: uint32_LE 256 points inside file bounds [0, 2361]
+ [STRUCTURE] id=struct_stride_60 score=0.58 range=(0, 480)
+   Evidence: Record stride 60 autocorrelation: 57% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_44 score=0.54 range=(0, 352)
+   Evidence: Record stride 44 autocorrelation: 54% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_48 score=0.54 range=(0, 384)
+   Evidence: Record stride 48 autocorrelation: 54% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_52 score=0.54 range=(0, 416)
+   Evidence: Record stride 52 autocorrelation: 53% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_40 score=0.53 range=(0, 320)
+   Evidence: Record stride 40 autocorrelation: 52% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_56 score=0.53 range=(0, 448)
+   Evidence: Record stride 56 autocorrelation: 53% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_64 score=0.53 range=(0, 512)
+   Evidence: Record stride 64 autocorrelation: 52% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_16 score=0.52 range=(0, 128)
+   Evidence: Record stride 16 autocorrelation: 51% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_8 score=0.50 range=(0, 64)
+   Evidence: Record stride 8 autocorrelation: 50% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_36 score=0.50 range=(0, 288)
+   Evidence: Record stride 36 autocorrelation: 50% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_72 score=0.50 range=(0, 576)
+   Evidence: Record stride 72 autocorrelation: 50% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_128 score=0.50 range=(0, 1024)
+   Evidence: Record stride 128 autocorrelation: 49% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_10 score=0.49 range=(0, 80)
+   Evidence: Record stride 10 autocorrelation: 48% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_20 score=0.48 range=(0, 160)
+   Evidence: Record stride 20 autocorrelation: 47% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_32 score=0.47 range=(0, 256)
+   Evidence: Record stride 32 autocorrelation: 47% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_80 score=0.47 range=(0, 640)
+   Evidence: Record stride 80 autocorrelation: 46% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_4 score=0.46 range=(0, 32)
+   Evidence: Record stride 4 autocorrelation: 46% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_100 score=0.46 range=(0, 800)
+   Evidence: Record stride 100 autocorrelation: 46% structural pattern alignment across 8 blocks
+ [STRUCTURE] id=struct_stride_12 score=0.45 range=(0, 96)
+   Evidence: Record stride 12 autocorrelation: 45% structural pattern alignment across 8 blocks
+
+--- FAMILIES WITH ZERO MATCHES ---
+ - checksums: All 15 probes returned no_match
+ - encoding: All 7 probes returned no_match
+ - system: All 1 probes returned no_match
+ - timestamps: All 30 probes returned no_match
+

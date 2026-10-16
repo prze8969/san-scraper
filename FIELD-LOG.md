@@ -141,3 +141,21 @@ Every format specification or field definition belongs to one of three categorie
 | 2026-10-14 | PS 02 Audit & Hardening: WKS Opcode Verification | Audited Lotus 1-2-3 opcodes 0x000C..0x0010 against WSFF1.TXT / Gnumeric / LibreOffice | Verified & Documented |
 | 2026-10-14 | PS 02 Independent Fixtures & Circularity Break | Added hand-assembled spec byte fixtures (PAK, WKS, LIBRA, LABLOG, VAULT) labeled `[independent]` vs `[self-consistency]` | 52 Passing |
 | 2026-10-14 | PS 02 Safety & Robustness Hardening | Added symlink escape prevention, output boundary containment, seed-deterministic fuzzing (50 iterations per parser), batch isolation, and RLE bomb protection | 64 Passing |
+| 2026-10-15 | Generic Analysis + Data Recovery Layer (PS 02 Salvage) | Whole-buffer signature scan, Shannon entropy per-block profile, string extraction, autocorrelation stride detection, bounded carving (PNG, ZIP, JPEG), multi-candidate scored detector pipeline, heuristic candidate-record lane, and byte coverage accounting | All 72 Passing |
+| 2026-10-16 | Forensic Probe Battery + Terminal Report (PS 02 Salvage) | 300+ parameterized probe runner (signatures, header fields, footers, checksums, structure strides, code-page encodings, compression/entropy, XOR keys, timestamps), .probes.json, .probes.txt, inferred layout mapping, single-file/dir CLI with --verbose and --quiet | All 79 Passing |
+
+---
+
+## 5. Heuristic Findings and Rejected Hypotheses
+
+### Heuristic Findings:
+1. **Autocorrelation Stride Heuristic:** When repeated fixed-offset patterns occur with >45% byte-to-byte correlation across consecutive blocks (e.g. 16, 24, 32, 48, 64, 80, 96, 128, 256 bytes), fixed-width records are hypothesized. This allows generic extraction of candidate records with `recovery_lane: "heuristic"` and decoded candidate numeric fields.
+2. **Non-Zero Offset Magic Scan:** If a supported format magic (e.g. `PACK`, `LIBRA98\x00`, `LABLOG\x01\x00`) is buried after junk bytes or wrapper metadata, slicing the buffer at that offset and adjusting record/damage byte ranges allows recovering wrapped files.
+3. **Bounded Carving of Embedded Containers:** Embedded objects with definitive terminators (PNG `IEND` chunk, ZIP `EOCD` signature `PK\x05\x06`, JPEG `EOI` marker `0xFFD9`) can be carved into `<output_dir>/<filename>.carved/` without executing them.
+4. **Forensic Probe Battery Integration:** 300+ parameterised probes (XOR 0..255, strides 2..512, header uint16/32, checksums CRC32/Adler32/XOR8 over candidate ranges) systematically profile unknown or damaged streams without hard-coded assumptions.
+
+### Rejected Hypotheses:
+1. **Rejected: Blind Heuristic Execution or Decoding:** We strictly rejected guessing proprietary record fields without evidence. Missing or unknown values remain null or unknown; they are never converted into fabricated values.
+2. **Rejected: Carving Formats with Ambiguous End Markers:** For formats without a bounded end marker or reliable header-declared total size (e.g., raw audio streams or stream formats with external framing), carving is explicitly skipped with the reason documented in JSON.
+3. **Rejected: Extension Dominance:** File extensions are treated solely as low-confidence hints (confidence 0.40) and are never allowed to override actual content signatures (offset 0 magic confidence 1.0; non-zero offset magic confidence 0.85).
+4. **Rejected: Treating Probe Matches as Verified Truth:** All probe matches are classified strictly as hypotheses unless an authoritative format parser validates them. Random high-entropy byte streams are explicitly checked to prevent false high-confidence claims.

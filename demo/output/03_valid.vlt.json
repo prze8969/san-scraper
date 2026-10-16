@@ -62,5 +62,193 @@
   "metadata": {
     "index_offset": 118,
     "entry_count": 3
-  }
+  },
+  "analysis": {
+    "size": 262,
+    "sha256": "c96a2336c05b3aa16919920f56de78bce95aafc3c54c62bb06f169d4a3488b45",
+    "extension_hint": "vlt",
+    "signatures": [
+      {
+        "format": "VAULT",
+        "offset": 0,
+        "length": 8,
+        "confidence": 1.0,
+        "description": "VAULT archive storage"
+      }
+    ],
+    "entropy": {
+      "overall": 4.836,
+      "block_size": 256,
+      "block_count": 2,
+      "blocks": [
+        4.807,
+        2.252
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 262,
+          "type": "mixed",
+          "avg_entropy": 4.807
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 0,
+        "length": 5,
+        "encoding": "ascii",
+        "string": "VAULT"
+      },
+      {
+        "offset": 27,
+        "length": 29,
+        "encoding": "ascii",
+        "string": "}ZZZZVAULT demo manifest v1.0"
+      },
+      {
+        "offset": 114,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "cchk"
+      },
+      {
+        "offset": 138,
+        "length": 12,
+        "encoding": "ascii",
+        "string": "manifest.txt"
+      },
+      {
+        "offset": 186,
+        "length": 20,
+        "encoding": "ascii",
+        "string": "compressed_table.dat"
+      },
+      {
+        "offset": 234,
+        "length": 17,
+        "encoding": "ascii",
+        "string": "secured_token.key"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1280655702 at offset 0",
+        "details": {
+          "offset": 0,
+          "value": 1280655702,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1515870810 at offset 28",
+        "details": {
+          "offset": 28,
+          "value": 1515870810,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1280655702 at offset 32",
+        "details": {
+          "offset": 32,
+          "value": 1280655702,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "declared_size_exceeds_actual",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.8,
+        "evidence": "Declared size 340 at offset 4 exceeds actual file size 262 (likely truncation)",
+        "details": {
+          "offset": 4,
+          "declared_size": 340,
+          "actual_size": 262
+        }
+      }
+    ],
+    "damage_indicators": [
+      {
+        "type": "truncation",
+        "offset": 4,
+        "description": "Declared size 340 exceeds actual size 262"
+      }
+    ]
+  },
+  "detection_candidates": [
+    {
+      "format": "VAULT",
+      "confidence": 1.0,
+      "method": "exact_magic_offset_0",
+      "offset": 0,
+      "evidence": "Exact magic match at offset 0: VAULT archive storage"
+    }
+  ],
+  "carved_objects": [],
+  "coverage": {
+    "total_bytes": 262,
+    "recovered_bytes": 86,
+    "verified_bytes": 86,
+    "heuristic_bytes": 0,
+    "unaccounted_bytes": 176,
+    "coverage_pct": 32.82,
+    "verified_coverage_pct": 32.82,
+    "heuristic_coverage_pct": 0.0,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 32
+      },
+      {
+        "offset": 118,
+        "length": 144
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 458,
+    "matched_probes": 83
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        32
+      ],
+      "role": "VAULT_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        32,
+        262
+      ],
+      "role": "VAULT_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "footer",
+      "offset_range": [
+        8,
+        262
+      ],
+      "role": "trailer_WKS_EOF",
+      "status": "hypothesized",
+      "confidence": 0.9
+    }
+  ]
 }

@@ -3,9 +3,26 @@
   "format": "UNKNOWN",
   "file_size": 70,
   "is_valid_header": false,
-  "total_records_recovered": 0,
+  "total_records_recovered": 1,
   "total_declared_records": 0,
-  "records": [],
+  "records": [
+    {
+      "id": "text_1",
+      "status": "partial",
+      "byte_range": [
+        1,
+        70
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ELF_FAKE_BINARY_STREAM_DOES_NOT_MATCH_ANY_SUPPORTED_MAGIC_BYTES_12345",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    }
+  ],
   "damages": [
     {
       "offset": 0,
@@ -16,6 +33,126 @@
   ],
   "metadata": {
     "status": "skipped",
-    "reason": "unrecognized_format"
-  }
+    "reason": "unrecognized_format",
+    "preview_hex": "7f454c465f46414b455f42494e4152595f53545245414d5f444f45535f4e4f545f4d415443485f414e595f535550504f525445445f4d414749435f4259544553",
+    "preview_text": "\u007fELF_FAKE_BINARY_STREAM_DOES_NOT_MATCH_ANY_SUPPORTED_MAGIC_BYTES"
+  },
+  "analysis": {
+    "size": 70,
+    "sha256": "5366fd78db0a19acfa985c2de9cd2824c93477cc5351db759c488b0835ccba27",
+    "extension_hint": "bin",
+    "signatures": [],
+    "entropy": {
+      "overall": 4.351,
+      "block_size": 256,
+      "block_count": 1,
+      "blocks": [
+        4.351
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 70,
+          "type": "mixed",
+          "avg_entropy": 4.351
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 1,
+        "length": 69,
+        "encoding": "ascii",
+        "string": "ELF_FAKE_BINARY_STREAM_DOES_NOT_MATCH_ANY_SUPPORTED_MAGIC_BYTES_12345"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1179403647 at offset 0",
+        "details": {
+          "offset": 0,
+          "value": 1179403647,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1262569055 at offset 4",
+        "details": {
+          "offset": 4,
+          "value": 1262569055,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1229086533 at offset 8",
+        "details": {
+          "offset": 8,
+          "value": 1229086533,
+          "endian": "little"
+        }
+      }
+    ],
+    "damage_indicators": []
+  },
+  "detection_candidates": [
+    {
+      "format": "UNKNOWN",
+      "confidence": 0.0,
+      "method": "fallback",
+      "offset": 0,
+      "evidence": "No matching magic or known structure found"
+    }
+  ],
+  "carved_objects": [],
+  "coverage": {
+    "total_bytes": 70,
+    "recovered_bytes": 69,
+    "verified_bytes": 0,
+    "heuristic_bytes": 69,
+    "unaccounted_bytes": 1,
+    "coverage_pct": 98.57,
+    "verified_coverage_pct": 0.0,
+    "heuristic_coverage_pct": 98.57,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 1
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 445,
+    "matched_probes": 121
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        16
+      ],
+      "role": "candidate_header_preamble",
+      "status": "hypothesized",
+      "confidence": 0.3
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        16,
+        70
+      ],
+      "role": "content_payload",
+      "status": "hypothesized",
+      "confidence": 0.6
+    }
+  ]
 }

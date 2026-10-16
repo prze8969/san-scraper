@@ -86,7 +86,65 @@ def create_demo_fixtures(target_dir: Path) -> None:
         b"\x7fELF_FAKE_BINARY_STREAM_DOES_NOT_MATCH_ANY_SUPPORTED_MAGIC_BYTES_12345"
     )
 
-    print(f"Successfully created 8 demo fixtures in {target_dir}")
+    # 9. PNG buried in junk bytes (for carving demonstration)
+    junk_prefix = b"JUNK_BYTES_PADDING_START_" * 8
+    ihdr_payload = struct.pack(">IIBBBBB", 2, 2, 8, 2, 0, 0, 0)
+    ihdr_chunk = struct.pack(">I", len(ihdr_payload)) + b"IHDR" + ihdr_payload + b"\xc9\x04\xe1\x70"
+    iend_chunk = struct.pack(">I", 0) + b"IEND\xaeB`\x82"
+    buried_png = b"\x89PNG\r\n\x1a\n" + ihdr_chunk + iend_chunk
+    junk_suffix = b"_JUNK_BYTES_PADDING_END" * 4
+    (target_dir / "09_buried_png.bin").write_bytes(junk_prefix + buried_png + junk_suffix)
+
+    # 10. Record file with unknown format (fixed 32-byte stride for heuristic candidate-record recovery)
+    rec_bytes = []
+    for i in range(16):
+        rec_bytes.append(b"EVNT" + struct.pack("<II", 1000 + i, 1718000000 + i * 10) + b"STATUS_OK\x00" * 2)
+    (target_dir / "10_unknown_records.dat").write_bytes(b"".join(rec_bytes))
+
+    # 11. Header-damaged PAK file (PAK with corrupt/wrapped prefix)
+    pak_corrupt_files = [
+        ("config.cfg", b"bind 'MOUSE1' '+attack'\n"),
+        ("autoexec.cfg", b"echo 'Header-damaged PAK recovered successfully!'\n"),
+    ]
+    raw_pak = build_synthetic_pak(pak_corrupt_files)
+    # Corrupt the magic by prepending 64 bytes of junk (magic is now at offset 64)
+    (target_dir / "11_header_damaged.pak").write_bytes(b"CORRUPTED_PREFIX_WRAPPER_METADATA_HEADER_BLOB_PADDING_TO_OFFSET_64"[:64] + raw_pak)
+
+    # 12. Valid Doom WAD (documented IWAD layout)
+    l1 = b"SECTOR_MAP_DATA_DEMO"
+    l2 = b""  # F_START marker
+    l3 = b"TEXTURE1_DESCRIPTOR_TABLE"
+    p1 = 12
+    p2 = p1 + len(l1)
+    p3 = p2 + len(l2)
+    dir_p = p3 + len(l3)
+    wad_dir = (
+        struct.pack("<II8s", p1, len(l1), b"MAP01\x00\x00\x00") +
+        struct.pack("<II8s", p2, len(l2), b"F_START\x00") +
+        struct.pack("<II8s", p3, len(l3), b"TEXTURE1")
+    )
+    wad_hdr = struct.pack("<4sII", b"IWAD", 3, dir_p)
+    (target_dir / "12_valid.wad").write_bytes(wad_hdr + l1 + l2 + l3 + wad_dir)
+
+    # 13. Valid ZIP Archive (documented PKWARE layout with stored + deflate files)
+    zf1_name = b"notes.txt"
+    zf1_data = b"Salvaged notes from documented ZIP parser!"
+    zf1_crc = zlib.crc32(zf1_data)
+    zf1_hdr = struct.pack("<4sHHHHHIIIHH", b"PK\x03\x04", 20, 0, 0, 0, 0, zf1_crc, len(zf1_data), len(zf1_data), len(zf1_name), 0) + zf1_name + zf1_data
+
+    zf2_name = b"compressed/data.log"
+    zf2_data = b"LOG_ENTRY_REPEAT_STRING_" * 20
+    zf2_comp = zlib.compress(zf2_data)[2:-4]
+    zf2_crc = zlib.crc32(zf2_data)
+    zf2_hdr = struct.pack("<4sHHHHHIIIHH", b"PK\x03\x04", 20, 0, 8, 0, 0, zf2_crc, len(zf2_comp), len(zf2_data), len(zf2_name), 0) + zf2_name + zf2_comp
+    (target_dir / "13_valid.zip").write_bytes(zf1_hdr + zf2_hdr)
+
+    # 14. Valid GZIP stream (RFC 1952 layout)
+    import gzip
+    gz_payload = b"RFC 1952 GZIP compressed stream rescued with validated CRC-32."
+    (target_dir / "14_valid.gz").write_bytes(gzip.compress(gz_payload))
+
+    print(f"Successfully created 14 demo fixtures in {target_dir}")
 
 if __name__ == "__main__":
     create_demo_fixtures(Path("demo/input"))

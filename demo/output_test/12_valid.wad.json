@@ -1,0 +1,226 @@
+{
+  "file": "12_valid.wad",
+  "format": "WAD",
+  "file_size": 105,
+  "is_valid_header": true,
+  "total_records_recovered": 3,
+  "total_declared_records": 3,
+  "records": [
+    {
+      "id": 0,
+      "status": "complete",
+      "byte_range": [
+        12,
+        32
+      ],
+      "data": {
+        "name": "MAP01",
+        "raw_name": "MAP01",
+        "offset": 12,
+        "size": 20,
+        "is_marker": false,
+        "extracted_path": "C:\\Users\\Pranav Shewale\\zebro-scraper\\demo\\output_test\\12_valid.wad.extracted\\MAP01"
+      }
+    },
+    {
+      "id": 1,
+      "status": "complete",
+      "byte_range": [
+        32,
+        32
+      ],
+      "data": {
+        "name": "F_START",
+        "raw_name": "F_START",
+        "offset": 32,
+        "size": 0,
+        "is_marker": true,
+        "extracted_path": "C:\\Users\\Pranav Shewale\\zebro-scraper\\demo\\output_test\\12_valid.wad.extracted\\F_START"
+      }
+    },
+    {
+      "id": 2,
+      "status": "complete",
+      "byte_range": [
+        32,
+        57
+      ],
+      "data": {
+        "name": "TEXTURE1",
+        "raw_name": "TEXTURE1",
+        "offset": 32,
+        "size": 25,
+        "is_marker": false,
+        "extracted_path": "C:\\Users\\Pranav Shewale\\zebro-scraper\\demo\\output_test\\12_valid.wad.extracted\\TEXTURE1"
+      }
+    }
+  ],
+  "damages": [],
+  "metadata": {
+    "wad_type": "IWAD",
+    "directory_offset": 57,
+    "declared_lumps": 3,
+    "recovered_lumps": 3
+  },
+  "analysis": {
+    "size": 105,
+    "sha256": "86798110d89d4cd0a2e2f20fad6bad673a77e1ff4d1cac3684a076302aa33923",
+    "extension_hint": "wad",
+    "signatures": [
+      {
+        "format": "WAD",
+        "offset": 0,
+        "length": 4,
+        "confidence": 1.0,
+        "description": "Doom Internal WAD"
+      }
+    ],
+    "entropy": {
+      "overall": 3.947,
+      "block_size": 256,
+      "block_count": 1,
+      "blocks": [
+        3.947
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 105,
+          "type": "mixed",
+          "avg_entropy": 3.947
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 0,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "IWAD"
+      },
+      {
+        "offset": 12,
+        "length": 45,
+        "encoding": "ascii",
+        "string": "SECTOR_MAP_DATA_DEMOTEXTURE1_DESCRIPTOR_TABLE"
+      },
+      {
+        "offset": 65,
+        "length": 5,
+        "encoding": "ascii",
+        "string": "MAP01"
+      },
+      {
+        "offset": 81,
+        "length": 7,
+        "encoding": "ascii",
+        "string": "F_START"
+      },
+      {
+        "offset": 97,
+        "length": 8,
+        "encoding": "ascii",
+        "string": "TEXTURE1"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1145132873 at offset 0",
+        "details": {
+          "offset": 0,
+          "value": 1145132873,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1413694803 at offset 12",
+        "details": {
+          "offset": 12,
+          "value": 1413694803,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1298092623 at offset 16",
+        "details": {
+          "offset": 16,
+          "value": 1298092623,
+          "endian": "little"
+        }
+      }
+    ],
+    "damage_indicators": []
+  },
+  "detection_candidates": [
+    {
+      "format": "WAD",
+      "confidence": 1.0,
+      "method": "exact_magic_offset_0",
+      "offset": 0,
+      "evidence": "Exact magic match at offset 0: Doom Internal WAD"
+    }
+  ],
+  "carved_objects": [
+    {
+      "format": "WAD",
+      "offset": 0,
+      "carved": false,
+      "reason": "Carving skipped for WAD: ambiguous or unsupported end-boundary definition"
+    }
+  ],
+  "coverage": {
+    "total_bytes": 105,
+    "recovered_bytes": 45,
+    "verified_bytes": 45,
+    "heuristic_bytes": 0,
+    "unaccounted_bytes": 60,
+    "coverage_pct": 42.86,
+    "verified_coverage_pct": 42.86,
+    "heuristic_coverage_pct": 0.0,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 12
+      },
+      {
+        "offset": 57,
+        "length": 48
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 450,
+    "matched_probes": 86
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        32
+      ],
+      "role": "WAD_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        32,
+        105
+      ],
+      "role": "WAD_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    }
+  ]
+}

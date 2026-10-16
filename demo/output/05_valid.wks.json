@@ -108,6 +108,182 @@
   "metadata": {
     "saw_bof": true,
     "saw_eof": true,
-    "version_code": "0x0404"
-  }
+    "version_code": "0x0404",
+    "grid": {
+      "R0C0": {
+        "type": "BLANK"
+      },
+      "R2C1": {
+        "type": "INTEGER",
+        "value": 42
+      },
+      "R2C2": {
+        "type": "NUMBER",
+        "value": 98.6
+      },
+      "R3C3": {
+        "type": "LABEL",
+        "value": "REVENUE_Q1"
+      },
+      "R4C4": {
+        "type": "FORMULA",
+        "value": 140.6
+      }
+    }
+  },
+  "analysis": {
+    "size": 85,
+    "sha256": "5521089275deeff08a6cc4251f958630d570a156b9aa66337d19679b9479333c",
+    "extension_hint": "wks",
+    "signatures": [
+      {
+        "format": "WKS",
+        "offset": 0,
+        "length": 4,
+        "confidence": 1.0,
+        "description": "Lotus 1-2-3 BOF record"
+      },
+      {
+        "format": "WKS",
+        "offset": 29,
+        "length": 4,
+        "confidence": 0.85,
+        "description": "Lotus 1-2-3 BOF record"
+      }
+    ],
+    "entropy": {
+      "overall": 3.653,
+      "block_size": 256,
+      "block_count": 1,
+      "blocks": [
+        3.653
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 85,
+          "type": "mixed",
+          "avg_entropy": 3.653
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 35,
+        "length": 5,
+        "encoding": "ascii",
+        "string": "fffff"
+      },
+      {
+        "offset": 52,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "'REVENUE_Q1"
+      },
+      {
+        "offset": 73,
+        "length": 5,
+        "encoding": "ascii",
+        "string": "33333"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1711276544 at offset 32",
+        "details": {
+          "offset": 32,
+          "value": 1711276544,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1717986918 at offset 36",
+        "details": {
+          "offset": 36,
+          "value": 1717986918,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1447383591 at offset 52",
+        "details": {
+          "offset": 52,
+          "value": 1447383591,
+          "endian": "little"
+        }
+      }
+    ],
+    "damage_indicators": []
+  },
+  "detection_candidates": [
+    {
+      "format": "WKS",
+      "confidence": 1.0,
+      "method": "exact_magic_offset_0",
+      "offset": 0,
+      "evidence": "Exact magic match at offset 0: Lotus 1-2-3 BOF record"
+    }
+  ],
+  "carved_objects": [],
+  "coverage": {
+    "total_bytes": 85,
+    "recovered_bytes": 79,
+    "verified_bytes": 79,
+    "heuristic_bytes": 0,
+    "unaccounted_bytes": 6,
+    "coverage_pct": 92.94,
+    "verified_coverage_pct": 92.94,
+    "heuristic_coverage_pct": 0.0,
+    "unaccounted_regions": [
+      {
+        "offset": 0,
+        "length": 6
+      }
+    ]
+  },
+  "probe_summary": {
+    "total_probes": 447,
+    "matched_probes": 102
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        6
+      ],
+      "role": "WKS_header",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        6,
+        81
+      ],
+      "role": "WKS_records_body",
+      "status": "verified",
+      "confidence": 1.0
+    },
+    {
+      "region": "footer",
+      "offset_range": [
+        81,
+        85
+      ],
+      "role": "trailer_WKS_EOF",
+      "status": "hypothesized",
+      "confidence": 0.9
+    }
+  ]
 }

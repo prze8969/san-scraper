@@ -1,0 +1,1523 @@
+{
+  "file": "10_unknown_records.dat",
+  "format": "UNKNOWN",
+  "file_size": 512,
+  "is_valid_header": false,
+  "total_records_recovered": 64,
+  "total_declared_records": 0,
+  "records": [
+    {
+      "id": "text_1",
+      "status": "partial",
+      "byte_range": [
+        0,
+        4
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_2",
+      "status": "partial",
+      "byte_range": [
+        10,
+        21
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_3",
+      "status": "partial",
+      "byte_range": [
+        22,
+        31
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_4",
+      "status": "partial",
+      "byte_range": [
+        32,
+        36
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_5",
+      "status": "partial",
+      "byte_range": [
+        42,
+        53
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_6",
+      "status": "partial",
+      "byte_range": [
+        54,
+        63
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_7",
+      "status": "partial",
+      "byte_range": [
+        64,
+        68
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_8",
+      "status": "partial",
+      "byte_range": [
+        74,
+        85
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_9",
+      "status": "partial",
+      "byte_range": [
+        86,
+        95
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_10",
+      "status": "partial",
+      "byte_range": [
+        96,
+        100
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_11",
+      "status": "partial",
+      "byte_range": [
+        106,
+        117
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_12",
+      "status": "partial",
+      "byte_range": [
+        118,
+        127
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_13",
+      "status": "partial",
+      "byte_range": [
+        128,
+        132
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_14",
+      "status": "partial",
+      "byte_range": [
+        138,
+        149
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_15",
+      "status": "partial",
+      "byte_range": [
+        150,
+        159
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_16",
+      "status": "partial",
+      "byte_range": [
+        160,
+        164
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_17",
+      "status": "partial",
+      "byte_range": [
+        170,
+        181
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_18",
+      "status": "partial",
+      "byte_range": [
+        182,
+        191
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_19",
+      "status": "partial",
+      "byte_range": [
+        192,
+        196
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_20",
+      "status": "partial",
+      "byte_range": [
+        202,
+        213
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_21",
+      "status": "partial",
+      "byte_range": [
+        214,
+        223
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_22",
+      "status": "partial",
+      "byte_range": [
+        224,
+        228
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_23",
+      "status": "partial",
+      "byte_range": [
+        234,
+        245
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_24",
+      "status": "partial",
+      "byte_range": [
+        246,
+        255
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_25",
+      "status": "partial",
+      "byte_range": [
+        256,
+        260
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_26",
+      "status": "partial",
+      "byte_range": [
+        266,
+        277
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_27",
+      "status": "partial",
+      "byte_range": [
+        278,
+        287
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_28",
+      "status": "partial",
+      "byte_range": [
+        288,
+        292
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_29",
+      "status": "partial",
+      "byte_range": [
+        298,
+        309
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_30",
+      "status": "partial",
+      "byte_range": [
+        310,
+        319
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_31",
+      "status": "partial",
+      "byte_range": [
+        320,
+        324
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_32",
+      "status": "partial",
+      "byte_range": [
+        330,
+        341
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_33",
+      "status": "partial",
+      "byte_range": [
+        342,
+        351
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_34",
+      "status": "partial",
+      "byte_range": [
+        352,
+        356
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_35",
+      "status": "partial",
+      "byte_range": [
+        362,
+        373
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_36",
+      "status": "partial",
+      "byte_range": [
+        374,
+        383
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_37",
+      "status": "partial",
+      "byte_range": [
+        384,
+        388
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_38",
+      "status": "partial",
+      "byte_range": [
+        394,
+        405
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_39",
+      "status": "partial",
+      "byte_range": [
+        406,
+        415
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_40",
+      "status": "partial",
+      "byte_range": [
+        416,
+        420
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_41",
+      "status": "partial",
+      "byte_range": [
+        426,
+        437
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_42",
+      "status": "partial",
+      "byte_range": [
+        438,
+        447
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_43",
+      "status": "partial",
+      "byte_range": [
+        448,
+        452
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_44",
+      "status": "partial",
+      "byte_range": [
+        458,
+        469
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_45",
+      "status": "partial",
+      "byte_range": [
+        470,
+        479
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_46",
+      "status": "partial",
+      "byte_range": [
+        480,
+        484
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "EVNT",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_47",
+      "status": "partial",
+      "byte_range": [
+        490,
+        501
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "ffSTATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "text_48",
+      "status": "partial",
+      "byte_range": [
+        502,
+        511
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "recovered_string",
+        "encoding": "ascii",
+        "text": "STATUS_OK",
+        "confidence": 0.5,
+        "evidence": "Printable ascii string sequence"
+      }
+    },
+    {
+      "id": "stride_rec_1",
+      "status": "partial",
+      "byte_range": [
+        0,
+        32
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54e8030000809966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1000
+      }
+    },
+    {
+      "id": "stride_rec_2",
+      "status": "partial",
+      "byte_range": [
+        32,
+        64
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54e90300008a9966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1001
+      }
+    },
+    {
+      "id": "stride_rec_3",
+      "status": "partial",
+      "byte_range": [
+        64,
+        96
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54ea030000949966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1002
+      }
+    },
+    {
+      "id": "stride_rec_4",
+      "status": "partial",
+      "byte_range": [
+        96,
+        128
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54eb0300009e9966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1003
+      }
+    },
+    {
+      "id": "stride_rec_5",
+      "status": "partial",
+      "byte_range": [
+        128,
+        160
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54ec030000a89966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1004
+      }
+    },
+    {
+      "id": "stride_rec_6",
+      "status": "partial",
+      "byte_range": [
+        160,
+        192
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54ed030000b29966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1005
+      }
+    },
+    {
+      "id": "stride_rec_7",
+      "status": "partial",
+      "byte_range": [
+        192,
+        224
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54ee030000bc9966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1006
+      }
+    },
+    {
+      "id": "stride_rec_8",
+      "status": "partial",
+      "byte_range": [
+        224,
+        256
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54ef030000c69966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1007
+      }
+    },
+    {
+      "id": "stride_rec_9",
+      "status": "partial",
+      "byte_range": [
+        256,
+        288
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54f0030000d09966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1008
+      }
+    },
+    {
+      "id": "stride_rec_10",
+      "status": "partial",
+      "byte_range": [
+        288,
+        320
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54f1030000da9966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1009
+      }
+    },
+    {
+      "id": "stride_rec_11",
+      "status": "partial",
+      "byte_range": [
+        320,
+        352
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54f2030000e49966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1010
+      }
+    },
+    {
+      "id": "stride_rec_12",
+      "status": "partial",
+      "byte_range": [
+        352,
+        384
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54f3030000ee9966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1011
+      }
+    },
+    {
+      "id": "stride_rec_13",
+      "status": "partial",
+      "byte_range": [
+        384,
+        416
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54f4030000f89966665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1012
+      }
+    },
+    {
+      "id": "stride_rec_14",
+      "status": "partial",
+      "byte_range": [
+        416,
+        448
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54f5030000029a66665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1013
+      }
+    },
+    {
+      "id": "stride_rec_15",
+      "status": "partial",
+      "byte_range": [
+        448,
+        480
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54f60300000c9a66665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1014
+      }
+    },
+    {
+      "id": "stride_rec_16",
+      "status": "partial",
+      "byte_range": [
+        480,
+        512
+      ],
+      "data": {
+        "recovery_lane": "heuristic",
+        "type": "candidate_record",
+        "stride": 32,
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "raw_hex": "45564e54f7030000169a66665354415455535f4f4b005354415455535f4f4b00",
+        "candidate_uint32_0": 1414420037,
+        "candidate_uint32_4": 1015
+      }
+    }
+  ],
+  "damages": [
+    {
+      "offset": 0,
+      "length": 16,
+      "type": "unknown_signature",
+      "description": "Unrecognized magic bytes: 45564e54e8030000"
+    }
+  ],
+  "metadata": {
+    "status": "skipped",
+    "reason": "unrecognized_format",
+    "preview_hex": "45564e54e8030000809966665354415455535f4f4b005354415455535f4f4b0045564e54e90300008a9966665354415455535f4f4b005354415455535f4f4b00",
+    "preview_text": "EVNT\u00e8\u0003\u0000\u0000\u0080\u0099ffSTATUS_OK\u0000STATUS_OK\u0000EVNT\u00e9\u0003\u0000\u0000\u008a\u0099ffSTATUS_OK\u0000STATUS_OK\u0000"
+  },
+  "analysis": {
+    "size": 512,
+    "sha256": "c94d741f73b1de8309cbd89c765425ee9e1cffb8e704ce32f3589d3500dffbd0",
+    "extension_hint": "dat",
+    "signatures": [],
+    "entropy": {
+      "overall": 4.03,
+      "block_size": 256,
+      "block_count": 2,
+      "blocks": [
+        3.95,
+        3.98
+      ],
+      "regions": [
+        {
+          "start": 0,
+          "end": 512,
+          "type": "mixed",
+          "avg_entropy": 3.95
+        }
+      ]
+    },
+    "strings": [
+      {
+        "offset": 0,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 10,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 22,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 32,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 42,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 54,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 64,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 74,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 86,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 96,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 106,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 118,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 128,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 138,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 150,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 160,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 170,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 182,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 192,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 202,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 214,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 224,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 234,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 246,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 256,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 266,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 278,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 288,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 298,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 310,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 320,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 330,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 342,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 352,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 362,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 374,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 384,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 394,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 406,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 416,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 426,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 438,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 448,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 458,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 470,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      },
+      {
+        "offset": 480,
+        "length": 4,
+        "encoding": "ascii",
+        "string": "EVNT"
+      },
+      {
+        "offset": 490,
+        "length": 11,
+        "encoding": "ascii",
+        "string": "ffSTATUS_OK"
+      },
+      {
+        "offset": 502,
+        "length": 9,
+        "encoding": "ascii",
+        "string": "STATUS_OK"
+      }
+    ],
+    "heuristics": [
+      {
+        "heuristic": "fixed_width_record_stride",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.9,
+        "evidence": "Record stride of 32 bytes with 93% structural pattern alignment across consecutive blocks",
+        "details": {
+          "stride_bytes": 32,
+          "estimated_record_count": 16
+        }
+      },
+      {
+        "heuristic": "repeated_sync_marker",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.75,
+        "evidence": "Repeated sync token EVNT found 16 times (avg interval 32 bytes)",
+        "details": {
+          "marker": "EVNT",
+          "count": 16,
+          "first_offsets": [
+            0,
+            32,
+            64,
+            96,
+            128,
+            160,
+            192,
+            224
+          ]
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1414420037 at offset 0",
+        "details": {
+          "offset": 0,
+          "value": 1414420037,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1718000000 at offset 8",
+        "details": {
+          "offset": 8,
+          "value": 1718000000,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "candidate_timestamp_unix",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.65,
+        "evidence": "Plausible 32-bit Unix timestamp 1413567571 at offset 12",
+        "details": {
+          "offset": 12,
+          "value": 1413567571,
+          "endian": "little"
+        }
+      },
+      {
+        "heuristic": "declared_size_exceeds_actual",
+        "status": "HYPOTHESIZED",
+        "confidence": 0.8,
+        "evidence": "Declared size 1000 at offset 4 exceeds actual file size 512 (likely truncation)",
+        "details": {
+          "offset": 4,
+          "declared_size": 1000,
+          "actual_size": 512
+        }
+      }
+    ],
+    "damage_indicators": [
+      {
+        "type": "truncation",
+        "offset": 4,
+        "description": "Declared size 1000 exceeds actual size 512"
+      }
+    ]
+  },
+  "detection_candidates": [
+    {
+      "format": "UNKNOWN",
+      "confidence": 0.0,
+      "method": "fallback",
+      "offset": 0,
+      "evidence": "No matching magic or known structure found"
+    }
+  ],
+  "carved_objects": [],
+  "coverage": {
+    "total_bytes": 512,
+    "recovered_bytes": 512,
+    "verified_bytes": 0,
+    "heuristic_bytes": 512,
+    "unaccounted_bytes": 0,
+    "coverage_pct": 100.0,
+    "verified_coverage_pct": 0.0,
+    "heuristic_coverage_pct": 100.0,
+    "unaccounted_regions": []
+  },
+  "probe_summary": {
+    "total_probes": 461,
+    "matched_probes": 123
+  },
+  "layout": [
+    {
+      "region": "header",
+      "offset_range": [
+        0,
+        16
+      ],
+      "role": "candidate_header_preamble",
+      "status": "hypothesized",
+      "confidence": 0.3
+    },
+    {
+      "region": "body",
+      "offset_range": [
+        16,
+        512
+      ],
+      "role": "fixed_stride_records_body (stride=32B)",
+      "status": "hypothesized",
+      "confidence": 0.9
+    }
+  ]
+}
