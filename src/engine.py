@@ -14,10 +14,16 @@ from src.decoders.vault import VaultDecoder
 from src.decoders.wad_pak import WadDecoder, PakDecoder
 from src.decoders.legacy_real import WksDecoder, WpdDecoder, BravoDecoder, CvtDecoder, Archive000Decoder
 
+import hashlib
+import copy
+
 class SalvageEngine:
     """Coordinates reading, detection, parsing, and recovery with zero-crash guarantee."""
 
     def __init__(self) -> None:
+        self._cache: dict[str, FileRecoveryResult] = {}
+        self._cache_hits: int = 0
+        self._cache_misses: int = 0
         self._decoders = {
             "UNKNOWN": UnknownParser(),
             "EMPTY": UnknownParser(),
@@ -34,10 +40,39 @@ class SalvageEngine:
             "ARCHIVE-000": Archive000Decoder(),
         }
 
+    def clear_cache(self) -> None:
+        """Clears the in-memory deduplication cache."""
+        self._cache.clear()
+        self._cache_hits = 0
+        self._cache_misses = 0
+
+    @property
+    def cache_stats(self) -> dict[str, int]:
+        return {
+            "cached_entries": len(self._cache),
+            "hits": self._cache_hits,
+            "misses": self._cache_misses,
+        }
+
     def register_parser(self, format_name: str, parser: Any) -> None:
         self._decoders[format_name] = parser
 
     def process_bytes(self, filename: str, data: bytes) -> FileRecoveryResult:
+        # Check in-memory content-addressable hash cache for instant deduplication
+        content_hash = hashlib.sha256(data).hexdigest()
+        if content_hash in self._cache:
+            self._cache_hits += 1
+            cached = self._cache[content_hash]
+            cloned = copy.copy(cached)
+            cloned.filename = filename
+            cloned.source_file = filename
+            cloned.records = copy.deepcopy(cached.records)
+            cloned.damages = copy.deepcopy(cached.damages)
+            cloned.metadata = copy.deepcopy(cached.metadata)
+            cloned.damage_events = list(cached.damage_events)
+            return cloned
+
+        self._cache_misses += 1
         match = FormatRouter.identify(data, filename)
         cursor = SafeByteCursor(data)
         decoder = self._decoders.get(match.format_name, self._decoders["UNKNOWN"])
@@ -50,6 +85,7 @@ class SalvageEngine:
                 res = decoder.parse(filename, reader)
             res.detected_format = match.format_name
             res.confidence = match.confidence
+            self._cache[content_hash] = res
             return res
         except Exception as e:
             cursor.log_damage(

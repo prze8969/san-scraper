@@ -60,5 +60,30 @@ class TestEngineAndReporter(unittest.TestCase):
             self.assertIn("totals", report)
             self.assertIn("files", report)
 
+    def test_engine_in_memory_cache(self):
+        engine = SalvageEngine()
+        payload = b"LB98\x02\x00\x00\x00"
+
+        # First process: cache miss
+        res1 = engine.process_bytes("file_a.dat", payload)
+        self.assertEqual(engine.cache_stats["misses"], 1)
+        self.assertEqual(engine.cache_stats["hits"], 0)
+        self.assertEqual(res1.filename, "file_a.dat")
+        self.assertEqual(res1.source_file, "file_a.dat")
+
+        # Second process with exact same content: cache hit
+        res2 = engine.process_bytes("file_b.dat", payload)
+        self.assertEqual(engine.cache_stats["misses"], 1)
+        self.assertEqual(engine.cache_stats["hits"], 1)
+        # Verifies filename is updated properly to the new target
+        self.assertEqual(res2.filename, "file_b.dat")
+        self.assertEqual(res2.source_file, "file_b.dat")
+        self.assertEqual(res2.detected_format, res1.detected_format)
+
+        # Clear cache verification
+        engine.clear_cache()
+        self.assertEqual(engine.cache_stats["cached_entries"], 0)
+        self.assertEqual(engine.cache_stats["hits"], 0)
+
 if __name__ == "__main__":
     unittest.main()
