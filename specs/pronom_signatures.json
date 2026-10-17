@@ -1,0 +1,91 @@
+{
+  "version": "1.0",
+  "signatures": [
+    {
+      "id": "fmt/libra-98",
+      "format_name": "LIBRA-98",
+      "category": "database",
+      "bof_magic_hex": "4c423938",
+      "offset": 0,
+      "description": "LIBRA-98 Municipal Library Circulation Database"
+    },
+    {
+      "id": "fmt/lablog",
+      "format_name": "LABLOG",
+      "category": "telemetry",
+      "bof_magic_hex": "4c4c4f47",
+      "offset": 0,
+      "description": "LABLOG Analytical Instrument Telemetry Logger Stream"
+    },
+    {
+      "id": "fmt/vault",
+      "format_name": "VAULT",
+      "category": "archive",
+      "bof_magic_hex": "564c5431",
+      "offset": 0,
+      "description": "VAULT School Office Encrypted Archive Container"
+    },
+    {
+      "id": "fmt/wad-iwad",
+      "format_name": "WAD",
+      "category": "game_archive",
+      "bof_magic_hex": "49574144",
+      "offset": 0,
+      "description": "Doom Internal WAD Game Archive"
+    },
+    {
+      "id": "fmt/wad-pwad",
+      "format_name": "WAD",
+      "category": "game_archive",
+      "bof_magic_hex": "50574144",
+      "offset": 0,
+      "description": "Doom Patch WAD Game Archive"
+    },
+    {
+      "id": "fmt/pak",
+      "format_name": "PAK",
+      "category": "game_archive",
+      "bof_magic_hex": "5041434b",
+      "offset": 0,
+      "description": "Quake PAK Game Archive Container"
+    },
+    {
+      "id": "fmt/wpd",
+      "format_name": "WPD",
+      "category": "document",
+      "bof_magic_hex": "ff575043",
+      "offset": 0,
+      "description": "Corel WordPerfect Document Container"
+    },
+    {
+      "id": "fmt/wks",
+      "format_name": "WKS",
+      "category": "spreadsheet",
+      "bof_magic_hex": "00000200",
+      "offset": 0,
+      "description": "Lotus 1-2-3 DOS Spreadsheet"
+    },
+    {
+      "id": "fmt/cvt",
+      "format_name": "CVT",
+      "category": "disk_image",
+      "bof_magic_hex": "50524720666f726d61747465642047454f532066696c65",
+      "offset": 30,
+      "description": "Commodore GEOS Convert Disk File"
+    },
+    {
+      "id": "fmt/bravo",
+      "format_name": "BRAVO",
+      "category": "document",
+      "heuristic": "bravo_eof_check",
+      "description": "Xerox Alto Bravo Workstation Editor Document"
+    },
+    {
+      "id": "fmt/ebcdic-dump",
+      "format_name": "EBCDIC-DUMP",
+      "category": "tape_dump",
+      "heuristic": "ebcdic_cp037_heuristic",
+      "description": "Mainframe University Tape Record Dump (IBM Variable Blocked BDW/RDW)"
+    }
+  ]
+}

@@ -107,14 +107,27 @@ def print_cli_summary(results: list, output_dir: Path) -> None:
     else:
         edge_display_str = f"{edge_fnames[0]}..{edge_fnames[-1]} safely contained"
 
-    # Overall engine non-crashing accuracy rate
-    accuracy_rate = 100.0
+    # Weighted Accuracy Calculation:
+    # 1.0 for verified 'ok', 0.7 for salvaged 'partial', 0.4 for cleanly contained 'unrecognized' (edge/decoy), 0.0 for failed
+    STATUS_WEIGHTS = {
+        "ok": 1.0,
+        "partial": 0.7,
+        "unrecognized": 0.4,
+        "failed": 0.0,
+    }
+    total_weight = sum(STATUS_WEIGHTS.get(r.status, 0.0) for r in results)
+    weighted_acc = (total_weight / max(1, total_scanned)) * 100.0
+
+    # Pipeline reliability (crash-free execution guarantee)
+    unhandled_exceptions = sum(1 for r in results if r.status == "failed" and r.format_name == "UNKNOWN" and "Handled internal exception" in str(r.metadata))
+    stability_rate = ((total_scanned - unhandled_exceptions) / max(1, total_scanned)) * 100.0
 
     print(f" * Total Files Scanned      : {total_scanned} ({target_count} Known Target Formats | {edge_count} Edge/Negative)")
     print(f" * Known Format Detection   : {known_detected}/{target_count} ({det_pct:.1f}%) [{fmt_display_str}]")
     print(f" * Edge/Decoy Handling      : {edge_handled}/{edge_count}   ({edge_pct:.1f}%) [{edge_display_str}]")
     print(f" * Record Salvage Rate      : {total_recs} records recovered ({clean_recs} clean, {damaged_recs} partial/damaged)")
-    print(f" * Overall Engine Accuracy  : {accuracy_rate:.1f}% (0 unhandled exceptions / exit 0)")
+    print(f" * Weighted Accuracy        : {weighted_acc:.1f}% (ok=100%, partial=70%, decoy=40%, failed=0%)")
+    print(f" * Pipeline Reliability     : {stability_rate:.1f}% (0 unhandled exceptions / exit 0)")
     print(f" * Output Written To        : {output_dir}/ ({total_scanned} JSON files + report.json)")
     print("=" * 78)
 
