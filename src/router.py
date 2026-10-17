@@ -24,6 +24,17 @@ class FormatRouter:
         if "." in filename:
             ext = filename.rsplit(".", 1)[-1].lower()
 
+        # 0. LEGACY_DATA_RECORD container format
+        if data.startswith(b"LEGACY_DATA_RECORD"):
+            # Extract FORMAT=... from line 2 if present
+            fmt = "LEGACY_RECORD"
+            first_chunk = data[:256].decode("latin1", errors="replace")
+            for line in first_chunk.split("\n"):
+                if line.startswith("FORMAT="):
+                    fmt = line.split("=", 1)[1].strip().upper()
+                    break
+            return FormatMatch(fmt, "HIGH", b"LEGACY_DATA_RECORD", f"Legacy container format ({fmt})")
+
         # 1. LIBRA-98: Magic b"LIBRA98\x00" or b"LB98" or b"LIB98" or b"LBR8"
         if data.startswith(b"LIBRA98\x00") or data.startswith(b"LB98") or data.startswith(b"LIB98") or data.startswith(b"LBR8"):
             return FormatMatch("LIBRA-98", "HIGH", data[:4], "LIBRA-98 library database")
@@ -77,8 +88,8 @@ class FormatRouter:
         # 9. EBCDIC-DUMP: IBM mainframe tape dump
         if len(data) >= 20 and (
             "STUDENT EXTRACT".encode("cp037") in data[:64]
-            or data[4:5] == b"\xC8"
             or b"\xC8\xE2\xE3\xE4\xC4\xC5\xD5\xE3" in data[:64]
+            or (ext == "000" and data[4:5] == b"\xC8")
         ):
             return FormatMatch("EBCDIC-DUMP", "HIGH", b"\xC8", "IBM Mainframe EBCDIC tape dump")
 

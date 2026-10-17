@@ -13,6 +13,7 @@ from src.decoders.lablog import LablogDecoder
 from src.decoders.vault import VaultDecoder
 from src.decoders.wad_pak import WadDecoder, PakDecoder
 from src.decoders.legacy_real import WksDecoder, WpdDecoder, BravoDecoder, CvtDecoder, Archive000Decoder
+from src.decoders.legacy_record import LegacyRecordDecoder
 
 import hashlib
 import copy
@@ -24,6 +25,7 @@ class SalvageEngine:
         self._cache: dict[str, FileRecoveryResult] = {}
         self._cache_hits: int = 0
         self._cache_misses: int = 0
+        self._legacy_decoder = LegacyRecordDecoder()
         self._decoders = {
             "UNKNOWN": UnknownParser(),
             "EMPTY": UnknownParser(),
@@ -38,6 +40,7 @@ class SalvageEngine:
             "CVT": CvtDecoder(),
             "EBCDIC-DUMP": Archive000Decoder(),
             "ARCHIVE-000": Archive000Decoder(),
+            "LEGACY_RECORD": self._legacy_decoder,
         }
 
     def clear_cache(self) -> None:
@@ -75,7 +78,12 @@ class SalvageEngine:
         self._cache_misses += 1
         match = FormatRouter.identify(data, filename)
         cursor = SafeByteCursor(data)
-        decoder = self._decoders.get(match.format_name, self._decoders["UNKNOWN"])
+        decoder = self._decoders.get(match.format_name)
+        if decoder is None:
+            if data.startswith(b"LEGACY_DATA_RECORD"):
+                decoder = self._legacy_decoder
+            else:
+                decoder = self._decoders["UNKNOWN"]
 
         try:
             if hasattr(decoder, "decode"):

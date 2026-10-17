@@ -11,7 +11,11 @@ from src.emitter import JsonEmitter
 
 KNOWN_TARGET_FORMATS = {
     "LIBRA-98", "LABLOG", "VAULT", "WKS", "WPD",
-    "BRAVO", "CVT", "EBCDIC-DUMP", "ARCHIVE-000", "WAD", "PAK"
+    "BRAVO", "CVT", "EBCDIC-DUMP", "ARCHIVE-000", "WAD", "PAK",
+    # Legacy Dataset Commons formats
+    "ARJ", "BIN", "CAL", "CHK", "DBF", "DCX", "DIF", "DMP", "DTA",
+    "IFF", "MAC", "PBM", "PCX", "PXR", "SAV", "SLK", "TGA", "WPG",
+    "XBM", "ZOO", "LEGACY_RECORD"
 }
 
 def natural_sort_key(p: Path) -> list[int | str]:
